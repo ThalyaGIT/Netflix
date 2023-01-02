@@ -1,6 +1,11 @@
 library(DBI)
 library(tidyr)
 library(dplyr)
+library(data.table)
+library(lubridate)
+library(dplyr)
+
+
 # We have two datasets
 # 1. main dataset (Kaggle)
 # 2. google scraped data (Refer to python file)
@@ -93,8 +98,6 @@ NA_Count <- c(
 , toString(count_blanks('google_language'))
 , toString(count_blanks('google_genre'))
 , toString(count_blanks('google_plot')))
-print(NA_Count)
-
 NA_Count <- data.frame(feature, NA_Count)
 
 # 4. Transform google_language and google_genre feature into present/absent because it was not scrappable
@@ -102,17 +105,85 @@ df$google_language <- ifelse(df$google_language =="", "absent", "present")
 view <- df %>% group_by(google_language) %>% summarise(count = n())  # Show categories and count by each category
 
 df$google_genre <- ifelse(df$google_genre =="", "absent", "present")
-view <- df %>% group_by(google_genre) %>% summarise(count = n()) 
+view <- df %>% group_by(google_genre) %>% summarise(count = n())
 
 
-# view <- df %>% group_by(type) %>% summarise(count = n()) # Show types and count by each type
-# #
-# view <- count(subset(df, country == "")) # Show number rows with no Country Information 
+# See if type needs cleaning
+view <- df %>% group_by(type) %>% summarise(count = n()) # Show types and count by each type
 
-# view <- count(subset(df, data_added == "")) # Show number rows with no Date Added Information
+# See if director needs cleaning
+view <- df %>% group_by(director) %>% summarise(count = n()) # Show directors and count by each director group
+# setDT(view)
+# View(view)
+# Some of the rows have more than one director (will make maping tables)
 
-# print("-----")
-# print(summary(df))
-print(view)
+
+# See if cast needs cleaning
+view <- df %>% group_by(cast) %>% summarise(count = n()) # Show cast and count by each cast group
+# setDT(view)
+# View(view)
+# Many of the rows have more than one cast (will make maping tables)
+
+# See if country needs cleaning
+view <- df %>% group_by(country) %>% summarise(count = n()) # Show country and count by each country group
+# setDT(view)
+# View(view)
+# Many of the rows have more than one country (will make maping tables)
+
+# See if date_added needs cleaning
+view <- df %>% group_by(data_added) %>% summarise(count = n()) # Show data_added and count by each data_added
+# setDT(view)
+# View(view)
+# Change to date format
+df$data_added <- mdy(df$data_added)
+
+# See if release year needs cleaning
+view <- df %>% group_by(release_year) %>% summarise(count = n()) # Show release_year and count by each release_year
+# setDT(view)
+# View(view)
+
+# See if rating needs cleaning
+view <- df %>% group_by(rating) %>% summarise(count = n()) # Show release_year and count by each release_year
+# setDT(view)
+# View(view)
+
+# See if duration needs cleaning
+view <- df %>% group_by(duration) %>% summarise(count = n()) # Show duration and count by each release_year
+
+# convert blanks to NA
+df$duration[df$duration ==""] <- NA
+df <- separate(df, duration, c("duration", "duration_units"))
+
+# Convert duration to numeric
+df <- transform(df, duration = as.numeric(duration))
+
+# See if genre needs cleaning
+view <- df %>% group_by(genre) %>% summarise(count = n()) # Show genre and count by each genre
+# setDT(view)
+# View(view)
+
+# See if plot needs cleaning
+view <- df %>% group_by(plot) %>% summarise(count = n()) # Show plot and count by each plot
+# setDT(view)
+# View(view)
+
+# See if score needs cleaning
+view <- df %>% group_by(score) %>% summarise(count = n()) # Show score and count by each score
+# setDT(view)
+# View(view)
+
+# Remove % and convert to numeric type
+df$score<-gsub("%","",as.character(df$score))
+df <- transform(df, score = as.numeric(score))
+
+
+# See if google_plot needs cleaning
+view <- df %>% group_by(google_plot) %>% summarise(count = n()) # Show google_plot and count by each google_plot
+setDT(view)
+View(view)
+
+print(summary(df))
+
+write.csv(df, "datasets/view_cleaned_main.csv", row.names=FALSE)
 
 dbDisconnect(con)

@@ -1,2 +1,3 @@
 - Use better feature names (listed in for example)
-- Delete Language and Genres (barely any data so doesnt help at all)
+- plot and description NLP
+- Check for A list (cast feature exploration)
