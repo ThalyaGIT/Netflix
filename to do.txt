@@ -1,3 +1,5 @@
-- Use better feature names (listed in for example)
 - plot and description NLP
-- Check for A list (cast feature exploration)
+- Feature Engineering, adding star powers together
+copy this whole guys analysis http://varianceexplained.org/r/tidytext-plots/
+
+Push branch once I have added up star powers
