@@ -1,1 +1,3 @@
 - Use better feature names (listed in for example)
+- plot and description NLP
+- Check for A list (cast feature exploration)
