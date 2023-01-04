@@ -3,7 +3,7 @@ library(dplyr)
 
 # Create an ephemeral in-memory RSQLite database
 
-df <- read.csv(file = 'datasets/view_cleaned_main.csv')
+df <- read.csv(file = 'datasets/view_main_cleaned.csv')
 
 # Build Country Mapping Table
 country_mapping <- df %>%
@@ -47,7 +47,6 @@ write.csv(genre_mapping, "datasets/mapping_genre.csv", row.names=FALSE)
 
 
 # Trim dataset for better performance
-df <- read.csv(file = 'datasets/view_cleaned_main.csv')
 df = subset(df, select = -c(country,director,cast,genre) )
 
-write.csv(df, "datasets/view_trimmed_main.csv", row.names=FALSE)
+write.csv(df, "datasets/view_main_trimmed.csv", row.names=FALSE)

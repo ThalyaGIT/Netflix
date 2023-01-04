@@ -183,6 +183,6 @@ View(view)
 
 print(summary(df))
 
-write.csv(df, "datasets/view_cleaned_main.csv", row.names=FALSE)
+write.csv(df, "datasets/view_main_cleaned.csv", row.names=FALSE)
 
 dbDisconnect(con)
