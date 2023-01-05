@@ -1,5 +1,10 @@
 - plot and description NLP
 - Feature Engineering, adding star powers together
 copy this whole guys analysis http://varianceexplained.org/r/tidytext-plots/
+- Deal with plots
+- Deal with genres
+- Deal with countries
+- Exploratory data analysis
+- PCA
 
 Push branch once I have added up star powers
