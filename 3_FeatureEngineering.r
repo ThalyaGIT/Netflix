@@ -1,5 +1,6 @@
 #Get top 100 actors and actress from IMDB list
 library(data.table)
+library(tidyr)
 
 # Feature engineering - categories actors based on how popular they are 
 popularActors <- read.csv(file = 'datasets/dataset_popular_actors.csv')
@@ -85,12 +86,14 @@ main <- read.csv(file = 'datasets/view_main_trimmed.csv')
 cast <- read.csv(file = 'datasets/mapping_cast.csv')
 actorsPoints <- read.csv(file = 'datasets/view_popular_actors.csv')
 actressesPoints <- read.csv(file = 'datasets/view_popular_actresses.csv')
+directors <- read.csv(file = 'datasets/mapping_director.csv')
 directorsPoints <- read.csv(file = 'datasets/view_popular_directors.csv')
 
 dbWriteTable(con, "main", main)
 dbWriteTable(con, "cast", cast)
 dbWriteTable(con, "actorsPoints", actorsPoints)
 dbWriteTable(con, "actressesPoints", actressesPoints)
+dbWriteTable(con, "directors", directors)
 dbWriteTable(con, "directorsPoints", directorsPoints)
 
 
@@ -99,7 +102,7 @@ query <- "SELECT c.id
                 ,c.cast
                 ,CASE WHEN a.Points IS NOT NULL THEN a.Points
                 WHEN b.Points IS NOT NULL THEN b.Points 
-                ELSE 0 END AS points
+                ELSE 0 END AS Points
                 FROM cast c
                 LEFT JOIN actorsPoints a ON c.cast = a.Name
                 LEFT JOIN actressesPoints b ON c.cast = b.Name"
@@ -109,17 +112,58 @@ dbClearResult(res)
 
 dbWriteTable(con, "castPointsMapping", castPointsMapping)
 
+#Attach the director to the mapping table
+query <- "SELECT a.id
+                ,a.director
+                ,CASE WHEN d.Points IS NOT NULL THEN d.Points
+                ELSE 0 END AS Points
+                FROM directors a
+                LEFT JOIN directorsPoints d ON a.director = d.Name"
+res <- dbSendQuery(con, query)
+directorPointsMapping <- dbFetch(res)
+dbClearResult(res)
+
+dbWriteTable(con, "directorPointsMapping", directorPointsMapping)
+
+
 query <- "SELECT a.*
-        , CASE WHEN points IS NOT NULL THEN max(points)
-        ELSE 0 END AS points
+        , CASE WHEN c.Points IS NOT NULL THEN max(c.Points)
+        ELSE 0 END AS cast_points
+        , CASE WHEN d.Points IS NOT NULL THEN max(d.Points)
+        ELSE 0 END AS director_points
         FROM main a 
-        LEFT JOIN castPointsMapping b ON a.id = b.id 
+        LEFT JOIN castPointsMapping c ON a.id = c.id 
+        LEFT JOIN directorPointsMapping d ON a.id = d.id 
         GROUP BY a.id"
+
 res <- dbSendQuery(con, query)
 df <- dbFetch(res)
+
 dbClearResult(res)
+
+
+
+
+
+
+# query <- "SELECT a.*
+#         , CASE WHEN Points IS NOT NULL THEN max(Points)
+#         ELSE 0 END AS director_points
+#         FROM main a 
+#         LEFT JOIN directorPointsMapping b ON a.id = b.id 
+#         GROUP BY a.id"
+# res <- dbSendQuery(con, query)
+# df <- dbFetch(res)
+# dbClearResult(res)
+
+
+# Seperate scores into bins
+df$scoreClass <- cut(df$score, breaks=c(0,60,70,80,90,100), labels=c("0-60","61-70","71-80","81-90","90-100"))
+
+write.csv(df, "datasets/view_main_features.csv", row.names=FALSE)
 # print(df)
 
-write.csv(df, "datasets/view_features_main.csv", row.names=FALSE)
-
 dbDisconnect(con)
+
+
+

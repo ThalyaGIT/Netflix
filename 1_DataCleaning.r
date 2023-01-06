@@ -51,7 +51,7 @@ new_names <- c("id"
         , "director"
         , "cast"
         , "country"
-        , "data_added"
+        , "date_added"
         , "release_year"
         , "rating"
         , "duration"
@@ -87,7 +87,7 @@ NA_Count <- c(
 , toString(count_blanks('director'))
 , toString(count_blanks('cast'))
 , toString(count_blanks('country'))
-, toString(count_blanks('data_added'))
+, toString(count_blanks('date_added'))
 , toString(count_blanks('release_year'))
 , toString(count_blanks('rating'))
 , toString(count_blanks('duration'))
@@ -106,45 +106,32 @@ view <- df %>% group_by(google_language) %>% summarise(count = n())  # Show cate
 df$google_genre <- ifelse(df$google_genre =="", "absent", "present")
 view <- df %>% group_by(google_genre) %>% summarise(count = n())
 
-
 # See if type needs cleaning
 view <- df %>% group_by(type) %>% summarise(count = n()) # Show types and count by each type
 
 # See if director needs cleaning
 view <- df %>% group_by(director) %>% summarise(count = n()) # Show directors and count by each director group
-# setDT(view)
-# View(view)
 # Some of the rows have more than one director (will make maping tables)
-
 
 # See if cast needs cleaning
 view <- df %>% group_by(cast) %>% summarise(count = n()) # Show cast and count by each cast group
-# setDT(view)
-# View(view)
 # Many of the rows have more than one cast (will make maping tables)
 
 # See if country needs cleaning
 view <- df %>% group_by(country) %>% summarise(count = n()) # Show country and count by each country group
-# setDT(view)
-# View(view)
 # Many of the rows have more than one country (will make maping tables)
 
 # See if date_added needs cleaning
-view <- df %>% group_by(data_added) %>% summarise(count = n()) # Show data_added and count by each data_added
-# setDT(view)
-# View(view)
+view <- df %>% group_by(date_added) %>% summarise(count = n()) # Show date_added and count by each date_added
+
 # Change to date format
-df$data_added <- mdy(df$data_added)
+df$date_added <- mdy(df$date_added)
 
 # See if release year needs cleaning
 view <- df %>% group_by(release_year) %>% summarise(count = n()) # Show release_year and count by each release_year
-# setDT(view)
-# View(view)
 
 # See if rating needs cleaning
 view <- df %>% group_by(rating) %>% summarise(count = n()) # Show release_year and count by each release_year
-# setDT(view)
-# View(view)
 
 # See if duration needs cleaning
 view <- df %>% group_by(duration) %>% summarise(count = n()) # Show duration and count by each release_year
@@ -158,30 +145,32 @@ df <- transform(df, duration = as.numeric(duration))
 
 # See if genre needs cleaning
 view <- df %>% group_by(genre) %>% summarise(count = n()) # Show genre and count by each genre
-# setDT(view)
-# View(view)
 
 # See if plot needs cleaning
 view <- df %>% group_by(plot) %>% summarise(count = n()) # Show plot and count by each plot
-# setDT(view)
-# View(view)
 
 # See if score needs cleaning
 view <- df %>% group_by(score) %>% summarise(count = n()) # Show score and count by each score
-# setDT(view)
-# View(view)
-
 # Remove % and convert to numeric type
 df$score<-gsub("%","",as.character(df$score))
 df <- transform(df, score = as.numeric(score))
 
-
 # See if google_plot needs cleaning
 view <- df %>% group_by(google_plot) %>% summarise(count = n()) # Show google_plot and count by each google_plot
-setDT(view)
-View(view)
+
+# Reducing Ratings Categories
+df$rating[df$rating == "PG-13" ] <- "PG"
+df$rating[df$rating == "TV-PG" ] <- "PG"
+df$rating[df$rating == "TV-14" ] <- "PG"
+df$rating[df$rating == "TV-G" ] <- "G"
+df$rating[df$rating == "TV-MA" ] <- "R"
+df$rating[df$rating == "TV-Y7" ] <- "Y"
+df$rating[df$rating == "TV-Y7-FV" ] <- "Y"
+df$rating[df$rating == "TV-Y" ] <- "Y"
+df$rating[df$rating == "NR" ] <- "UR"
 
 print(summary(df))
+
 
 write.csv(df, "datasets/view_main_cleaned.csv", row.names=FALSE)
 
