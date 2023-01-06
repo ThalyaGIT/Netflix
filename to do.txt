@@ -1,3 +1,10 @@
-- Use better feature names (listed in for example)
 - plot and description NLP
-- Check for A list (cast feature exploration)
+- Feature Engineering, adding star powers together
+copy this whole guys analysis http://varianceexplained.org/r/tidytext-plots/
+- Deal with plots
+- Deal with genres
+- Deal with countries
+- Exploratory data analysis
+- PCA
+
+Push branch once I have added up star powers
