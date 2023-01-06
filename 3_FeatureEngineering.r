@@ -142,28 +142,9 @@ df <- dbFetch(res)
 dbClearResult(res)
 
 
-
-
-
-
-# query <- "SELECT a.*
-#         , CASE WHEN Points IS NOT NULL THEN max(Points)
-#         ELSE 0 END AS director_points
-#         FROM main a 
-#         LEFT JOIN directorPointsMapping b ON a.id = b.id 
-#         GROUP BY a.id"
-# res <- dbSendQuery(con, query)
-# df <- dbFetch(res)
-# dbClearResult(res)
-
-
 # Seperate scores into bins
-df$scoreClass <- cut(df$score, breaks=c(0,60,70,80,90,100), labels=c("0-60","61-70","71-80","81-90","90-100"))
+# df$scoreClass <- cut(df$score, breaks=c(0,60,70,80,90,100), labels=c("0-60","61-70","71-80","81-90","90-100"))
 
 write.csv(df, "datasets/view_main_features.csv", row.names=FALSE)
-# print(df)
 
 dbDisconnect(con)
-
-
-

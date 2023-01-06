@@ -10,7 +10,7 @@ library(lubridate)
 main <- read.csv(file = 'datasets/view_main_features.csv')
 
 main$date_added <- as.Date(as.character(main$date_added))
-print(sapply(main, class))
+
 
 main = subset(main, select = -c(plot,google_plot,id,title,scoreClass,duration_units))
 
@@ -20,6 +20,7 @@ test = main[-row.number,]
 
 print("running regression.....")
 model1 = lm(log(score)~., data=train)
+# model1 = lm(scoreClass, data=train)
 print(summary(model1))
 # par(mfrow=c(2,2))
 # plot(model1)
