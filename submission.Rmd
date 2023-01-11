@@ -1,0 +1,10 @@
+---
+title: Predicting Netflix Scores on Google 
+author: Thalya Lim
+# https://renkun.me/2022/03/06/my-recommendations-of-vs-code-extensions-for-r/
+---
+
+```{r}
+x <- 1
+y <- 2
+```

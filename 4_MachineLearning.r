@@ -8,11 +8,14 @@ library(lubridate)
 
 # Feature engineering - categories actors based on how popular they are 
 main <- read.csv(file = 'datasets/view_main_features.csv')
+main <- read.csv(file = 'datasets/view_main_lsa.csv')
+
 
 main$date_added <- as.Date(as.character(main$date_added))
+main$max.factor<-as.character(main$max.factor)
 
 
-main = subset(main, select = -c(plot,google_plot,id,title,scoreClass,duration_units))
+main = subset(main, select = -c(plot,google_plot,id,title,duration_units,item,max.value))
 
 row.number <- sample(1:nrow(main), 0.5*nrow(main))
 train = main[row.number,]
