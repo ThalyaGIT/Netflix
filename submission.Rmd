@@ -1,8 +1,186 @@
 ---
-title: Predicting Netflix Scores on Google 
+title: Can we predict the popularity of Netflix Shows? 
 author: Thalya Lim
+Logo: <Put picture of Netflix logo>
+output: 
+    rmarkdown::html_document:
+        theme: lumen
+        highlight: rstudio
 # https://renkun.me/2022/03/06/my-recommendations-of-vs-code-extensions-for-r/
+# https://haozhu233.github.io/kableExtra/awesome_table_in_html.html
 ---
+
+# About
+This project is about analysing what makes a show on Netflix more likeable? 
+
+Are TV shows more well received than Movies? 
+
+Are action movies more popular than rom-coms? 
+
+Are shows from Korean more popular than Thai shows?
+
+This project aims to answer such questions
+
+# Data
+* Main dataset is Netflix Dataset from Kaggle 
+    + 8808 different titles, mix of TV series and movies, I will refer to both as shows
+    + shows added from 2014-2021
+    + shows released from 1925 up to 2021
+
+```{r}
+library(knitr)
+library(kableExtra)
+netflixData <- read.csv(file = 'datasets/dataset_main.csv')
+temp = head(netflixData, 10)
+temp %>%
+  kbl() %>%
+  kable_styling() %>%
+  column_spec(1, width = "10cm") %>%
+  scroll_box(width = "1000px", height = "500px")
+```
+
+* Review Scores and Supplementary info for each title scrapped from Google
++ To find the popularity of the show, the most important feature, we use the review how many people from Google likes it 
+< Put picture of squid game with the review in google search >
+
+```{r}
+library(reticulate)
+use_python("C:/venv/Scripts/python.exe")
+use_virtualenv("C:/venv")
+```
+
+
+```{python}
+import pandas as pd
+import requests
+import urllib
+from requests_html import HTML
+from requests_html import HTMLSession
+import bs4
+
+def get_source(url):
+    """Return the source code for the provided URL. 
+    Args: 
+        url (string): URL of the page to scrape.
+    Returns:
+        response (object): HTTP response object from requests_html. 
+    """
+
+    try:
+        session = HTMLSession()
+        response = session.get(url)
+        return response
+
+    except requests.exceptions.RequestException as e:
+        print(e)
+
+def get_googleInfo(title):
+
+    scrapedData = []
+
+    query = urllib.parse.quote_plus(title)
+    response = get_source("https://www.google.co.uk/search?q=" + query)
+
+    soup = bs4.BeautifulSoup(response.text,"html.parser")
+                        
+    rating_object=soup.find_all( "div", {"class":"a19vA"} )
+    info_object=soup.find_all( "div", {"class":"rVusze"} )
+    desc_object=soup.find_all( "div", {"class":"PZPZlf hb8SAc"} )
+
+    scrapedData.append('Title: ' +title)
+
+    for rating in rating_object:
+        ratingInfo = rating.getText()
+        rating = ratingInfo[0:3]
+        scrapedData.append('Rating: ' +rating)
+
+    for info in info_object:
+        info = info.getText()
+        if 'Language' in info:
+            scrapedData.append(info)
+            break
+    
+    for info in info_object:
+        info = info.getText()
+        if 'Genre' in info:
+            scrapedData.append(info)
+            break
+
+    for desc in desc_object:
+        description = desc.getText()
+        description = description[0:11] + str(': ') + description[11:]
+        scrapedData.append(description)
+        break
+    
+    return scrapedData
+
+# Test Function
+info = get_googleInfo("Squid Game")
+print(info)
+```
+
+Data Blending (header)
+We blend the Main Kaggle dataset with the Google dataset
+Using SQLite to join them, this gives us more versatility. Could've use the R joins but I feel most comfortable using SQL 
+Some shows could not be google so we use a left join on the main dataset 
+< show code from Data Cleaning.r >
+
+Data Cleaning (header)
+Renaming Features (sub-header)
++ id 
++ type
++ title
++ director
++ cast
++ country
++ date_added
++ release_year
++ rating
++ duration
++ genre
++ plot
++ score
++ google_language
++ google_genre
++ google_plot
+< code > 
+
+
+
+Cleaning each feature (sub header) 
+Look for inconsistencies, duplicates, outliers, etc. 
+Changing type and formats
+Recatagorize 
++ id - check completeness
++ type - summary 
++ title - check completeness
++ director - summary
++ cast - summary 
++ country - summary
++ date_added - 
++ release_year
++ rating
++ duration
++ genre
++ plot
++ score
++ google_language
++ google_genre
++ google_plot
+
+
+Handle missing data (sub header)
+Missing reviews (sub sub header)
+Remove rows with no data on reviews
+< code > 
+
+Analysing missing datapoints (sub sub header)
+< code >
+Pretty useless to have these features
+But I transform the fields into present/absent
+Just in case it has predictive capabilities
+< code >
+
 
 ```{r}
 x <- 1
