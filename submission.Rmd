@@ -1,5 +1,5 @@
 ---
-title: Can we predict the popularity of Netflix Shows? 
+title: Can we explain the popularity of Netflix Shows? 
 author: Thalya Lim
 Logo: <Put picture of Netflix logo>
 output: 
@@ -19,36 +19,32 @@ Are action movies more popular than rom-coms?
 
 Are shows from Korean more popular than Thai shows?
 
-This project aims to answer such questions
+This project aims to answer such questions via going through the whole process of creating a machine learning model
 
-# Data
-* Main dataset is Netflix Dataset from Kaggle 
-    + 8808 different titles, mix of TV series and movies, I will refer to both as shows
-    + shows added from 2014-2021
-    + shows released from 1925 up to 2021
 
-```{r}
-library(knitr)
+# Packages
+Before we get started. We will load all the relevant Pacakages
+```{r load packages, message=FALSE}
+library(reticulate)
+library(DBI)
+library(dplyr)
+library(lubridate)
+library(tidyr)
+library(data.table)
+library(quanteda)
+library(tm)
+library(lsa)
+library("quanteda.textmodels")
+library(ggplot2)
 library(kableExtra)
-netflixData <- read.csv(file = 'datasets/dataset_main.csv')
-temp = head(netflixData, 10)
-temp %>%
-  kbl() %>%
-  kable_styling() %>%
-  column_spec(1, width = "10cm") %>%
-  scroll_box(width = "1000px", height = "500px")
 ```
 
-* Review Scores and Supplementary info for each title scrapped from Google
-+ To find the popularity of the show, the most important feature, we use the review how many people from Google likes it 
-< Put picture of squid game with the review in google search >
+I also use a bit of Python for this project, so I will load some Python packages too
 
-```{r}
-library(reticulate)
+```{r echo=FALSE,}
 use_python("C:/venv/Scripts/python.exe")
 use_virtualenv("C:/venv")
 ```
-
 
 ```{python}
 import pandas as pd
@@ -57,32 +53,55 @@ import urllib
 from requests_html import HTML
 from requests_html import HTMLSession
 import bs4
+```
 
+# Getting Data
+
+I use two main data sources for this project, namely Kaggle and Google Search Results
+
+### Source 1: Kaggle 
+This dataset provides us with a list of Netflix Shows along with information such as the year it was added, duration, cast, description etc..
+There are altogether 8808 Netflix Shows in this dataset.
+```{r}
+netflixData <- read.csv(file = 'datasets/dataset_main.csv')
+```
+```{r echo=FALSE}
+# FOR Displaying results
+# temp = head(netflixData, 10)
+# temp %>%
+#   kbl() %>%
+#   kable_styling() %>%
+#   column_spec(1, width = "10cm") %>%
+#   scroll_box(width = "1000px", height = "500px")
+```
+
+### Source 2: Google Search Results 
+To represent popularity, I will use Google Review Scores, this is also going to be my dependent variable. 
+In order to supplement the information from the Kaggle dataset, I extracted other information from Google which will hopefully also serve as independent features.
+
+The image below shows an example of the data that will be collected for each of the 8808 shows in the Kaggle Dataset, namely Review Score, Description, Genre and Language
+
+```{r pressure, echo=FALSE, out.width = '100%'}
+knitr::include_graphics("Search Example.JPG")
+```
+
+#### Google Scrapping Method
+```{python}
 def get_source(url):
-    """Return the source code for the provided URL. 
-    Args: 
-        url (string): URL of the page to scrape.
-    Returns:
-        response (object): HTTP response object from requests_html. 
-    """
-
     try:
         session = HTMLSession()
         response = session.get(url)
         return response
-
     except requests.exceptions.RequestException as e:
         print(e)
 
 def get_googleInfo(title):
-
     scrapedData = []
 
     query = urllib.parse.quote_plus(title)
     response = get_source("https://www.google.co.uk/search?q=" + query)
-
     soup = bs4.BeautifulSoup(response.text,"html.parser")
-                        
+
     rating_object=soup.find_all( "div", {"class":"a19vA"} )
     info_object=soup.find_all( "div", {"class":"rVusze"} )
     desc_object=soup.find_all( "div", {"class":"PZPZlf hb8SAc"} )
@@ -113,41 +132,135 @@ def get_googleInfo(title):
         break
     
     return scrapedData
+```
+Here is an example of Output, when we insert the hit show "Squid Game" into the method above.
 
-# Test Function
+``` {python}
 info = get_googleInfo("Squid Game")
 print(info)
 ```
 
-Data Blending (header)
-We blend the Main Kaggle dataset with the Google dataset
-Using SQLite to join them, this gives us more versatility. Could've use the R joins but I feel most comfortable using SQL 
-Some shows could not be google so we use a left join on the main dataset 
-< show code from Data Cleaning.r >
-
-Data Cleaning (header)
-Renaming Features (sub-header)
-+ id 
-+ type
-+ title
-+ director
-+ cast
-+ country
-+ date_added
-+ release_year
-+ rating
-+ duration
-+ genre
-+ plot
-+ score
-+ google_language
-+ google_genre
-+ google_plot
-< code > 
+Load Google Search Results dataset.
+``` {r}
+googleData <- read.csv(file = 'datasets/dataset_googleScraped.csv')
+```
 
 
+### Joining the Kaggle Dataset and Google Search Results
+I combine both datasets. 
+```{r}
+con <- dbConnect(RSQLite::SQLite(), ":memory:")
 
-Cleaning each feature (sub header) 
+dbWriteTable(con, "netflixData", netflixData)
+dbWriteTable(con, "googleData", googleData)
+
+query <- "SELECT netflixData.show_id
+        , netflixData.type
+        , netflixData.title
+        , netflixData.director
+        , netflixData.cast
+        , netflixData.country
+        , netflixData.date_added
+        , netflixData.release_year
+        , netflixData.rating
+        , netflixData.duration
+        , netflixData.listed_in
+        , netflixData.description
+        , googleData.Likes
+        , googleData.Languages
+        , googleData.Genres
+        , googleData.Descriptions
+        FROM netflixData left join googleData 
+        ON netflixData.show_id= googleData.show_id"
+res <- dbSendQuery(con, query)
+df <- dbFetch(res)
+
+dbClearResult(res)
+```
+
+# Data Transformation
+## Renaming Columns
+I rename the columns because some of them had the same names. 
+Independent features that were scraped from Google have "google_" at the front of them.
+``` {r}
+new_names <- c("id" 
+        , "type"
+        , "title"
+        , "director"
+        , "cast"
+        , "country"
+        , "date_added"
+        , "release_year"
+        , "rating"
+        , "duration"
+        , "genre"
+        , "plot"
+        , "google_score"
+        , "google_language"
+        , "google_genre"
+        , "google_plot")
+df <- setNames(df, new_names)
+```
+## Data Preview
+Here is what the dataset looks like now, we can see all the features that will be used:
+``` {r echo=FALSE}
+temp = head(df, 10)
+temp %>%
+  kbl() %>%
+  kable_styling() %>%
+  column_spec(1, width = "10cm") %>%
+  scroll_box(width = "1000px", height = "500px")
+```
+
+
+## Drop rows
+As expected, the Google search results of some Netflix Shows did not give us a Google Review Score.
+I drop these rows because there is no point keeping rows with no Dependent Feature.
+
+```{r}
+df <- df[grep("%", df$google_score),]
+```
+
+# Data Exploration
+
+### Missing Data
+```{r}
+count_blanks <- function(feature) {
+    string1 <- feature
+    string2 <- '== ""'
+    subset = paste(string1, string2)
+    subset <- subset(df, eval(parse(text=subset)))
+    count <- count(subset)
+  return(count)
+}
+
+
+feature <- new_names # retrieving all the column names
+
+NA_Count <- c(
+ toString(count_blanks('id'))
+, toString(count_blanks('type'))
+, toString(count_blanks('title'))
+, toString(count_blanks('director'))
+, toString(count_blanks('cast'))
+, toString(count_blanks('country'))
+, toString(count_blanks('date_added'))
+, toString(count_blanks('release_year'))
+, toString(count_blanks('rating'))
+, toString(count_blanks('duration'))
+, toString(count_blanks('genre'))
+, toString(count_blanks('plot'))
+, toString(count_blanks('google_score'))
+, toString(count_blanks('google_language'))
+, toString(count_blanks('google_genre'))
+, toString(count_blanks('google_plot')))
+NA_Count <- data.frame(feature, NA_Count)
+
+print(NA_Count)
+
+```
+
+# Cleaning each feature (sub header) 
 Look for inconsistencies, duplicates, outliers, etc. 
 Changing type and formats
 Recatagorize 
@@ -163,7 +276,7 @@ Recatagorize
 + duration
 + genre
 + plot
-+ score
++ google_score
 + google_language
 + google_genre
 + google_plot
@@ -179,10 +292,476 @@ Analysing missing datapoints (sub sub header)
 Pretty useless to have these features
 But I transform the fields into present/absent
 Just in case it has predictive capabilities
-< code >
+< code > 
+# See if type needs cleaning
 
-
-```{r}
-x <- 1
-y <- 2
+``` {r}
+view <- df %>% group_by(type) %>% summarise(count = n()) # Show types and count by each type
+print(view)
 ```
+
+director
+``` {r}
+view <- df %>% group_by(director) %>% summarise(count = n()) # Show directors and count by each director group
+print(view)
+```
+Some of the rows have more than one director (will make maping tables)
+
+# See if country needs cleaning
+``` {r}
+view <- df %>% group_by(country) %>% summarise(count = n()) # Show country and count by each country group
+
+```
+# Many of the rows have more than one country (will make maping tables)
+
+
+# See if date_added needs cleaning
+``` {r}
+view <- df %>% group_by(date_added) %>% summarise(count = n()) # Show date_added and count by each date_added
+```
+# Change to date format
+``` {r}
+df$date_added <- mdy(df$date_added)
+```
+# See if release year needs cleaning
+``` {r}
+view <- df %>% group_by(release_year) %>% summarise(count = n()) # Show release_year and count by each release_year
+```
+# See if rating needs cleaning
+``` {r}
+
+view <- df %>% group_by(rating) %>% summarise(count = n()) # Show release_year and count by each release_year
+df$rating[df$rating == "PG-13" ] <- "PG"
+df$rating[df$rating == "TV-PG" ] <- "PG"
+df$rating[df$rating == "TV-14" ] <- "PG"
+df$rating[df$rating == "TV-G" ] <- "G"
+df$rating[df$rating == "TV-MA" ] <- "R"
+df$rating[df$rating == "TV-Y7" ] <- "Y"
+df$rating[df$rating == "TV-Y7-FV" ] <- "Y"
+df$rating[df$rating == "TV-Y" ] <- "Y"
+df$rating[df$rating == "NR" ] <- "UR"
+
+```
+# See if duration needs cleaning
+``` {r}
+view <- df %>% group_by(duration) %>% summarise(count = n()) # Show duration and count by each release_year
+```
+# Duration convert blanks to NA
+# Convert duration to numeric
+
+``` {r}
+df$duration[df$duration ==""] <- NA
+df <- separate(df, duration, c("duration", "duration_units"))
+df <- transform(df, duration = as.numeric(duration))
+```
+
+
+# See if genre needs cleaning
+``` {r}
+view <- df %>% group_by(genre) %>% summarise(count = n()) # Show genre and count by each genre
+```
+
+# See if plot needs cleaning
+``` {r}
+view <- df %>% group_by(plot) %>% summarise(count = n()) # Show plot and count by each plot
+```
+
+# See if google_score needs cleaning
+``` {r}
+view <- df %>% group_by(google_score) %>% summarise(count = n()) # Show google_score and count by each google_score
+```
+
+# Remove % and convert to numeric type
+``` {r}
+df$google_score<-gsub("%","",as.character(df$google_score))
+df <- transform(df, google_score = as.numeric(google_score))
+```
+
+Transform google_language and google_genre feature into present/absent because it was not scrappable
+``` {r}
+df$google_language <- ifelse(df$google_language =="", "absent", "present")
+view <- df %>% group_by(google_language) %>% summarise(count = n())  # Show categories and count by each category
+print(view)
+```
+``` {r}
+df$google_genre <- ifelse(df$google_genre =="", "absent", "present")
+view <- df %>% group_by(google_genre) %>% summarise(count = n())
+print(view)
+```
+
+``` {r}
+write.csv(df, "datasets/view_main_cleaned.csv", row.names=FALSE)
+df <- read.csv(file = 'datasets/view_main_cleaned.csv')
+```
+
+# Mapping Tables 
+# Build Country Mapping Table
+``` {r}
+
+country_mapping <- df %>%
+    mutate(country = strsplit(as.character(country), ",")) %>%
+    unnest(country)
+
+country_mapping = subset(country_mapping, select = c(id, country))
+country_mapping$country <- trimws(country_mapping$country, which = c("left"))
+
+write.csv(country_mapping, "datasets/mapping_country.csv", row.names=FALSE)
+```
+
+# # Build Director Mapping Table
+``` {r}
+
+director_mapping <- df %>%
+    mutate(director = strsplit(as.character(director), ",")) %>%
+    unnest(director)
+
+director_mapping = subset(director_mapping, select = c(id, director))
+director_mapping$director <- trimws(director_mapping$director , which = c("left"))
+write.csv(director_mapping, "datasets/mapping_director.csv", row.names=FALSE)
+```
+
+# # Build Cast Mapping Table
+``` {r}
+cast_mapping <- df %>%
+    mutate(cast = strsplit(as.character(cast), ",")) %>%
+    unnest(cast)
+
+cast_mapping = subset(cast_mapping, select = c(id, cast))
+cast_mapping$cast <- trimws(cast_mapping$cast, which = c("left"))
+write.csv(cast_mapping, "datasets/mapping_cast.csv", row.names=FALSE)
+```
+
+# # Build Genre Mapping Table
+``` {r}
+genre_mapping <- df %>%
+    mutate(genre = strsplit(as.character(genre), ",")) %>%
+    unnest(genre)
+
+genre_mapping = subset(genre_mapping, select = c(id, genre))
+genre_mapping$cast <- trimws(genre_mapping$genre, which = c("left"))
+write.csv(genre_mapping, "datasets/mapping_genre.csv", row.names=FALSE)
+```
+
+# Trim dataset for better performance
+``` {r}
+df = subset(df, select = -c(country,director,cast,genre) )
+```
+
+
+#Get top 100 actors and actress from IMDB list
+
+
+# Feature engineering - categories actors based on how popular they are 
+``` {r}
+popularActors <- read.csv(file = 'datasets/dataset_popular_actors.csv')
+
+# Create new column and set default value to "top 1000"
+popularActors$rank_category <- "top 1000"
+setDT(popularActors)
+
+popularActors$rank_category[popularActors$Position < 501 ] <- "top 500"
+popularActors$rank_category[popularActors$Position < 201 ] <- "top 200"
+popularActors$rank_category[popularActors$Position < 101 ] <- "top 100"
+popularActors$rank_category[popularActors$Position < 51 ] <- "top 50"
+popularActors$rank_category[popularActors$Position < 21 ] <- "top 20"
+popularActors$rank_category[popularActors$Position < 11 ] <- "top 10"
+
+popularActors <- separate(popularActors, Description, c("Points", "Description"))
+popularActors <- transform(popularActors, Points = as.numeric(Points))
+
+# View(popularActors)
+
+write.csv(popularActors, "datasets/view_popular_actors.csv", row.names=FALSE)
+```
+
+# Feature engineering - categories actors based on how popular they are 
+``` {r}
+popularActresses <- read.csv(file = 'datasets/dataset_popular_actresses.csv')
+
+# Create new column and set default value to "top 1000"
+popularActresses$rank_category <- "top 1000"
+setDT(popularActresses)
+
+popularActresses$rank_category[popularActresses$Position < 501 ] <- "top 500"
+popularActresses$rank_category[popularActresses$Position < 201 ] <- "top 200"
+popularActresses$rank_category[popularActresses$Position < 101 ] <- "top 100"
+popularActresses$rank_category[popularActresses$Position < 51 ] <- "top 50"
+popularActresses$rank_category[popularActresses$Position < 21 ] <- "top 20"
+popularActresses$rank_category[popularActresses$Position < 11 ] <- "top 10"
+
+# Get points from actresses
+popularActresses <- separate(popularActresses, Description, c("Points", "Description"))
+popularActresses <- transform(popularActresses, Points = as.numeric(Points))
+
+# View(popularActresses)
+
+write.csv(popularActresses, "datasets/view_popular_actresses.csv", row.names=FALSE)
+```
+
+# Feature engineering - categories directors based on how popular they are 
+``` {r}
+popularDirectors <- read.csv(file = 'datasets/dataset_popular_directors.csv')
+
+# Create new column and set default value to "top 1000"
+popularDirectors$rank_category <- "top 1000"
+setDT(popularDirectors)
+
+popularDirectors$rank_category[popularDirectors$Position < 501 ] <- "top 500"
+popularDirectors$rank_category[popularDirectors$Position < 201 ] <- "top 200"
+popularDirectors$rank_category[popularDirectors$Position < 101 ] <- "top 100"
+popularDirectors$rank_category[popularDirectors$Position < 51 ] <- "top 50"
+popularDirectors$rank_category[popularDirectors$Position < 21 ] <- "top 20"
+popularDirectors$rank_category[popularDirectors$Position < 11 ] <- "top 10"
+
+#Get points from directors
+popularDirectors <- separate(popularDirectors, Description, c("Points", "Description"))
+popularDirectors <- transform(popularDirectors, Points = as.numeric(Points))
+
+# View(popularDirectors)
+
+write.csv(popularDirectors, "datasets/view_popular_directors.csv", row.names=FALSE)
+```
+
+# Create an ephemeral in-memory RSQLite database
+#``` {r}
+
+con <- dbConnect(RSQLite::SQLite(), ":memory:")
+
+main <- read.csv(file = 'datasets/view_main_trimmed.csv')
+cast <- read.csv(file = 'datasets/mapping_cast.csv')
+actorsPoints <- read.csv(file = 'datasets/view_popular_actors.csv')
+actressesPoints <- read.csv(file = 'datasets/view_popular_actresses.csv')
+directors <- read.csv(file = 'datasets/mapping_director.csv')
+directorsPoints <- read.csv(file = 'datasets/view_popular_directors.csv')
+
+dbWriteTable(con, "main", main)
+dbWriteTable(con, "cast", cast)
+dbWriteTable(con, "actorsPoints", actorsPoints)
+dbWriteTable(con, "actressesPoints", actressesPoints)
+dbWriteTable(con, "directors", directors)
+dbWriteTable(con, "directorsPoints", directorsPoints)
+
+
+# Attach the points to the mapping table
+query <- "SELECT c.id
+                ,c.cast
+                ,CASE WHEN a.Points IS NOT NULL THEN a.Points
+                WHEN b.Points IS NOT NULL THEN b.Points 
+                ELSE 0 END AS Points
+                FROM cast c
+                LEFT JOIN actorsPoints a ON c.cast = a.Name
+                LEFT JOIN actressesPoints b ON c.cast = b.Name"
+res <- dbSendQuery(con, query)
+castPointsMapping <- dbFetch(res)
+dbClearResult(res)
+
+dbWriteTable(con, "castPointsMapping", castPointsMapping)
+
+#Attach the director to the mapping table
+query <- "SELECT a.id
+                ,a.director
+                ,CASE WHEN d.Points IS NOT NULL THEN d.Points
+                ELSE 0 END AS Points
+                FROM directors a
+                LEFT JOIN directorsPoints d ON a.director = d.Name"
+res <- dbSendQuery(con, query)
+directorPointsMapping <- dbFetch(res)
+dbClearResult(res)
+
+dbWriteTable(con, "directorPointsMapping", directorPointsMapping)
+
+
+query <- "SELECT a.*
+        , CASE WHEN c.Points IS NOT NULL THEN max(c.Points)
+        ELSE 0 END AS cast_points
+        , CASE WHEN d.Points IS NOT NULL THEN max(d.Points)
+        ELSE 0 END AS director_points
+        FROM main a 
+        LEFT JOIN castPointsMapping c ON a.id = c.id 
+        LEFT JOIN directorPointsMapping d ON a.id = d.id 
+        GROUP BY a.id"
+
+res <- dbSendQuery(con, query)
+df <- dbFetch(res)
+
+dbClearResult(res)
+#```
+
+# Seperate google_scores into bins
+#``` {r}
+# df$google_scoreClass <- cut(df$google_score, breaks=c(0,60,70,80,90,100), labels=c("0-60","61-70","71-80","81-90","90-100"))
+
+write.csv(df, "datasets/view_main_features.csv", row.names=FALSE)
+
+dbDisconnect(con)
+#```
+
+# Latent Semantic Analysis of Plot and google plot data
+``` {r}
+
+
+```
+# load data
+
+#``` {r}
+main <- read.csv(file = 'datasets/view_main_features.csv')
+main$plot_combined <- paste(main$plot,main$google_plot)
+#```
+# Convert data to corpus
+#``` {r}
+corpus <- Corpus(VectorSource(main$plot_combined))
+#```
+
+# Remove special characters, case, punctuation and numbers
+#``` {r}
+
+removeSpecialChars <- function(x) gsub("[^a-zA-Z0-9 ]","",x)
+corpus <- tm_map(corpus, removeSpecialChars)
+corpus <- tm_map(corpus, removeNumbers)
+corpus <- tm_map(corpus, removePunctuation)
+corpus <- tm_map(corpus, content_transformer(tolower))
+#```
+
+# Remove stop words
+#``` {r}
+corpus <- tm_map(corpus, removeWords, stopwords("english"))
+#```
+
+# Remove white space
+#``` {r}
+corpus <- tm_map(corpus, stripWhitespace)
+#```
+
+# Stemming
+#``` {r}
+corpus <- tm_map(corpus, stemDocument)
+#```
+
+# Term document matrix
+#``` {r}
+tdm <- TermDocumentMatrix(corpus)
+#```
+
+# View top 5 most frequently occuring term
+#``` {r}
+tdmMatrix <- as.matrix(tdm)
+v <- sort(rowSums(tdmMatrix), decreasing=TRUE)
+d <- data.frame(word=names(v),freq=v)
+print(head(d,5))
+#```
+
+# Weighting 
+#``` {r}
+tdm2 <- as.textmatrix(as.matrix(tdm))
+tdm.weighted <- lw_logtf(tdm2)
+print(tdm.weighted)
+#```
+
+# Latent Semantic Analysis
+#``` {r}
+lsa <- lsa(tdm.weighted, dims=10)
+
+Tk <- lsa$tk
+Sk <- lsa$sk
+Dk <- lsa$dk 
+#```
+
+# Varimax Rotation
+#``` {r}
+Tk.varimax <- varimax(Tk)
+
+Dk.rotated <- Dk %*% Tk.varimax$rotmat
+Tk.rotated <- Tk %*% Tk.varimax$rotmat 
+#```
+
+# Interreting Term and Document Matrices
+#``` {r}
+
+sort.loadings.table <- function(x) {
+    factor.names <- colnames(x)
+    x <- as.data.frame(x)
+    x$max.factor <- apply(abs(x),1,which.max)
+    x$max.value <- x[cbind(1:nrow(x),x$max.factor)]
+    x <- x[order(x$max.factor,-abs(x$max.value)),]
+    x$item <- rownames(x)
+    rownames(x) <- NULL
+    x
+}
+
+threshold.loadings.table <- function (x,q=0.1) {
+    threshold <- quantile(abs(x$max.value),probs=1-q)
+    x <- subset(x,abs(x$max.value)>threshold)
+    x
+}
+
+Tk.thresholded <- as.data.table(threshold.loadings.table(sort.loadings.table(Tk.rotated),q=0.02))
+write.csv(Tk.thresholded[,.(item, max.factor, max.value)], "datasets/tk.csv", row.names=FALSE)
+
+Dk.thresholded <- as.data.table(threshold.loadings.table(sort.loadings.table(Dk.rotated),q=1))
+# print(Dk.thresholded[,.(item,max.factor,max.value)])
+write.csv(Dk.thresholded[,.(item,max.factor,max.value)],"datasets/dk.csv", row.names=FALSE)
+#```
+#``` {r}
+biplot <- function(Tk,Dk,xdim,ydim,Tk.scale=1,...){
+    print("made it")
+    Tk[,type:="Terms"]
+    Dk[,type:="Title"]
+    biplot.data <- rbindlist(list(Tk,Dk))
+    setnames(biplot.data,xdim,"F1")
+    setnames(biplot.data,ydim,"F2")
+    biplot.data[type=="Terms",F1:=F1*Tk.scale]
+    biplot.data[type=="Terms",F2:=F2*Tk.scale]
+    ggplot(biplot.data, aes(x=F1, y=F2, label=item, col=type)) + geom_text()
+}
+
+plot(biplot(Tk=Tk.thresholded,Dk=Dk.thresholded, xdim="V1", ydim="V2", Tk.scale=2))
+#```
+
+# Join LSA data to main dataframe
+
+#``` {r}
+
+con <- dbConnect(RSQLite::SQLite(), ":memory:")
+
+main <- read.csv(file = 'datasets/view_main_features.csv')
+lsa <- read.csv(file = 'datasets/lsa_2.csv')
+
+lsa$item <- sub("^", "s", lsa$item )
+
+
+dbWriteTable(con, "main", main)
+dbWriteTable(con, "lsa", lsa)
+
+query <- "SELECT m.*, l.*
+                FROM main m
+                LEFT JOIN lsa l ON m.id = l.item"
+res <- dbSendQuery(con, query)
+df <- dbFetch(res)
+dbClearResult(res)
+setDT(df)
+View(df)
+
+write.csv(df, "datasets/view_main_lsa.csv", row.names=FALSE)
+
+dbDisconnect(con)
+#```
+
+
+
+# Machine learning model Multi Regressions
+#``` {r}
+main <- read.csv(file = 'datasets/view_main_lsa.csv')
+
+main$date_added <- as.Date(as.character(main$date_added))
+main$max.factor<-as.character(main$max.factor)
+
+main = subset(main, select = -c(plot,google_plot,id,title,duration_units,item,max.value))
+
+row.number <- sample(1:nrow(main), 0.5*nrow(main))
+train = main[row.number,]
+test = main[-row.number,]
+
+print("running regression.....")
+model1 = lm(log(google_score)~., data=train)
+print(summary(model1))
+#```
