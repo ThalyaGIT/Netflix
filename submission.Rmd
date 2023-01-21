@@ -10,6 +10,10 @@ output:
 # https://haozhu233.github.io/kableExtra/awesome_table_in_html.html
 ---
 
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("netflixHomepage.JPG")
+```
+
 # About
 This project is about analysing what makes a show on Netflix more likeable? 
 
@@ -37,6 +41,7 @@ library(lsa)
 library("quanteda.textmodels")
 library(ggplot2)
 library(kableExtra)
+library(Hmisc)
 ```
 
 I also use a bit of Python for this project, so I will load some Python packages too
@@ -55,13 +60,13 @@ from requests_html import HTMLSession
 import bs4
 ```
 
-# Getting Data
+# Getting Data 
 
 I use two main data sources for this project, namely Kaggle and Google Search Results
 
 ### Source 1: Kaggle 
 This dataset provides us with a list of Netflix Shows along with information such as the year it was added, duration, cast, description etc..
-There are altogether 8808 Netflix Shows in this dataset.
+There are altogether 8807 Netflix Shows in this dataset.
 ```{r}
 netflixData <- read.csv(file = 'datasets/dataset_main.csv')
 ```
@@ -76,16 +81,17 @@ netflixData <- read.csv(file = 'datasets/dataset_main.csv')
 ```
 
 ### Source 2: Google Search Results 
-To represent popularity, I will use Google Review Scores, this is also going to be my dependent variable. 
-In order to supplement the information from the Kaggle dataset, I extracted other information from Google which will hopefully also serve as independent features.
+The Kaggle dataset doesn’t contain any feature that gives us information about how popular or likable a show was. 
+However, with the Netflix Show title, we can perform some web scraping to obtain Review Scores and other information off Google.
 
 The image below shows an example of the data that will be collected for each of the 8808 shows in the Kaggle Dataset, namely Review Score, Description, Genre and Language
-
-```{r pressure, echo=FALSE, out.width = '100%'}
+To represent popularity, I will use Google Review Scores, this is also going to be my dependent variable. 
+```{r echo=FALSE, out.width = '100%'}
 knitr::include_graphics("Search Example.JPG")
 ```
 
-#### Google Scrapping Method
+Google Scrapping Method
+Below is the method I use to scrap data off Google. 
 ```{python}
 def get_source(url):
     try:
@@ -140,11 +146,20 @@ info = get_googleInfo("Squid Game")
 print(info)
 ```
 
-Load Google Search Results dataset.
+
+Apply data scraping function on all movie/show titles in dataset. 
+Once all the information has been scraped, I write it into a csv file (full code in GitHub).
+``` {python eval = FALSE}
+# data = pd.read_csv('netflix_titles.csv')
+# goolgeInfo = data['title'].apply(get_googleInfo)
+# goolgeInfo.to_csv('googleInfo.csv', encoding='utf-8', index=False)
+print("hi")
+```
+
+Since the data scrapping was done in Python, I now need to load all Google Search Results data into the R world of this project.
 ``` {r}
 googleData <- read.csv(file = 'datasets/dataset_googleScraped.csv')
 ```
-
 
 ### Joining the Kaggle Dataset and Google Search Results
 I combine both datasets. 
@@ -178,7 +193,9 @@ df <- dbFetch(res)
 dbClearResult(res)
 ```
 
-# Data Transformation
+Both datasets are now joined but the feature names are quite confusing still. I will rename the features before showing a preview of the full combined dataset I will be working with.
+
+# Previewing Raw Data
 ## Renaming Columns
 I rename the columns because some of them had the same names. 
 Independent features that were scraped from Google have "google_" at the front of them.
@@ -213,18 +230,24 @@ temp %>%
 ```
 
 
-## Drop rows
-As expected, the Google search results of some Netflix Shows did not give us a Google Review Score.
-I drop these rows because there is no point keeping rows with no Dependent Feature.
+# Cleaning the data
 
-```{r}
-df <- df[grep("%", df$google_score),]
+## Removing duplicates or irrelevant observations
+## Dealing with duplicates 
+Checking if there are any duplicated Netflix Shows
+``` {r}
+print(length(unique(df$title)))
 ```
 
-# Data Exploration
+``` {r}
+print(df[duplicated(df$title),])
+```
+The Netflix shows that were thought to be duplicates by the code before seemed like dates instead.
+No duplicates. So we can move on. 
 
-### Missing Data
-```{r}
+### Drop rows
+Any Netflix Show which does not have a Google Review Score (crucial dependent variable) is an irrelevant observation since it cannot be used for Analysis.
+``` {r}
 count_blanks <- function(feature) {
     string1 <- feature
     string2 <- '== ""'
@@ -234,31 +257,235 @@ count_blanks <- function(feature) {
   return(count)
 }
 
+print(count_blanks('google_score'))
+```
 
-feature <- new_names # retrieving all the column names
+As expected, the Google search results of some Netflix Shows did not give us a Google Review Score. I drop these rows.
+```{r}
+df <- df[grep("%", df$google_score),]
+```
+Below shows and example of a Show which does not give us a Google Review Score
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("NoGoogleScore.JPG")
+```
 
-NA_Count <- c(
- toString(count_blanks('id'))
-, toString(count_blanks('type'))
-, toString(count_blanks('title'))
-, toString(count_blanks('director'))
-, toString(count_blanks('cast'))
-, toString(count_blanks('country'))
-, toString(count_blanks('date_added'))
-, toString(count_blanks('release_year'))
-, toString(count_blanks('rating'))
-, toString(count_blanks('duration'))
-, toString(count_blanks('genre'))
-, toString(count_blanks('plot'))
-, toString(count_blanks('google_score'))
-, toString(count_blanks('google_language'))
-, toString(count_blanks('google_genre'))
-, toString(count_blanks('google_plot')))
-NA_Count <- data.frame(feature, NA_Count)
+We are now left with 6511 rows.
+``` {r}
+print(length(unique(df$title)))
+```
 
-print(NA_Count)
+## Fixing structural errors.
+Structural errors are when you measure or transfer data and notice strange naming conventions, typos, or incorrect capitalization. These inconsistencies can cause mislabeled categories or classes. For example, you may find “N/A” and “Not Applicable” both appear, but they should be analyzed as the same category. Changing data types
+
+We will look feature by feature for structural errors.
+
+1. Type
+``` {r}
+view <- df %>% group_by(type) %>% summarise(count = n())
+print(view)
+```
+The type feature looks clean, no action will be taken on it.
+Action: None
+
+2. director
+``` {r}
+view <- df %>% group_by(director) %>% summarise(count = n())
+print(view)
+```
+Some of the rows have more than one director. 
+Action: In the next Feature Engineering Section, I will make mapping tables and use feature engineering to capture this variable
+
+3. Cast
+``` {r}
+view <- df %>% group_by(cast) %>% summarise(count = n())
+print(view)
+```
+As expected, many Shows have more than one cast member. 
+Action: Similar to what will be done with the Director Feature, I will make mapping tables and use feature engineering to capture this variable
+
+3. Country
+``` {r}
+view <- df %>% group_by(country) %>% summarise(count = n())
+print(view)
+```
+Some shows originated from several different countries.
+Action: Similar to what will be done with the Director and Cast Feature, I will make mapping tables and use feature engineering to capture this variable.
+
+
+4. Date Added
+``` {r}
+view <- df %>% group_by(date_added) %>% summarise(count = n())
+print(view)
+print(typeof(df$date_added))
+```
+Date Added is in the character format.
+Action: Change this to date format
+``` {r}
+df$date_added <- mdy(df$date_added)
+```
+
+5. Release Year
+``` {r}
+view <- df %>% group_by(release_year) %>% summarise(count = n()) # Show release_year and count by each release_year
+print(view)
+print(typeof(df$release_year))
+```
+Release Year has the integer type. No noticable structural error.
+Action: None
+
+6. Rating
+``` {r}
+view <- df %>% group_by(rating) %>% summarise(count = n()) # Show release_year and count by each release_year
+print(view)
+```
+There are several categories which have the same meaning.
+Action: Consolidate the categories
+
+Consolidate the categories of the Rating Feature
+```{r}
+df$rating[df$rating == "PG-13" ] <- "PG"
+df$rating[df$rating == "TV-PG" ] <- "PG"
+df$rating[df$rating == "TV-14" ] <- "PG"
+df$rating[df$rating == "TV-G" ] <- "G"
+df$rating[df$rating == "TV-MA" ] <- "R"
+df$rating[df$rating == "NC-17" ] <- "R"
+df$rating[df$rating == "TV-Y7" ] <- "Y"
+df$rating[df$rating == "TV-Y7-FV" ] <- "Y"
+df$rating[df$rating == "TV-Y" ] <- "Y"
+df$rating[df$rating == "NR" ] <- "UR"
+df$rating[df$rating == "66 min" ] <- "UR"
+df$rating[df$rating == "84 min" ] <- "UR"
+
+view <- df %>% group_by(rating) %>% summarise(count = n()) # Show release_year and count by each release_year
+print(view)
+```
+
+
+7. Duration
+``` {r}
+view <- df %>% group_by(duration) %>% summarise(count = n()) # Show duration and count by each release_year
+print(view)
+```
+Durations with two different units are in the same feature. Also, we can remove their units to make it integers.
+Action: Split column into two different types of durations, remove units
+``` {r}
+df$duration[df$duration ==""] <- NA
+df$duration_min <- ifelse(grepl("min", df$duration),df$duration,NA)
+df$duration_season <- ifelse(grepl("Season", df$duration),df$duration,NA)
+print(head(df, 10))
+```
+
+Remove string from duration and convert character to integer
+``` {r}
+df$duration_min <-  gsub('min','',df$duration_min)
+df$duration_min <- as.numeric(df$duration_min)
+df$duration_season <-  gsub('Seasons','',df$duration_season)
+df$duration_season <-  gsub('Season','',df$duration_season)
+df$duration_season <- as.numeric(df$duration_season)
+print(head(df,10))
+```
+
+Drop duration column
+```{r}
+df = subset(df, select = -c(duration))
+```
+
+8. Genre
+``` {r}
+view <- df %>% group_by(genre) %>% summarise(count = n()) # Show genre and count by each genre
+print(view)
+```
+Some of the rows have more than one genre. 
+Action: In the next Feature Engineering Section, I will make mapping tables and use feature engineering to capture this variable
+
+9. Plot
+Plot contains text data.
+Action: Use Latent Semantic Analysis to categorize plots
+
+
+10. Google Score
+``` {r}
+view <- df %>% group_by(google_score) %>% summarise(count = n()) # Show google_score and count by each google_score
+print(view)
+```
+Symbol exist and type is character
+Action: remove symbol and convert type to numeric
+
+11. Google Score
+``` {r}
+df$google_score<-gsub("%","",as.character(df$google_score))
+df <- transform(df, google_score = as.numeric(google_score))
+```
+
+12. Google Language
+``` {r}
+print(head(df$google_language), 10)
+```
+Clear that a lot of data is missing.
+Action: Extract feature from it (present/absent) 
+
+Transform google_language and google_genre feature into present/absent because it was not scrappable
+view <- df %>% group_by(google_language) %>% summarise(count = n())  # Show categories and count by each category
+df$google_language <- ifelse(df$google_language =="", "absent", "present")
+print(view)
+df$google_genre <- ifelse(df$google_genre =="", "absent", "present")
+view <- df %>% group_by(google_genre) %>% summarise(count = n())
+print(view)
+
+13. Google Genre
+
+``` {r}
+print(head(df$google_language), 10)
+```
+Clear that a lot of data is missing.
+Action: Extract feature from it (present/absent) 
+
+``` {r}
+#write.csv(df, "datasets/view_main_cleaned.csv", row.names=FALSE)
+#df <- read.csv(file = 'datasets/view_main_cleaned.csv')
+```
+
+## Handle Missing data
+
+
+### Missing Data
+``` {r}
+#desc <- describe(df)
+#print(desc)
+```
+
+```{r}
+#feature <- new_names # retrieving all the column names
+
+#NA_Count <- c(
+#  toString(count_blanks('id'))
+# , toString(count_blanks('type'))
+# , toString(count_blanks('title'))
+# , toString(count_blanks('director'))
+# , toString(count_blanks('cast'))
+# , toString(count_blanks('country'))
+# , toString(count_blanks('date_added'))
+# , toString(count_blanks('release_year'))
+# , toString(count_blanks('rating'))
+# , toString(count_blanks('duration'))
+# , toString(count_blanks('genre'))
+# , toString(count_blanks('plot'))
+# , toString(count_blanks('google_score'))
+# , toString(count_blanks('google_language'))
+# , toString(count_blanks('google_genre'))
+# , toString(count_blanks('google_plot')))
+#NA_Count <- data.frame(feature, NA_Count)
+
+#print(NA_Count)
 
 ```
+
+
+
+* Validate 
+
+
+* Step 3: Filter unwanted outliers
 
 # Cleaning each feature (sub header) 
 Look for inconsistencies, duplicates, outliers, etc. 
@@ -293,106 +520,7 @@ Pretty useless to have these features
 But I transform the fields into present/absent
 Just in case it has predictive capabilities
 < code > 
-# See if type needs cleaning
 
-``` {r}
-view <- df %>% group_by(type) %>% summarise(count = n()) # Show types and count by each type
-print(view)
-```
-
-director
-``` {r}
-view <- df %>% group_by(director) %>% summarise(count = n()) # Show directors and count by each director group
-print(view)
-```
-Some of the rows have more than one director (will make maping tables)
-
-# See if country needs cleaning
-``` {r}
-view <- df %>% group_by(country) %>% summarise(count = n()) # Show country and count by each country group
-
-```
-# Many of the rows have more than one country (will make maping tables)
-
-
-# See if date_added needs cleaning
-``` {r}
-view <- df %>% group_by(date_added) %>% summarise(count = n()) # Show date_added and count by each date_added
-```
-# Change to date format
-``` {r}
-df$date_added <- mdy(df$date_added)
-```
-# See if release year needs cleaning
-``` {r}
-view <- df %>% group_by(release_year) %>% summarise(count = n()) # Show release_year and count by each release_year
-```
-# See if rating needs cleaning
-``` {r}
-
-view <- df %>% group_by(rating) %>% summarise(count = n()) # Show release_year and count by each release_year
-df$rating[df$rating == "PG-13" ] <- "PG"
-df$rating[df$rating == "TV-PG" ] <- "PG"
-df$rating[df$rating == "TV-14" ] <- "PG"
-df$rating[df$rating == "TV-G" ] <- "G"
-df$rating[df$rating == "TV-MA" ] <- "R"
-df$rating[df$rating == "TV-Y7" ] <- "Y"
-df$rating[df$rating == "TV-Y7-FV" ] <- "Y"
-df$rating[df$rating == "TV-Y" ] <- "Y"
-df$rating[df$rating == "NR" ] <- "UR"
-
-```
-# See if duration needs cleaning
-``` {r}
-view <- df %>% group_by(duration) %>% summarise(count = n()) # Show duration and count by each release_year
-```
-# Duration convert blanks to NA
-# Convert duration to numeric
-
-``` {r}
-df$duration[df$duration ==""] <- NA
-df <- separate(df, duration, c("duration", "duration_units"))
-df <- transform(df, duration = as.numeric(duration))
-```
-
-
-# See if genre needs cleaning
-``` {r}
-view <- df %>% group_by(genre) %>% summarise(count = n()) # Show genre and count by each genre
-```
-
-# See if plot needs cleaning
-``` {r}
-view <- df %>% group_by(plot) %>% summarise(count = n()) # Show plot and count by each plot
-```
-
-# See if google_score needs cleaning
-``` {r}
-view <- df %>% group_by(google_score) %>% summarise(count = n()) # Show google_score and count by each google_score
-```
-
-# Remove % and convert to numeric type
-``` {r}
-df$google_score<-gsub("%","",as.character(df$google_score))
-df <- transform(df, google_score = as.numeric(google_score))
-```
-
-Transform google_language and google_genre feature into present/absent because it was not scrappable
-``` {r}
-df$google_language <- ifelse(df$google_language =="", "absent", "present")
-view <- df %>% group_by(google_language) %>% summarise(count = n())  # Show categories and count by each category
-print(view)
-```
-``` {r}
-df$google_genre <- ifelse(df$google_genre =="", "absent", "present")
-view <- df %>% group_by(google_genre) %>% summarise(count = n())
-print(view)
-```
-
-``` {r}
-write.csv(df, "datasets/view_main_cleaned.csv", row.names=FALSE)
-df <- read.csv(file = 'datasets/view_main_cleaned.csv')
-```
 
 # Mapping Tables 
 # Build Country Mapping Table

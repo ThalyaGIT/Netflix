@@ -7,5 +7,6 @@
 # install.packages("lsa")
 # install.packages("ggplot2")
 # install.packages("knitr")
-install.packages("kableExtra")
-install.packages("reticulate")
+# install.packages("kableExtra")
+# install.packages("reticulate")
+install.packages("Hmisc")
