@@ -42,6 +42,7 @@ library("quanteda.textmodels")
 library(ggplot2)
 library(kableExtra)
 library(Hmisc)
+library(ggcorrplot)
 ```
 
 I also use a bit of Python for this project, so I will load some Python packages too
@@ -274,12 +275,59 @@ We are now left with 6511 rows.
 print(length(unique(df$title)))
 ```
 
+## Handle Missing data
+``` {r}
+#desc <- describe(df)
+#print(desc)
+```
+
+```{r}
+feature <- new_names # retrieving all the column names
+
+NA_Count <- c(
+ toString(count_blanks('id'))
+, toString(count_blanks('type'))
+, toString(count_blanks('title'))
+, toString(count_blanks('director'))
+, toString(count_blanks('cast'))
+, toString(count_blanks('country'))
+, toString(count_blanks('date_added'))
+, toString(count_blanks('release_year'))
+, toString(count_blanks('rating'))
+, toString(count_blanks('duration'))
+, toString(count_blanks('genre'))
+, toString(count_blanks('plot'))
+, toString(count_blanks('google_score'))
+, toString(count_blanks('google_language'))
+, toString(count_blanks('google_genre'))
+, toString(count_blanks('google_plot')))
+NA_Count <- data.frame(feature, NA_Count)
+
+print(NA_Count)
+
+```
+
+Google Genre and Google Language are missing in a big proportion of rows.
+Action: Instead of removing the feature entirely, I'd like to extract some value out of it. I will transform google_language and google_genre feature into present/absent.
+
+``` {r}
+df$google_language <- ifelse(df$google_language =="", "absent", "present")
+view <- df %>% group_by(google_language) %>% summarise(count = n())
+print(view)
+```
+``` {r}
+df$google_genre <- ifelse(df$google_genre =="", "absent", "present")
+view <- df %>% group_by(google_genre) %>% summarise(count = n())
+print(view)
+```
+
+
 ## Fixing structural errors.
 Structural errors are when you measure or transfer data and notice strange naming conventions, typos, or incorrect capitalization. These inconsistencies can cause mislabeled categories or classes. For example, you may find “N/A” and “Not Applicable” both appear, but they should be analyzed as the same category. Changing data types
 
 We will look feature by feature for structural errors.
 
-1. Type
+### 1. Type
 ``` {r}
 view <- df %>% group_by(type) %>% summarise(count = n())
 print(view)
@@ -287,7 +335,7 @@ print(view)
 The type feature looks clean, no action will be taken on it.
 Action: None
 
-2. director
+### 2. director
 ``` {r}
 view <- df %>% group_by(director) %>% summarise(count = n())
 print(view)
@@ -295,7 +343,7 @@ print(view)
 Some of the rows have more than one director. 
 Action: In the next Feature Engineering Section, I will make mapping tables and use feature engineering to capture this variable
 
-3. Cast
+### 3. Cast
 ``` {r}
 view <- df %>% group_by(cast) %>% summarise(count = n())
 print(view)
@@ -303,7 +351,7 @@ print(view)
 As expected, many Shows have more than one cast member. 
 Action: Similar to what will be done with the Director Feature, I will make mapping tables and use feature engineering to capture this variable
 
-3. Country
+### 4. Country
 ``` {r}
 view <- df %>% group_by(country) %>% summarise(count = n())
 print(view)
@@ -312,7 +360,7 @@ Some shows originated from several different countries.
 Action: Similar to what will be done with the Director and Cast Feature, I will make mapping tables and use feature engineering to capture this variable.
 
 
-4. Date Added
+### 5. Date Added
 ``` {r}
 view <- df %>% group_by(date_added) %>% summarise(count = n())
 print(view)
@@ -324,7 +372,7 @@ Action: Change this to date format
 df$date_added <- mdy(df$date_added)
 ```
 
-5. Release Year
+### 6. Release Year
 ``` {r}
 view <- df %>% group_by(release_year) %>% summarise(count = n()) # Show release_year and count by each release_year
 print(view)
@@ -333,7 +381,7 @@ print(typeof(df$release_year))
 Release Year has the integer type. No noticable structural error.
 Action: None
 
-6. Rating
+### 7. Rating
 ``` {r}
 view <- df %>% group_by(rating) %>% summarise(count = n()) # Show release_year and count by each release_year
 print(view)
@@ -355,13 +403,14 @@ df$rating[df$rating == "TV-Y" ] <- "Y"
 df$rating[df$rating == "NR" ] <- "UR"
 df$rating[df$rating == "66 min" ] <- "UR"
 df$rating[df$rating == "84 min" ] <- "UR"
+df$rating[df$rating == ""] <- "UR"
 
 view <- df %>% group_by(rating) %>% summarise(count = n()) # Show release_year and count by each release_year
 print(view)
 ```
 
 
-7. Duration
+### 8. Duration
 ``` {r}
 view <- df %>% group_by(duration) %>% summarise(count = n()) # Show duration and count by each release_year
 print(view)
@@ -372,7 +421,7 @@ Action: Split column into two different types of durations, remove units
 df$duration[df$duration ==""] <- NA
 df$duration_min <- ifelse(grepl("min", df$duration),df$duration,NA)
 df$duration_season <- ifelse(grepl("Season", df$duration),df$duration,NA)
-print(head(df, 10))
+print(head(df[,c("title","duration_min","duration_season")]))
 ```
 
 Remove string from duration and convert character to integer
@@ -382,7 +431,7 @@ df$duration_min <- as.numeric(df$duration_min)
 df$duration_season <-  gsub('Seasons','',df$duration_season)
 df$duration_season <-  gsub('Season','',df$duration_season)
 df$duration_season <- as.numeric(df$duration_season)
-print(head(df,10))
+print(head(df[,c("title","duration_min","duration_season")]))
 ```
 
 Drop duration column
@@ -390,7 +439,7 @@ Drop duration column
 df = subset(df, select = -c(duration))
 ```
 
-8. Genre
+### 9. Genre
 ``` {r}
 view <- df %>% group_by(genre) %>% summarise(count = n()) # Show genre and count by each genre
 print(view)
@@ -398,12 +447,12 @@ print(view)
 Some of the rows have more than one genre. 
 Action: In the next Feature Engineering Section, I will make mapping tables and use feature engineering to capture this variable
 
-9. Plot
+### 10. Plot
 Plot contains text data.
 Action: Use Latent Semantic Analysis to categorize plots
 
 
-10. Google Score
+### 11. Google Score
 ``` {r}
 view <- df %>% group_by(google_score) %>% summarise(count = n()) # Show google_score and count by each google_score
 print(view)
@@ -411,119 +460,55 @@ print(view)
 Symbol exist and type is character
 Action: remove symbol and convert type to numeric
 
-11. Google Score
 ``` {r}
 df$google_score<-gsub("%","",as.character(df$google_score))
 df <- transform(df, google_score = as.numeric(google_score))
 ```
 
-12. Google Language
+### 13. Google language
+Feature was engineered already, so it is clean.
+
+### 14. Google genre
+Feature was engineered already, so it is clean.
+
+### 15. Goolge Plot
+Goolge Plot contains text data.
+Action: Use Latent Semantic Analysis to categorize plots
+
+
+# Filter unwanted outliers (pending section)
+
+# Data Transformation
+
+## Mapping Tables 
+As talked about in the Data Cleaning Section above, I will build a mapping table for Cast, Director, Country and Genre. 
+This would help reflect their one to many relationship.
+
+### Build Director Mapping Table
 ``` {r}
-print(head(df$google_language), 10)
+
+director_mapping <- df %>%
+    mutate(director = strsplit(as.character(director), ",")) %>%
+    unnest(director)
+
+director_mapping = subset(director_mapping, select = c(id, director))
+director_mapping$director <- trimws(director_mapping$director , which = c("left"))
+
+write.csv(director_mapping, "datasets/mapping_director.csv", row.names=FALSE)
 ```
-Clear that a lot of data is missing.
-Action: Extract feature from it (present/absent) 
 
-Transform google_language and google_genre feature into present/absent because it was not scrappable
-view <- df %>% group_by(google_language) %>% summarise(count = n())  # Show categories and count by each category
-df$google_language <- ifelse(df$google_language =="", "absent", "present")
-print(view)
-df$google_genre <- ifelse(df$google_genre =="", "absent", "present")
-view <- df %>% group_by(google_genre) %>% summarise(count = n())
-print(view)
-
-13. Google Genre
-
+### Build Cast Mapping Table
 ``` {r}
-print(head(df$google_language), 10)
-```
-Clear that a lot of data is missing.
-Action: Extract feature from it (present/absent) 
+cast_mapping <- df %>%
+    mutate(cast = strsplit(as.character(cast), ",")) %>%
+    unnest(cast)
 
-``` {r}
-#write.csv(df, "datasets/view_main_cleaned.csv", row.names=FALSE)
-#df <- read.csv(file = 'datasets/view_main_cleaned.csv')
-```
-
-## Handle Missing data
-
-
-### Missing Data
-``` {r}
-#desc <- describe(df)
-#print(desc)
+cast_mapping = subset(cast_mapping, select = c(id, cast))
+cast_mapping$cast <- trimws(cast_mapping$cast, which = c("left"))
+write.csv(cast_mapping, "datasets/mapping_cast.csv", row.names=FALSE)
 ```
 
-```{r}
-#feature <- new_names # retrieving all the column names
-
-#NA_Count <- c(
-#  toString(count_blanks('id'))
-# , toString(count_blanks('type'))
-# , toString(count_blanks('title'))
-# , toString(count_blanks('director'))
-# , toString(count_blanks('cast'))
-# , toString(count_blanks('country'))
-# , toString(count_blanks('date_added'))
-# , toString(count_blanks('release_year'))
-# , toString(count_blanks('rating'))
-# , toString(count_blanks('duration'))
-# , toString(count_blanks('genre'))
-# , toString(count_blanks('plot'))
-# , toString(count_blanks('google_score'))
-# , toString(count_blanks('google_language'))
-# , toString(count_blanks('google_genre'))
-# , toString(count_blanks('google_plot')))
-#NA_Count <- data.frame(feature, NA_Count)
-
-#print(NA_Count)
-
-```
-
-
-
-* Validate 
-
-
-* Step 3: Filter unwanted outliers
-
-# Cleaning each feature (sub header) 
-Look for inconsistencies, duplicates, outliers, etc. 
-Changing type and formats
-Recatagorize 
-+ id - check completeness
-+ type - summary 
-+ title - check completeness
-+ director - summary
-+ cast - summary 
-+ country - summary
-+ date_added - 
-+ release_year
-+ rating
-+ duration
-+ genre
-+ plot
-+ google_score
-+ google_language
-+ google_genre
-+ google_plot
-
-
-Handle missing data (sub header)
-Missing reviews (sub sub header)
-Remove rows with no data on reviews
-< code > 
-
-Analysing missing datapoints (sub sub header)
-< code >
-Pretty useless to have these features
-But I transform the fields into present/absent
-Just in case it has predictive capabilities
-< code > 
-
-
-# Mapping Tables 
-# Build Country Mapping Table
+### Build Country Mapping Table
 ``` {r}
 
 country_mapping <- df %>%
@@ -536,30 +521,7 @@ country_mapping$country <- trimws(country_mapping$country, which = c("left"))
 write.csv(country_mapping, "datasets/mapping_country.csv", row.names=FALSE)
 ```
 
-# # Build Director Mapping Table
-``` {r}
-
-director_mapping <- df %>%
-    mutate(director = strsplit(as.character(director), ",")) %>%
-    unnest(director)
-
-director_mapping = subset(director_mapping, select = c(id, director))
-director_mapping$director <- trimws(director_mapping$director , which = c("left"))
-write.csv(director_mapping, "datasets/mapping_director.csv", row.names=FALSE)
-```
-
-# # Build Cast Mapping Table
-``` {r}
-cast_mapping <- df %>%
-    mutate(cast = strsplit(as.character(cast), ",")) %>%
-    unnest(cast)
-
-cast_mapping = subset(cast_mapping, select = c(id, cast))
-cast_mapping$cast <- trimws(cast_mapping$cast, which = c("left"))
-write.csv(cast_mapping, "datasets/mapping_cast.csv", row.names=FALSE)
-```
-
-# # Build Genre Mapping Table
+### Build Genre Mapping Table
 ``` {r}
 genre_mapping <- df %>%
     mutate(genre = strsplit(as.character(genre), ",")) %>%
@@ -570,107 +532,41 @@ genre_mapping$cast <- trimws(genre_mapping$genre, which = c("left"))
 write.csv(genre_mapping, "datasets/mapping_genre.csv", row.names=FALSE)
 ```
 
-# Trim dataset for better performance
+# Feature engineering  
+### Cast
+IMDB provides a dataset of Top 1000 Actors and Actresses based on their popularity. 
+
+Analyse the IMDB actors dataset
 ``` {r}
-df = subset(df, select = -c(country,director,cast,genre) )
+IMDBActors <- read.csv(file = 'datasets/dataset_popular_actors.csv')
+print(head(IMDBActors))
+```
+The dataset  includes a numeric measure of their popularity in the column "Points".
+I clean that column so that it can be engineered, transformed and used as a feature in the main dataset.
+I write the data into a csv as a view
+
+```{r}
+IMDBActors <- separate(IMDBActors, Description, c("Points", "Description"))
+IMDBActors <- transform(IMDBActors, Points = as.numeric(Points))
 ```
 
-
-#Get top 100 actors and actress from IMDB list
-
-
-# Feature engineering - categories actors based on how popular they are 
+I do the same with the IMDB Actress dataset
 ``` {r}
-popularActors <- read.csv(file = 'datasets/dataset_popular_actors.csv')
+IMDBActress <- read.csv(file = 'datasets/dataset_popular_actresses.csv')
 
-# Create new column and set default value to "top 1000"
-popularActors$rank_category <- "top 1000"
-setDT(popularActors)
+IMDBActress <- separate(IMDBActress, Description, c("Points", "Description"))
+IMDBActress <- transform(IMDBActress, Points = as.numeric(Points))
 
-popularActors$rank_category[popularActors$Position < 501 ] <- "top 500"
-popularActors$rank_category[popularActors$Position < 201 ] <- "top 200"
-popularActors$rank_category[popularActors$Position < 101 ] <- "top 100"
-popularActors$rank_category[popularActors$Position < 51 ] <- "top 50"
-popularActors$rank_category[popularActors$Position < 21 ] <- "top 20"
-popularActors$rank_category[popularActors$Position < 11 ] <- "top 10"
-
-popularActors <- separate(popularActors, Description, c("Points", "Description"))
-popularActors <- transform(popularActors, Points = as.numeric(Points))
-
-# View(popularActors)
-
-write.csv(popularActors, "datasets/view_popular_actors.csv", row.names=FALSE)
 ```
 
-# Feature engineering - categories actors based on how popular they are 
-``` {r}
-popularActresses <- read.csv(file = 'datasets/dataset_popular_actresses.csv')
-
-# Create new column and set default value to "top 1000"
-popularActresses$rank_category <- "top 1000"
-setDT(popularActresses)
-
-popularActresses$rank_category[popularActresses$Position < 501 ] <- "top 500"
-popularActresses$rank_category[popularActresses$Position < 201 ] <- "top 200"
-popularActresses$rank_category[popularActresses$Position < 101 ] <- "top 100"
-popularActresses$rank_category[popularActresses$Position < 51 ] <- "top 50"
-popularActresses$rank_category[popularActresses$Position < 21 ] <- "top 20"
-popularActresses$rank_category[popularActresses$Position < 11 ] <- "top 10"
-
-# Get points from actresses
-popularActresses <- separate(popularActresses, Description, c("Points", "Description"))
-popularActresses <- transform(popularActresses, Points = as.numeric(Points))
-
-# View(popularActresses)
-
-write.csv(popularActresses, "datasets/view_popular_actresses.csv", row.names=FALSE)
-```
-
-# Feature engineering - categories directors based on how popular they are 
-``` {r}
-popularDirectors <- read.csv(file = 'datasets/dataset_popular_directors.csv')
-
-# Create new column and set default value to "top 1000"
-popularDirectors$rank_category <- "top 1000"
-setDT(popularDirectors)
-
-popularDirectors$rank_category[popularDirectors$Position < 501 ] <- "top 500"
-popularDirectors$rank_category[popularDirectors$Position < 201 ] <- "top 200"
-popularDirectors$rank_category[popularDirectors$Position < 101 ] <- "top 100"
-popularDirectors$rank_category[popularDirectors$Position < 51 ] <- "top 50"
-popularDirectors$rank_category[popularDirectors$Position < 21 ] <- "top 20"
-popularDirectors$rank_category[popularDirectors$Position < 11 ] <- "top 10"
-
-#Get points from directors
-popularDirectors <- separate(popularDirectors, Description, c("Points", "Description"))
-popularDirectors <- transform(popularDirectors, Points = as.numeric(Points))
-
-# View(popularDirectors)
-
-write.csv(popularDirectors, "datasets/view_popular_directors.csv", row.names=FALSE)
-```
-
-# Create an ephemeral in-memory RSQLite database
-#``` {r}
-
+Once that is done, I attach the points of each Actor/Actress to the cast mapping table. (Not all cast members in the table have points because they may not be in the IMDB list)
+``` {r message=FALSE}
 con <- dbConnect(RSQLite::SQLite(), ":memory:")
 
-main <- read.csv(file = 'datasets/view_main_trimmed.csv')
-cast <- read.csv(file = 'datasets/mapping_cast.csv')
-actorsPoints <- read.csv(file = 'datasets/view_popular_actors.csv')
-actressesPoints <- read.csv(file = 'datasets/view_popular_actresses.csv')
-directors <- read.csv(file = 'datasets/mapping_director.csv')
-directorsPoints <- read.csv(file = 'datasets/view_popular_directors.csv')
+dbWriteTable(con, "cast", cast_mapping)
+dbWriteTable(con, "actorsPoints", IMDBActors)
+dbWriteTable(con, "actressesPoints", IMDBActress)
 
-dbWriteTable(con, "main", main)
-dbWriteTable(con, "cast", cast)
-dbWriteTable(con, "actorsPoints", actorsPoints)
-dbWriteTable(con, "actressesPoints", actressesPoints)
-dbWriteTable(con, "directors", directors)
-dbWriteTable(con, "directorsPoints", directorsPoints)
-
-
-# Attach the points to the mapping table
 query <- "SELECT c.id
                 ,c.cast
                 ,CASE WHEN a.Points IS NOT NULL THEN a.Points
@@ -680,17 +576,46 @@ query <- "SELECT c.id
                 LEFT JOIN actorsPoints a ON c.cast = a.Name
                 LEFT JOIN actressesPoints b ON c.cast = b.Name"
 res <- dbSendQuery(con, query)
+
 castPointsMapping <- dbFetch(res)
-dbClearResult(res)
 
 dbWriteTable(con, "castPointsMapping", castPointsMapping)
+```
 
-#Attach the director to the mapping table
+For each Show/Movie, take the points of the most famous Actor/Actress and attach it to the main table
+```{r}
+dbWriteTable(con, "main", df)
+
+query <- "SELECT a.*
+        , CASE WHEN c.Points IS NOT NULL THEN max(c.Points)
+        ELSE 0 END AS cast_points
+        FROM main a 
+        LEFT JOIN castPointsMapping c ON a.id = c.id 
+        GROUP BY a.id"
+
+res <- dbSendQuery(con, query)
+df <- dbFetch(res)
+
+print(head(df[,c("title","cast_points")]))
+
+```
+### Directors
+I do the same for directors
+``` {r message=FALSE} 
+IMDBDirectors <- read.csv(file = 'datasets/dataset_popular_directors.csv')
+
+IMDBDirectors <- separate(IMDBDirectors, Description, c("Points", "Description"))
+IMDBDirectors <- transform(IMDBDirectors, Points = as.numeric(Points))
+
+dbWriteTable(con, "main_2", df)
+dbWriteTable(con, "directorsPoints", IMDBDirectors)
+dbWriteTable(con, "director", director_mapping)
+
 query <- "SELECT a.id
                 ,a.director
                 ,CASE WHEN d.Points IS NOT NULL THEN d.Points
                 ELSE 0 END AS Points
-                FROM directors a
+                FROM director a
                 LEFT JOIN directorsPoints d ON a.director = d.Name"
 res <- dbSendQuery(con, query)
 directorPointsMapping <- dbFetch(res)
@@ -698,14 +623,10 @@ dbClearResult(res)
 
 dbWriteTable(con, "directorPointsMapping", directorPointsMapping)
 
-
 query <- "SELECT a.*
-        , CASE WHEN c.Points IS NOT NULL THEN max(c.Points)
-        ELSE 0 END AS cast_points
         , CASE WHEN d.Points IS NOT NULL THEN max(d.Points)
         ELSE 0 END AS director_points
-        FROM main a 
-        LEFT JOIN castPointsMapping c ON a.id = c.id 
+        FROM main_2 a 
         LEFT JOIN directorPointsMapping d ON a.id = d.id 
         GROUP BY a.id"
 
@@ -713,22 +634,19 @@ res <- dbSendQuery(con, query)
 df <- dbFetch(res)
 
 dbClearResult(res)
-#```
 
-# Seperate google_scores into bins
-#``` {r}
-# df$google_scoreClass <- cut(df$google_score, breaks=c(0,60,70,80,90,100), labels=c("0-60","61-70","71-80","81-90","90-100"))
+print(head(df[,c("title","director_points")]))
+``` 
 
-write.csv(df, "datasets/view_main_features.csv", row.names=FALSE)
-
-dbDisconnect(con)
-#```
-
-# Latent Semantic Analysis of Plot and google plot data
+Before carrying out further analysis, I disconnect from SQLite I write the main dataframe into a csv 
 ``` {r}
-
-
+dbDisconnect(con)
+write.csv(df, "datasets/view_main_cleaned.csv", row.names=FALSE)
 ```
+
+
+
+# Feature Engineering -  Latent Semantic Analysis of Plot and google plot data
 # load data
 
 #``` {r}
@@ -893,3 +811,22 @@ print("running regression.....")
 model1 = lm(log(google_score)~., data=train)
 print(summary(model1))
 #```
+
+
+# Exploratory Data Analysis
+
+### Corelation between numeric features
+Before we get started, it would be useful to know how correlated the features are. I do this for the numeric features. 
+``` {r}
+numeric_features <-  select_if(df, is.numeric)
+corr<- cor(numeric_features)
+ggcorrplot(corr)
+plot()
+```
+
+### Findings
+* Release Year and Google Score are slightly negatively correlated
+* Director Points and and Google Score are also slightly positively correlated
+* Cast Points and and Google Score are also slightly positively correlated 
+* Release Year and Director Points are slightly negatively correlated
+* Release Year and Cast Points are slightly negatively correlated
