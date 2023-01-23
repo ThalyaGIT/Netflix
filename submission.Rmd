@@ -180,7 +180,6 @@ query <- "SELECT netflixData.show_id
         , netflixData.release_year
         , netflixData.rating
         , netflixData.duration
-        , netflixData.listed_in
         , netflixData.description
         , googleData.Likes
         , googleData.Languages
@@ -211,7 +210,6 @@ new_names <- c("id"
         , "release_year"
         , "rating"
         , "duration"
-        , "genre"
         , "plot"
         , "google_score"
         , "google_language"
@@ -295,7 +293,6 @@ NA_Count <- c(
 , toString(count_blanks('release_year'))
 , toString(count_blanks('rating'))
 , toString(count_blanks('duration'))
-, toString(count_blanks('genre'))
 , toString(count_blanks('plot'))
 , toString(count_blanks('google_score'))
 , toString(count_blanks('google_language'))
@@ -305,6 +302,19 @@ NA_Count <- data.frame(feature, NA_Count)
 
 print(NA_Count)
 
+```
+
+``` {r}
+missing.values <- df %>%
+    gather(key = "key", value = "val") %>%
+    mutate(is.missing = is.na(val)) %>%
+    group_by(key, is.missing) %>%
+    summarise(num.missing = n()) %>%
+    filter(is.missing==T) %>%
+    select(-is.missing) %>%
+    arrange(desc(num.missing)) 
+
+print(missing.values)
 ```
 
 Google Genre and Google Language are missing in a big proportion of rows.
@@ -356,8 +366,12 @@ Action: Similar to what will be done with the Director Feature, I will make mapp
 view <- df %>% group_by(country) %>% summarise(count = n())
 print(view)
 ```
-Some shows originated from several different countries.
-Action: Similar to what will be done with the Director and Cast Feature, I will make mapping tables and use feature engineering to capture this variable.
+Some shows originated from several different countries. However, the countries seem to be in the order of influence.
+Action: Take the first country on the list.
+
+``` {r}
+df$country <- sub("\\,.*", "", df$country)
+```
 
 
 ### 5. Date Added
@@ -365,11 +379,15 @@ Action: Similar to what will be done with the Director and Cast Feature, I will 
 view <- df %>% group_by(date_added) %>% summarise(count = n())
 print(view)
 print(typeof(df$date_added))
+print(df$date_added)
+
+
 ```
 Date Added is in the character format.
 Action: Change this to date format
 ``` {r}
-df$date_added <- mdy(df$date_added)
+#df$date_added <- mdy(df$date_added)
+#print(df$date_added )
 ```
 
 ### 6. Release Year
@@ -439,14 +457,6 @@ Drop duration column
 df = subset(df, select = -c(duration))
 ```
 
-### 9. Genre
-``` {r}
-view <- df %>% group_by(genre) %>% summarise(count = n()) # Show genre and count by each genre
-print(view)
-```
-Some of the rows have more than one genre. 
-Action: In the next Feature Engineering Section, I will make mapping tables and use feature engineering to capture this variable
-
 ### 10. Plot
 Plot contains text data.
 Action: Use Latent Semantic Analysis to categorize plots
@@ -508,29 +518,6 @@ cast_mapping$cast <- trimws(cast_mapping$cast, which = c("left"))
 write.csv(cast_mapping, "datasets/mapping_cast.csv", row.names=FALSE)
 ```
 
-### Build Country Mapping Table
-``` {r}
-
-country_mapping <- df %>%
-    mutate(country = strsplit(as.character(country), ",")) %>%
-    unnest(country)
-
-country_mapping = subset(country_mapping, select = c(id, country))
-country_mapping$country <- trimws(country_mapping$country, which = c("left"))
-
-write.csv(country_mapping, "datasets/mapping_country.csv", row.names=FALSE)
-```
-
-### Build Genre Mapping Table
-``` {r}
-genre_mapping <- df %>%
-    mutate(genre = strsplit(as.character(genre), ",")) %>%
-    unnest(genre)
-
-genre_mapping = subset(genre_mapping, select = c(id, genre))
-genre_mapping$cast <- trimws(genre_mapping$genre, which = c("left"))
-write.csv(genre_mapping, "datasets/mapping_genre.csv", row.names=FALSE)
-```
 
 # Feature engineering  
 ### Cast
@@ -641,6 +628,10 @@ print(head(df[,c("title","director_points")]))
 Before carrying out further analysis, I disconnect from SQLite I write the main dataframe into a csv 
 ``` {r}
 dbDisconnect(con)
+print(head(df,10))
+
+df = subset(df, select = -c(cast,director) )
+
 write.csv(df, "datasets/view_main_cleaned.csv", row.names=FALSE)
 ```
 
@@ -814,15 +805,76 @@ print(summary(model1))
 
 
 # Exploratory Data Analysis
+# https://shopify.engineering/conducting-exploratory-data-analysis
+
+### Feature Description 
+
+1. Type : Type of Netflix Show (Movie or TV Show)
+2. Title: Name of the Netflix Show
+3. Director : List of directors of the show
+4. Cast: List of casts of the show
+5. Country: List of countries relating to the show
+6. Date Added: Date the show was put on Netflix
+7. Release Year: Year the show was first released
+8. Genre: List of genres of the show 
+9. Plot: Description of the plot of the show
+10. Google Score: Displayed on Google as the percentage of viewers that liked a show
+11. Google Genre: Whether or not Genre is absent/present in the google search
+12. Google Language: Whether or not Language is absent/present in the google search
+13. Google Plot: Plot of the show according to Google
+14. Duration Minutes: Duration of the movie in minutes
+15. Duration Seasons: Durationg of the TV show in terms of how many seasons it has
+16. Cast Points: Level of popularity of the most famous cast member of the show according to IMDB
+17. Director Points: Level of popularity of the most famous director of the show according to IMDB
+18. LSA category: Category of the show according to the LSA algorithm
+
+Dependent Feature:
+Google Score:
+
+Independent Features:
+Type, Date Added, Release Year, Google Genre, Google Language, Duration Minutes, Duration Seasons, Cast Points, Director Points, LSA Category
+
+Features not directly for Analysis:
+Title, Director, Cast, Country, Genre, Plot, Google Plot
+
+### Among the Independent Features, What are the Categorical, discrete and continuous features 
+
+Categorical: Type, LSA Category
+
+Discrete: Date Added, Release Year, Google Genre, Google Language, Duration Seasons
+
+Continuous: Duration Minutes, Cast Points, Director Points
+
+### Distribution of the features
+
+1. Type
+```{r}
+ggplot(df, aes(x = type)) +  # Plot with values on top
+  geom_bar() 
+plot()
+```
+2. LSA
+
+3. Date Added
+```{r}
+ggplot(df, aes(x = date_added)) +
+    geom_density()
+plot()
+```
+
+
+### Find outliers
+
+### Significant Correlations
 
 ### Corelation between numeric features
 Before we get started, it would be useful to know how correlated the features are. I do this for the numeric features. 
-``` {r}
+<!-- ``` {r}
 numeric_features <-  select_if(df, is.numeric)
-corr<- cor(numeric_features)
+corr <- cor(numeric_features)
 ggcorrplot(corr)
 plot()
-```
+``` -->
 
 ### Findings
 * Release Year and Google Score are slightly negatively correlated
@@ -830,3 +882,6 @@ plot()
 * Cast Points and and Google Score are also slightly positively correlated 
 * Release Year and Director Points are slightly negatively correlated
 * Release Year and Cast Points are slightly negatively correlated
+
+
+# 
