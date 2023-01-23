@@ -10,4 +10,5 @@
 # install.packages("kableExtra")
 # install.packages("reticulate")
 # install.packages("Hmisc")
-install.packages("ggcorrplot")
+# install.packages("ggcorrplot")
+install.packages("forcats")

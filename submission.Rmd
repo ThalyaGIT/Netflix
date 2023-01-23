@@ -10,9 +10,7 @@ output:
 # https://haozhu233.github.io/kableExtra/awesome_table_in_html.html
 ---
 
-```{r echo=FALSE, out.width = '100%'}
-knitr::include_graphics("netflixHomepage.JPG")
-```
+
 
 # About
 This project is about analysing what makes a show on Netflix more likeable? 
@@ -43,6 +41,7 @@ library(ggplot2)
 library(kableExtra)
 library(Hmisc)
 library(ggcorrplot)
+library(forcats)
 ```
 
 I also use a bit of Python for this project, so I will load some Python packages too
@@ -70,15 +69,6 @@ This dataset provides us with a list of Netflix Shows along with information suc
 There are altogether 8807 Netflix Shows in this dataset.
 ```{r}
 netflixData <- read.csv(file = 'datasets/dataset_main.csv')
-```
-```{r echo=FALSE}
-# FOR Displaying results
-# temp = head(netflixData, 10)
-# temp %>%
-#   kbl() %>%
-#   kable_styling() %>%
-#   column_spec(1, width = "10cm") %>%
-#   scroll_box(width = "1000px", height = "500px")
 ```
 
 ### Source 2: Google Search Results 
@@ -230,9 +220,8 @@ temp %>%
 
 
 # Cleaning the data
-
 ## Removing duplicates or irrelevant observations
-## Dealing with duplicates 
+### Dealing with duplicates 
 Checking if there are any duplicated Netflix Shows
 ``` {r}
 print(length(unique(df$title)))
@@ -273,12 +262,8 @@ We are now left with 6511 rows.
 print(length(unique(df$title)))
 ```
 
-## Handle Missing data
-``` {r}
-#desc <- describe(df)
-#print(desc)
-```
-
+### Handle Missing data
+Lets see what data is missing:
 ```{r}
 feature <- new_names # retrieving all the column names
 
@@ -301,7 +286,6 @@ NA_Count <- c(
 NA_Count <- data.frame(feature, NA_Count)
 
 print(NA_Count)
-
 ```
 
 ``` {r}
@@ -312,7 +296,7 @@ missing.values <- df %>%
     summarise(num.missing = n()) %>%
     filter(is.missing==T) %>%
     select(-is.missing) %>%
-    arrange(desc(num.missing)) 
+    arrange(desc(num.missing))
 
 print(missing.values)
 ```
@@ -331,7 +315,6 @@ view <- df %>% group_by(google_genre) %>% summarise(count = n())
 print(view)
 ```
 
-
 ## Fixing structural errors.
 Structural errors are when you measure or transfer data and notice strange naming conventions, typos, or incorrect capitalization. These inconsistencies can cause mislabeled categories or classes. For example, you may find “N/A” and “Not Applicable” both appear, but they should be analyzed as the same category. Changing data types
 
@@ -345,7 +328,7 @@ print(view)
 The type feature looks clean, no action will be taken on it.
 Action: None
 
-### 2. director
+### 2. Director
 ``` {r}
 view <- df %>% group_by(director) %>% summarise(count = n())
 print(view)
@@ -371,24 +354,25 @@ Action: Take the first country on the list.
 
 ``` {r}
 df$country <- sub("\\,.*", "", df$country)
-```
 
+view <- df %>% group_by(country) %>% summarise(count = n())
+print(view)
+```
+Some Countries appear very few times 
+Action: I will group them into an "Others" category if count is less than 50
+``` {r}
+df <- df %>% 
+    group_by(country) %>% 
+    mutate(country = ifelse(n()>50, country, 'Others'))
+```
 
 ### 5. Date Added
 ``` {r}
 view <- df %>% group_by(date_added) %>% summarise(count = n())
 print(view)
-print(typeof(df$date_added))
-print(df$date_added)
-
-
 ```
-Date Added is in the character format.
-Action: Change this to date format
-``` {r}
-#df$date_added <- mdy(df$date_added)
-#print(df$date_added )
-```
+Date Added looks good
+Action: None
 
 ### 6. Release Year
 ``` {r}
@@ -427,7 +411,6 @@ view <- df %>% group_by(rating) %>% summarise(count = n()) # Show release_year a
 print(view)
 ```
 
-
 ### 8. Duration
 ``` {r}
 view <- df %>% group_by(duration) %>% summarise(count = n()) # Show duration and count by each release_year
@@ -451,7 +434,6 @@ df$duration_season <-  gsub('Season','',df$duration_season)
 df$duration_season <- as.numeric(df$duration_season)
 print(head(df[,c("title","duration_min","duration_season")]))
 ```
-
 Drop duration column
 ```{r}
 df = subset(df, select = -c(duration))
@@ -491,7 +473,8 @@ Action: Use Latent Semantic Analysis to categorize plots
 # Data Transformation
 
 ## Mapping Tables 
-As talked about in the Data Cleaning Section above, I will build a mapping table for Cast, Director, Country and Genre. 
+As talked about in the Data Cleaning Section above, I will build a mapping table for Cast and Director
+
 This would help reflect their one to many relationship.
 
 ### Build Director Mapping Table
@@ -569,13 +552,13 @@ castPointsMapping <- dbFetch(res)
 dbWriteTable(con, "castPointsMapping", castPointsMapping)
 ```
 
-For each Show/Movie, take the points of the most famous Actor/Actress and attach it to the main table
+For each Show/Movie, if there are points attached to at least one of the actors/actresses, I give the new variable cast_points the value "known", otherwise, it is labelled as "unknown".
 ```{r}
 dbWriteTable(con, "main", df)
 
 query <- "SELECT a.*
-        , CASE WHEN c.Points IS NOT NULL THEN max(c.Points)
-        ELSE 0 END AS cast_points
+        , CASE WHEN c.Points IS NOT NULL THEN 'known'
+        ELSE 'unknown' END AS cast_points
         FROM main a 
         LEFT JOIN castPointsMapping c ON a.id = c.id 
         GROUP BY a.id"
@@ -611,8 +594,8 @@ dbClearResult(res)
 dbWriteTable(con, "directorPointsMapping", directorPointsMapping)
 
 query <- "SELECT a.*
-        , CASE WHEN d.Points IS NOT NULL THEN max(d.Points)
-        ELSE 0 END AS director_points
+        , CASE WHEN d.Points IS NOT NULL THEN 'known'
+        ELSE 'unknown' END AS director_points
         FROM main_2 a 
         LEFT JOIN directorPointsMapping d ON a.id = d.id 
         GROUP BY a.id"
@@ -625,31 +608,42 @@ dbClearResult(res)
 print(head(df[,c("title","director_points")]))
 ``` 
 
+Drop Director and Cast Column
+```{r}
+df = subset(df, select = -c(cast,director) )
+```
+
 Before carrying out further analysis, I disconnect from SQLite I write the main dataframe into a csv 
 ``` {r}
 dbDisconnect(con)
-print(head(df,10))
-
-df = subset(df, select = -c(cast,director) )
-
 write.csv(df, "datasets/view_main_cleaned.csv", row.names=FALSE)
 ```
 
+## Data Preview
+Here is what the dataset looks like now after cleaning
+``` {r echo=FALSE}
+temp = head(df, 10)
+temp %>%
+  kbl() %>%
+  kable_styling() %>%
+  column_spec(1, width = "10cm") %>%
+  scroll_box(width = "1000px", height = "500px")
+```
 
 
 # Feature Engineering -  Latent Semantic Analysis of Plot and google plot data
-# load data
+#### load data
 
 #``` {r}
 main <- read.csv(file = 'datasets/view_main_features.csv')
 main$plot_combined <- paste(main$plot,main$google_plot)
 #```
-# Convert data to corpus
+#### Convert data to corpus
 #``` {r}
 corpus <- Corpus(VectorSource(main$plot_combined))
 #```
 
-# Remove special characters, case, punctuation and numbers
+#### Remove special characters, case, punctuation and numbers
 #``` {r}
 
 removeSpecialChars <- function(x) gsub("[^a-zA-Z0-9 ]","",x)
@@ -659,27 +653,27 @@ corpus <- tm_map(corpus, removePunctuation)
 corpus <- tm_map(corpus, content_transformer(tolower))
 #```
 
-# Remove stop words
+#### Remove stop words
 #``` {r}
 corpus <- tm_map(corpus, removeWords, stopwords("english"))
 #```
 
-# Remove white space
+#### Remove white space
 #``` {r}
 corpus <- tm_map(corpus, stripWhitespace)
 #```
 
-# Stemming
+#### Stemming
 #``` {r}
 corpus <- tm_map(corpus, stemDocument)
 #```
 
-# Term document matrix
+#### Term document matrix
 #``` {r}
 tdm <- TermDocumentMatrix(corpus)
 #```
 
-# View top 5 most frequently occuring term
+#### View top 5 most frequently occuring term
 #``` {r}
 tdmMatrix <- as.matrix(tdm)
 v <- sort(rowSums(tdmMatrix), decreasing=TRUE)
@@ -687,14 +681,14 @@ d <- data.frame(word=names(v),freq=v)
 print(head(d,5))
 #```
 
-# Weighting 
+#### Weighting 
 #``` {r}
 tdm2 <- as.textmatrix(as.matrix(tdm))
 tdm.weighted <- lw_logtf(tdm2)
 print(tdm.weighted)
 #```
 
-# Latent Semantic Analysis
+#### Latent Semantic Analysis
 #``` {r}
 lsa <- lsa(tdm.weighted, dims=10)
 
@@ -703,7 +697,7 @@ Sk <- lsa$sk
 Dk <- lsa$dk 
 #```
 
-# Varimax Rotation
+#### Varimax Rotation
 #``` {r}
 Tk.varimax <- varimax(Tk)
 
@@ -711,7 +705,7 @@ Dk.rotated <- Dk %*% Tk.varimax$rotmat
 Tk.rotated <- Tk %*% Tk.varimax$rotmat 
 #```
 
-# Interreting Term and Document Matrices
+#### Interreting Term and Document Matrices
 #``` {r}
 
 sort.loadings.table <- function(x) {
@@ -735,9 +729,10 @@ Tk.thresholded <- as.data.table(threshold.loadings.table(sort.loadings.table(Tk.
 write.csv(Tk.thresholded[,.(item, max.factor, max.value)], "datasets/tk.csv", row.names=FALSE)
 
 Dk.thresholded <- as.data.table(threshold.loadings.table(sort.loadings.table(Dk.rotated),q=1))
-# print(Dk.thresholded[,.(item,max.factor,max.value)])
+print(Dk.thresholded[,.(item,max.factor,max.value)])
 write.csv(Dk.thresholded[,.(item,max.factor,max.value)],"datasets/dk.csv", row.names=FALSE)
 #```
+###biplot
 #``` {r}
 biplot <- function(Tk,Dk,xdim,ydim,Tk.scale=1,...){
     print("made it")
@@ -756,32 +751,39 @@ plot(biplot(Tk=Tk.thresholded,Dk=Dk.thresholded, xdim="V1", ydim="V2", Tk.scale=
 
 # Join LSA data to main dataframe
 
-#``` {r}
-
+``` {r}
 con <- dbConnect(RSQLite::SQLite(), ":memory:")
 
-main <- read.csv(file = 'datasets/view_main_features.csv')
+main <- read.csv(file = 'datasets/view_main_cleaned.csv')
 lsa <- read.csv(file = 'datasets/lsa_2.csv')
 
-lsa$item <- sub("^", "s", lsa$item )
-
+lsa$item <- sub("^", "s", lsa$item)
 
 dbWriteTable(con, "main", main)
 dbWriteTable(con, "lsa", lsa)
 
-query <- "SELECT m.*, l.*
+query <- "SELECT m.*, l.[max.factor] as lsa_value
                 FROM main m
                 LEFT JOIN lsa l ON m.id = l.item"
 res <- dbSendQuery(con, query)
 df <- dbFetch(res)
 dbClearResult(res)
-setDT(df)
-View(df)
+
+df = subset(df, select = -c(plot,google_plot))
 
 write.csv(df, "datasets/view_main_lsa.csv", row.names=FALSE)
 
 dbDisconnect(con)
-#```
+```
+# Data Preview 
+``` {r echo=FALSE}
+temp = head(df, 10)
+temp %>%
+  kbl() %>%
+  kable_styling() %>%
+  column_spec(1, width = "10cm") %>%
+  scroll_box(width = "1000px", height = "500px")
+```
 
 
 
@@ -847,20 +849,24 @@ Continuous: Duration Minutes, Cast Points, Director Points
 
 ### Distribution of the features
 
-1. Type
-```{r}
-ggplot(df, aes(x = type)) +  # Plot with values on top
-  geom_bar() 
-plot()
+```{r echo=FALSE, out.width = '50%'}
+knitr::include_graphics("Type Distribution.JPG")
 ```
-2. LSA
+```{r echo=FALSE, out.width = '50%'}
+knitr::include_graphics("DirectorDist.JPG")
+```
+```{r echo=FALSE, out.width = '50%'}
+knitr::include_graphics("CastDist.JPG")
+```
+```{r echo=FALSE, out.width = '50%'}
+knitr::include_graphics("DateAddedDist.JPG")
+```
 
-3. Date Added
-```{r}
-ggplot(df, aes(x = date_added)) +
-    geom_density()
-plot()
-```
+<iframe src=" https://public.tableau.com/views/DistributionNetflix/TypeDist?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&:embed=true"
+ width="645" height="955"></iframe>
+
+
+
 
 
 ### Find outliers
