@@ -10,9 +10,21 @@ output:
 # https://haozhu233.github.io/kableExtra/awesome_table_in_html.html
 ---
 
+# Section 1 
 
+### Dataset
+The Kaggle Netflix dataset provides us with a list of Netflix Shows along with information such as the year it was added, duration, cast, description etc. \
 
-# About
+There are altogether 8807 Netflix Shows in this dataset.\
+
+We also supplement the dataset with several features that were scrapped from google.
+
+### Columns in dataset
+```{r echo=FALSE, out.width = '70%'}
+knitr::include_graphics("Data Description.JPG")
+```
+
+### About
 This project is about analysing what makes a show on Netflix more likeable? 
 
 Are TV shows more well received than Movies? 
@@ -21,10 +33,29 @@ Are action movies more popular than rom-coms?
 
 Are shows from Korean more popular than Thai shows?
 
-This project aims to answer such questions via going through the whole process of creating a machine learning model
+These answers will help us decide what shows to are more likely to be worth while watching on Netlix and save us valuable time. 
+
+This project aims to answer such questions by running a Multiregression model on Netflix data.
+
+### Algorithm Choice
+
+To solve this problem, I will use the multivariate regression model. \
+I use this model to evaluate the correlation between the features in the data set and Google Review Score.\
+\
+I chose this algorithm because the dependent feature (Google Review Score) is a continuous feature.\
+Furthermore, both numeric and categorical features can easily be integrated with this model. \
+\
+From the multi regression model results, we can determine the degree of influence many different features have on a dependent features.\
+Moreover, the effect of each feature can be seen while the effect of the other features are held constant.\
+Specifically, a slope coefficient and it’s statistical significance is gained for each feature in the dataset.\
+\
+Although causality may not be implied with the results, having a sense of what to features of a show to look out for on Netflix could still help us with choosing what to watch.\ 
+With that being said, I am aware of the disadvantages that come with this model.\
+Some of the problems that I am prepared to face are overfitting, bias-variance dilemma, multicollinearity and the curse of dimensionality
 
 
-# Packages
+# Section 2 
+## Loading Packages
 Before we get started. We will load all the relevant Pacakages
 ```{r load packages, message=FALSE}
 library(reticulate)
@@ -60,7 +91,7 @@ from requests_html import HTMLSession
 import bs4
 ```
 
-# Getting Data 
+## Getting Data 
 
 I use two main data sources for this project, namely Kaggle and Google Search Results
 
@@ -139,12 +170,12 @@ print(info)
 
 
 Apply data scraping function on all movie/show titles in dataset. 
-Once all the information has been scraped, I write it into a csv file (full code in GitHub).
+Once all the information has been scraped, I write it into a csv file.
 ``` {python eval = FALSE}
-# data = pd.read_csv('netflix_titles.csv')
-# goolgeInfo = data['title'].apply(get_googleInfo)
-# goolgeInfo.to_csv('googleInfo.csv', encoding='utf-8', index=False)
-print("hi")
+## This batch of code takes ages, do not run it
+data = pd.read_csv('netflix_titles.csv')
+goolgeInfo = data['title'].apply(get_googleInfo)
+goolgeInfo.to_csv('datasets/dataset_googleScraped.csv', encoding='utf-8', index=False)
 ```
 
 Since the data scrapping was done in Python, I now need to load all Google Search Results data into the R world of this project.
@@ -171,6 +202,7 @@ query <- "SELECT netflixData.show_id
         , netflixData.rating
         , netflixData.duration
         , netflixData.description
+        , netflixData.listed_in
         , googleData.Likes
         , googleData.Languages
         , googleData.Genres
@@ -185,8 +217,8 @@ dbClearResult(res)
 
 Both datasets are now joined but the feature names are quite confusing still. I will rename the features before showing a preview of the full combined dataset I will be working with.
 
-# Previewing Raw Data
-## Renaming Columns
+## Previewing Raw Data
+### Renaming Columns
 I rename the columns because some of them had the same names. 
 Independent features that were scraped from Google have "google_" at the front of them.
 ``` {r}
@@ -201,13 +233,14 @@ new_names <- c("id"
         , "rating"
         , "duration"
         , "plot"
+        , "listedIn"
         , "google_score"
         , "google_language"
         , "google_genre"
         , "google_plot")
 df <- setNames(df, new_names)
 ```
-## Data Preview
+### Data Preview
 Here is what the dataset looks like now, we can see all the features that will be used:
 ``` {r echo=FALSE}
 temp = head(df, 10)
@@ -219,8 +252,7 @@ temp %>%
 ```
 
 
-# Cleaning the data
-## Removing duplicates or irrelevant observations
+## Cleaning the data
 ### Dealing with duplicates 
 Checking if there are any duplicated Netflix Shows
 ``` {r}
@@ -228,12 +260,13 @@ print(length(unique(df$title)))
 ```
 
 ``` {r}
-print(df[duplicated(df$title),])
+duplicated <-df[duplicated(df$title),]
+print(duplicated$title)
 ```
 The Netflix shows that were thought to be duplicates by the code before seemed like dates instead.
 No duplicates. So we can move on. 
 
-### Drop rows
+#### Drop rows
 Any Netflix Show which does not have a Google Review Score (crucial dependent variable) is an irrelevant observation since it cannot be used for Analysis.
 ``` {r}
 count_blanks <- function(feature) {
@@ -279,6 +312,7 @@ NA_Count <- c(
 , toString(count_blanks('rating'))
 , toString(count_blanks('duration'))
 , toString(count_blanks('plot'))
+, toString(count_blanks('listedIn'))
 , toString(count_blanks('google_score'))
 , toString(count_blanks('google_language'))
 , toString(count_blanks('google_genre'))
@@ -286,19 +320,6 @@ NA_Count <- c(
 NA_Count <- data.frame(feature, NA_Count)
 
 print(NA_Count)
-```
-
-``` {r}
-missing.values <- df %>%
-    gather(key = "key", value = "val") %>%
-    mutate(is.missing = is.na(val)) %>%
-    group_by(key, is.missing) %>%
-    summarise(num.missing = n()) %>%
-    filter(is.missing==T) %>%
-    select(-is.missing) %>%
-    arrange(desc(num.missing))
-
-print(missing.values)
 ```
 
 Google Genre and Google Language are missing in a big proportion of rows.
@@ -315,41 +336,41 @@ view <- df %>% group_by(google_genre) %>% summarise(count = n())
 print(view)
 ```
 
-## Fixing structural errors.
+### Fixing structural errors.
 Structural errors are when you measure or transfer data and notice strange naming conventions, typos, or incorrect capitalization. These inconsistencies can cause mislabeled categories or classes. For example, you may find “N/A” and “Not Applicable” both appear, but they should be analyzed as the same category. Changing data types
 
 We will look feature by feature for structural errors.
 
-### 1. Type
+#### 1. Type
 ``` {r}
 view <- df %>% group_by(type) %>% summarise(count = n())
 print(view)
 ```
-The type feature looks clean, no action will be taken on it.
+The type feature looks clean, no action will be taken on it.\
 Action: None
 
-### 2. Director
+#### 2. Director
 ``` {r}
 view <- df %>% group_by(director) %>% summarise(count = n())
 print(view)
 ```
-Some of the rows have more than one director. 
+Some of the rows have more than one director. \
 Action: In the next Feature Engineering Section, I will make mapping tables and use feature engineering to capture this variable
 
-### 3. Cast
+#### 3. Cast
 ``` {r}
 view <- df %>% group_by(cast) %>% summarise(count = n())
 print(view)
 ```
-As expected, many Shows have more than one cast member. 
+As expected, many Shows have more than one cast member. \
 Action: Similar to what will be done with the Director Feature, I will make mapping tables and use feature engineering to capture this variable
 
-### 4. Country
+#### 4. Country
 ``` {r}
 view <- df %>% group_by(country) %>% summarise(count = n())
 print(view)
 ```
-Some shows originated from several different countries. However, the countries seem to be in the order of influence.
+Some shows originated from several different countries. However, the countries seem to be in the order of influence.\
 Action: Take the first country on the list.
 
 ``` {r}
@@ -358,37 +379,39 @@ df$country <- sub("\\,.*", "", df$country)
 view <- df %>% group_by(country) %>% summarise(count = n())
 print(view)
 ```
-Some Countries appear very few times 
-Action: I will group them into an "Others" category if count is less than 50
+Some Countries appear very few times \
+Also, we don't want too many categories to avoid overfitting and the curse of dimensionality.\
+Action: I will group them into an "Others" category if count is less than 100. 
 ``` {r}
 df <- df %>% 
     group_by(country) %>% 
-    mutate(country = ifelse(n()>50, country, 'Others'))
+    mutate(country = ifelse(n()>100, country, 'Others'))
 ```
 
-### 5. Date Added
+#### 5. Date Added
 ``` {r}
 view <- df %>% group_by(date_added) %>% summarise(count = n())
 print(view)
 ```
-Date Added looks good
+Date Added looks good\
 Action: None
 
-### 6. Release Year
+#### 6. Release Year
 ``` {r}
 view <- df %>% group_by(release_year) %>% summarise(count = n()) # Show release_year and count by each release_year
 print(view)
 print(typeof(df$release_year))
 ```
-Release Year has the integer type. No noticable structural error.
+Release Year has the integer type. No noticable structural error.\
 Action: None
 
-### 7. Rating
+#### 7. Rating
 ``` {r}
 view <- df %>% group_by(rating) %>% summarise(count = n()) # Show release_year and count by each release_year
 print(view)
 ```
-There are several categories which have the same meaning.
+There are several categories which have similar meaning. \
+Similar to the the Country feature, we don't want too many categories to avoid overfitting and the curse of dimensionality.\
 Action: Consolidate the categories
 
 Consolidate the categories of the Rating Feature
@@ -411,12 +434,12 @@ view <- df %>% group_by(rating) %>% summarise(count = n()) # Show release_year a
 print(view)
 ```
 
-### 8. Duration
+#### 8. Duration
 ``` {r}
 view <- df %>% group_by(duration) %>% summarise(count = n()) # Show duration and count by each release_year
 print(view)
 ```
-Durations with two different units are in the same feature. Also, we can remove their units to make it integers.
+Durations with two different units are in the same feature. Also, we can remove their units to make it integers.\
 Action: Split column into two different types of durations, remove units
 ``` {r}
 df$duration[df$duration ==""] <- NA
@@ -439,17 +462,26 @@ Drop duration column
 df = subset(df, select = -c(duration))
 ```
 
-### 10. Plot
-Plot contains text data.
+#### 9. Plot
+Plot contains text data.\
 Action: Use Latent Semantic Analysis to categorize plots
 
+#### 10. Listed In
+``` {r}
+view <- df %>% group_by(listedIn) %>% summarise(count = n()) # Show duration and count by each release_year
+print(view)
+```
+Contains many different category tags for each show, there is too many different combinations.\
+Using this feature alone would give us a few hundred features. Again, we want to avoid overfitting and the curse of dimensionality.\
+At the same time, there may be lots of useful information in the tags.
+Action: Attach Listend In tags to Plot for Latent Semantic Analysis
 
-### 11. Google Score
+#### 11. Google Score
 ``` {r}
 view <- df %>% group_by(google_score) %>% summarise(count = n()) # Show google_score and count by each google_score
 print(view)
 ```
-Symbol exist and type is character
+Symbol exist and type is character.\
 Action: remove symbol and convert type to numeric
 
 ``` {r}
@@ -457,27 +489,25 @@ df$google_score<-gsub("%","",as.character(df$google_score))
 df <- transform(df, google_score = as.numeric(google_score))
 ```
 
-### 13. Google language
+#### 13. Google Language
 Feature was engineered already, so it is clean.
 
-### 14. Google genre
+#### 14. Google Genre
 Feature was engineered already, so it is clean.
 
-### 15. Goolge Plot
-Goolge Plot contains text data.
+#### 15. Goolge Plot
+Goolge Plot contains text data.\
 Action: Use Latent Semantic Analysis to categorize plots
 
 
-# Filter unwanted outliers (pending section)
+## Data Transformation
 
-# Data Transformation
-
-## Mapping Tables 
-As talked about in the Data Cleaning Section above, I will build a mapping table for Cast and Director
+### Mapping Tables 
+As talked about in the Data Cleaning Section above, I will build a mapping table for Cast and Director.\
 
 This would help reflect their one to many relationship.
 
-### Build Director Mapping Table
+#### Build Director Mapping Table
 ``` {r}
 
 director_mapping <- df %>%
@@ -490,7 +520,7 @@ director_mapping$director <- trimws(director_mapping$director , which = c("left"
 write.csv(director_mapping, "datasets/mapping_director.csv", row.names=FALSE)
 ```
 
-### Build Cast Mapping Table
+#### Build Cast Mapping Table
 ``` {r}
 cast_mapping <- df %>%
     mutate(cast = strsplit(as.character(cast), ",")) %>%
@@ -502,17 +532,17 @@ write.csv(cast_mapping, "datasets/mapping_cast.csv", row.names=FALSE)
 ```
 
 
-# Feature engineering  
+## Feature engineering  
 ### Cast
-IMDB provides a dataset of Top 1000 Actors and Actresses based on their popularity. 
+IMDB provides a dataset of Top 1000 Actors and Actresses based on their popularity. \
 
 Analyse the IMDB actors dataset
 ``` {r}
 IMDBActors <- read.csv(file = 'datasets/dataset_popular_actors.csv')
 print(head(IMDBActors))
 ```
-The dataset  includes a numeric measure of their popularity in the column "Points".
-I clean that column so that it can be engineered, transformed and used as a feature in the main dataset.
+The dataset  includes a numeric measure of their popularity in the column "Points".\
+I clean that column so that it can be engineered, transformed and used as a feature in the main dataset.\
 I write the data into a csv as a view
 
 ```{r}
@@ -530,7 +560,7 @@ IMDBActress <- transform(IMDBActress, Points = as.numeric(Points))
 ```
 
 Once that is done, I attach the points of each Actor/Actress to the cast mapping table. (Not all cast members in the table have points because they may not be in the IMDB list)
-``` {r message=FALSE}
+``` {r message=FALSE, warning=FALSE}
 con <- dbConnect(RSQLite::SQLite(), ":memory:")
 
 dbWriteTable(con, "cast", cast_mapping)
@@ -551,8 +581,8 @@ castPointsMapping <- dbFetch(res)
 
 dbWriteTable(con, "castPointsMapping", castPointsMapping)
 ```
-
-For each Show/Movie, if there are points attached to at least one of the actors/actresses, I give the new variable cast_points the value "known", otherwise, it is labelled as "unknown".
+There are many ways to engineer a new feature with this new dataset. 
+For simplicity and interpretability, if there are points attached to at least one of the actors/actresses in a show, I give the new feature cast_points the value "known", otherwise, it is labelled as "unknown".
 ```{r}
 dbWriteTable(con, "main", df)
 
@@ -570,8 +600,8 @@ print(head(df[,c("title","cast_points")]))
 
 ```
 ### Directors
-I do the same for directors
-``` {r message=FALSE} 
+Similar to what was done with the cast, I do the same for directors
+``` {r message=FALSE, warning=FALSE} 
 IMDBDirectors <- read.csv(file = 'datasets/dataset_popular_directors.csv')
 
 IMDBDirectors <- separate(IMDBDirectors, Description, c("Points", "Description"))
@@ -631,82 +661,86 @@ temp %>%
 ```
 
 
-# Feature Engineering -  Latent Semantic Analysis of Plot and google plot data
+## Feature Engineering -  Latent Semantic Analysis of Plot and google plot data
 #### load data
+The features plot, google plot and listedIn provides us with text data which we could not use directly as features.\
+To extract valuable information from it, I use a technique in natural language processing.\
+Latent Semantic Analysis (LSA) Uses the statistical approach to identify the association among the words in a document.\
+This means we can use LSA to identify the similarity between Netflix Shows base on the text in their plot, google plot and listed In tags.
+Using LSA, we will also group similary Shows and use these groups in the Multiregression mode.
 
-#``` {r}
-main <- read.csv(file = 'datasets/view_main_features.csv')
-main$plot_combined <- paste(main$plot,main$google_plot)
-#```
+``` {r}
+main <- read.csv(file = 'datasets/view_main_cleaned.csv')
+main$plot_combined <- paste(main$plot,main$listedIn,main$google_plot)
+```
 #### Convert data to corpus
-#``` {r}
+``` {r}
 corpus <- Corpus(VectorSource(main$plot_combined))
-#```
+```
 
 #### Remove special characters, case, punctuation and numbers
-#``` {r}
+``` {r message=FALSE, warning=FALSE}
 
 removeSpecialChars <- function(x) gsub("[^a-zA-Z0-9 ]","",x)
 corpus <- tm_map(corpus, removeSpecialChars)
 corpus <- tm_map(corpus, removeNumbers)
 corpus <- tm_map(corpus, removePunctuation)
 corpus <- tm_map(corpus, content_transformer(tolower))
-#```
+```
 
 #### Remove stop words
-#``` {r}
+``` {r message=FALSE, warning=FALSE}
 corpus <- tm_map(corpus, removeWords, stopwords("english"))
-#```
+```
 
 #### Remove white space
-#``` {r}
+``` {r message=FALSE, warning=FALSE}
 corpus <- tm_map(corpus, stripWhitespace)
-#```
+```
 
 #### Stemming
-#``` {r}
+``` {r message=FALSE, warning=FALSE}
 corpus <- tm_map(corpus, stemDocument)
-#```
+```
 
 #### Term document matrix
-#``` {r}
+``` {r message=FALSE, warning=FALSE}
 tdm <- TermDocumentMatrix(corpus)
-#```
+```
 
-#### View top 5 most frequently occuring term
-#``` {r}
+#### View top 20 most frequently occuring term
+``` {r }
 tdmMatrix <- as.matrix(tdm)
 v <- sort(rowSums(tdmMatrix), decreasing=TRUE)
 d <- data.frame(word=names(v),freq=v)
-print(head(d,5))
-#```
+print(head(d,20))
+```
 
 #### Weighting 
-#``` {r}
+``` {r}
 tdm2 <- as.textmatrix(as.matrix(tdm))
 tdm.weighted <- lw_logtf(tdm2)
-print(tdm.weighted)
-#```
+```
 
 #### Latent Semantic Analysis
-#``` {r}
-lsa <- lsa(tdm.weighted, dims=10)
+``` {r eval=FALSE}
+lsa <- lsa(tdm.weighted, dims=6)
 
 Tk <- lsa$tk
 Sk <- lsa$sk
 Dk <- lsa$dk 
-#```
+```
 
 #### Varimax Rotation
-#``` {r}
+``` {r eval=FALSE}
 Tk.varimax <- varimax(Tk)
 
 Dk.rotated <- Dk %*% Tk.varimax$rotmat
 Tk.rotated <- Tk %*% Tk.varimax$rotmat 
-#```
+```
 
 #### Interreting Term and Document Matrices
-#``` {r}
+``` {r eval=FALSE}
 
 sort.loadings.table <- function(x) {
     factor.names <- colnames(x)
@@ -731,34 +765,31 @@ write.csv(Tk.thresholded[,.(item, max.factor, max.value)], "datasets/tk.csv", ro
 Dk.thresholded <- as.data.table(threshold.loadings.table(sort.loadings.table(Dk.rotated),q=1))
 print(Dk.thresholded[,.(item,max.factor,max.value)])
 write.csv(Dk.thresholded[,.(item,max.factor,max.value)],"datasets/dk.csv", row.names=FALSE)
-#```
-###biplot
-#``` {r}
-biplot <- function(Tk,Dk,xdim,ydim,Tk.scale=1,...){
-    print("made it")
-    Tk[,type:="Terms"]
-    Dk[,type:="Title"]
-    biplot.data <- rbindlist(list(Tk,Dk))
-    setnames(biplot.data,xdim,"F1")
-    setnames(biplot.data,ydim,"F2")
-    biplot.data[type=="Terms",F1:=F1*Tk.scale]
-    biplot.data[type=="Terms",F2:=F2*Tk.scale]
-    ggplot(biplot.data, aes(x=F1, y=F2, label=item, col=type)) + geom_text()
-}
+```
+Below shows a collection of words from the LSA analysis.\
+ Words of the same group have the same colour
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("LSA_word_grouping.JPG")
+```
+These Are my findings from the groupings:\
+Group 1 (blue) love, romance and marriage\
+Group 2 (orange) crime and investigation\
+Group 3 (green) comedy\
+Group 4 (red) action, adventure and sci-fi\
+Group 5 (purple) documentaries and docuseries\
+Group 6 (grey) children\
 
-plot(biplot(Tk=Tk.thresholded,Dk=Dk.thresholded, xdim="V1", ydim="V2", Tk.scale=2))
-#```
 
-# Join LSA data to main dataframe
+#### Join LSA data to main dataframe
 
 ``` {r}
 con <- dbConnect(RSQLite::SQLite(), ":memory:")
 
 main <- read.csv(file = 'datasets/view_main_cleaned.csv')
-lsa <- read.csv(file = 'datasets/lsa_2.csv')
+lsa <- read.csv(file = 'datasets/dk.csv')
 
 lsa$item <- sub("^", "s", lsa$item)
-
+ 
 dbWriteTable(con, "main", main)
 dbWriteTable(con, "lsa", lsa)
 
@@ -769,13 +800,13 @@ res <- dbSendQuery(con, query)
 df <- dbFetch(res)
 dbClearResult(res)
 
-df = subset(df, select = -c(plot,google_plot))
+df = subset(df, select = -c(plot,google_plot,listedIn))
 
 write.csv(df, "datasets/view_main_lsa.csv", row.names=FALSE)
 
 dbDisconnect(con)
 ```
-# Data Preview 
+#### Data Preview 
 ``` {r echo=FALSE}
 temp = head(df, 10)
 temp %>%
@@ -785,109 +816,107 @@ temp %>%
   scroll_box(width = "1000px", height = "500px")
 ```
 
-
-
-# Machine learning model Multi Regressions
-#``` {r}
-main <- read.csv(file = 'datasets/view_main_lsa.csv')
-
-main$date_added <- as.Date(as.character(main$date_added))
-main$max.factor<-as.character(main$max.factor)
-
-main = subset(main, select = -c(plot,google_plot,id,title,duration_units,item,max.value))
-
-row.number <- sample(1:nrow(main), 0.5*nrow(main))
-train = main[row.number,]
-test = main[-row.number,]
-
-print("running regression.....")
-model1 = lm(log(google_score)~., data=train)
-print(summary(model1))
-#```
-
-
-# Exploratory Data Analysis
-# https://shopify.engineering/conducting-exploratory-data-analysis
+## Exploratory Data Analysis
 
 ### Feature Description 
 
 1. Type : Type of Netflix Show (Movie or TV Show)
 2. Title: Name of the Netflix Show
-3. Director : List of directors of the show
-4. Cast: List of casts of the show
-5. Country: List of countries relating to the show
-6. Date Added: Date the show was put on Netflix
-7. Release Year: Year the show was first released
-8. Genre: List of genres of the show 
-9. Plot: Description of the plot of the show
-10. Google Score: Displayed on Google as the percentage of viewers that liked a show
-11. Google Genre: Whether or not Genre is absent/present in the google search
-12. Google Language: Whether or not Language is absent/present in the google search
-13. Google Plot: Plot of the show according to Google
-14. Duration Minutes: Duration of the movie in minutes
-15. Duration Seasons: Durationg of the TV show in terms of how many seasons it has
-16. Cast Points: Level of popularity of the most famous cast member of the show according to IMDB
-17. Director Points: Level of popularity of the most famous director of the show according to IMDB
-18. LSA category: Category of the show according to the LSA algorithm
+3. Country: List of countries relating to the show
+4. Date Added: Date the show was put on Netflix
+5. Release Year: Year the show was first released
+6. Rating: List of genres of the show 
+7. Google Score: Displayed on Google as the percentage of viewers that liked a show
+8. Google Genre: Whether or not Genre is absent/present in the google search
+9. Google Language: Whether or not Language is absent/present in the google search
+10. Duration Minutes: Duration of the movie in minutes
+11. Duration Seasons: Durationg of the TV show in terms of how many seasons it has
+12. Cast Points: Whether or not the cast members are famous according to IMDB
+13. Director Points: Whether or not the directors are famous according to IMDB
+14. LSA Value: Category of the show according to the LSA algorithm
 
-Dependent Feature:
-Google Score:
+Dependent Feature: Google Score
 
-Independent Features:
-Type, Date Added, Release Year, Google Genre, Google Language, Duration Minutes, Duration Seasons, Cast Points, Director Points, LSA Category
+### Distribution Analysis of each Feature
+Click through the tableau story to see how each feature is distributed:
 
-Features not directly for Analysis:
-Title, Director, Cast, Country, Genre, Plot, Google Plot
+<iframe src=" https://public.tableau.com/views/NetflixDistribution/Story1?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link
+:showVizHome=no&:embed=true"
+ width="1050" height="870"></iframe>
 
-### Among the Independent Features, What are the Categorical, discrete and continuous features 
 
-Categorical: Type, LSA Category
+### Bivariate Analysis - Significant Correlations
+Click through the tableau story to see how each feature is correlated with Google Scores:
+<iframe src=" https://public.tableau.com/views/BivariateAnalysisNetflix/Story1?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link
+:showVizHome=no&:embed=true"
+ width="1050" height="850"></iframe>
 
-Discrete: Date Added, Release Year, Google Genre, Google Language, Duration Seasons
+### Feature Selection
+The duration of a show both in terms of minutes and seasons seem to have a very strong positive correlation with the likeability of a show.\
+Since many popular and highly rated shows will more likely renew for a next season, there is a high chance of reverse causality.\
+Because of this, I remove duration_season from the multi regression analysis.
 
-Continuous: Duration Minutes, Cast Points, Director Points
+Similarly, there is a high chance that if a show is very popular, google is more likely to list it's genre and language.
+To mitigate the effects of reverse causality on the model, I remove google genre and google language from the model.
 
-### Distribution of the features
+## Machine learning with Multi Regression
 
-```{r echo=FALSE, out.width = '50%'}
-knitr::include_graphics("Type Distribution.JPG")
-```
-```{r echo=FALSE, out.width = '50%'}
-knitr::include_graphics("DirectorDist.JPG")
-```
-```{r echo=FALSE, out.width = '50%'}
-knitr::include_graphics("CastDist.JPG")
-```
-```{r echo=FALSE, out.width = '50%'}
-knitr::include_graphics("DateAddedDist.JPG")
+``` {r}
+main <- read.csv(file = 'datasets/view_main_lsa.csv')
 ```
 
-<iframe src=" https://public.tableau.com/views/DistributionNetflix/TypeDist?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&:embed=true"
- width="645" height="955"></iframe>
+```{r  echo=FALSE}
+main$date_added <- mdy(main$date_added)
+main$lsa_value <- as.character(main$lsa_value)
+main$duration_min <- main$duration_min %>% replace(is.na(.), 0)
+main$duration_season <- main$duration_season %>% replace(is.na(.), 0)
+``` 
 
+Score as a function of all the features
+```{r}
+main = subset(main, select = -c(id,title,duration_season, google_genre, google_language))
 
+model = lm(log(google_score)~., data=main)
+print(summary(model))
+```
 
+### Findings 
 
+Positively Correlated with significance \
+* TV Show\
+* Japan, South Korea,United Kingdom, United States\
+* Duration minutes\
 
-### Find outliers
+Negatively Correlated with significance \
+* Release Year\
+* Rating Y\
 
-### Significant Correlations
+These findings suggest that TV shows are more likeable than movies when other features are held constant.\
+Furthermore, shows from Japan, South Korea, United Kingdom, United States also do better.\
+The longer the movie, the higher it's score\
 
-### Corelation between numeric features
-Before we get started, it would be useful to know how correlated the features are. I do this for the numeric features. 
-<!-- ``` {r}
-numeric_features <-  select_if(df, is.numeric)
-corr <- cor(numeric_features)
-ggcorrplot(corr)
-plot()
-``` -->
+On the other hand, there is a significant negavite correlation between a show's likeability and it's release_year.\
+Shows with a Rating Y (All Children) also have a negative correlation with it's google score.\
 
-### Findings
-* Release Year and Google Score are slightly negatively correlated
-* Director Points and and Google Score are also slightly positively correlated
-* Cast Points and and Google Score are also slightly positively correlated 
-* Release Year and Director Points are slightly negatively correlated
-* Release Year and Cast Points are slightly negatively correlated
+### Discussion
 
-
-# 
+Throughout the process, I noted a few thing that might affect the accuracy of the model.\
+1. All the shows in the data set are selected by Netflix, in no way does it represent all the shows that exist in the world.\
+2. Since I only use the data if I can retrieve it’s Google Review Score data, the shows that are in analysed in the model are biased. For example, Google will most likely only be able to provide data for well-known shows in the English speaking world. Furthermore, show titles which are not unique enough are less likely to have a Google Score  search result.\
+3. IMDB Top Actors and Directors Lists are likely to be biased towards the English speaking world, meaning cast or director that could be hugely popular in their origin country might not be classified as “Known”.\
+\
+The random quirks of this sample could cause and overfitting of the multi regression model and reduce its usability on datasets from the non-Netflix world.\
+That being said, the large amount of oversations that we have (6511 titles) could ease the risk of overfitting. \
+\
+There were still a lot of features that could have been created with the dataset. \
+For example, more data from Google could have been scraped, more features could have been engineered from the existing Netflix dataset, etc. \
+However, I took steps to avoid the curse of dimensionality, which indicates that the number of samples needed to estimate an arbitrary function with a given level of accuracy grows exponentially with respect to the number of input variables.\
+From the data I had, I selected features which I found most interesting and likely to explain the score \
+\
+Similarly, I also considered how interpretable the features in the model were.\
+ Although certain features could increase model accuracy, they also increased model complexity, at the cost of interpretability.\
+All the features apart from the LSA value are very easility interpretable features.\
+\
+Another issue I was looking out for was the bias-variance trade off.\
+If our model is too simple and has very few parameters then it may have high bias and low variance.\
+On the other hand if our model has large number of parameters then it’s going to have high variance and low bias\

@@ -11,4 +11,6 @@
 # install.packages("reticulate")
 # install.packages("Hmisc")
 # install.packages("ggcorrplot")
-install.packages("forcats")
+# install.packages("forcats")
+install.packages("jtools")
+

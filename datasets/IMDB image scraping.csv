@@ -1,0 +1,1586 @@
+Position,Points,Name,Known.For,Birth.Date,Wiki_Name
+1,174697,Brad Pitt,Ad Astra,18/12/1963,Brad_Pitt
+2,169322,Morgan Freeman,Invictus,01/06/1937,Morgan_Freeman
+3,165028,Leonardo DiCaprio,Inception,11/11/1974,Leonardo_DiCaprio
+4,151313,Robert De Niro,Raging Bull,17/08/1943,Robert_De_Niro
+5,140716,Matt Damon,Good Will Hunting,08/10/1970,Matt_Damon
+6,137003,Michael Caine,The Dark Knight,14/03/1933,Michael_Caine
+7,126932,Christian Bale,The Dark Knight,30/01/1974,Christian_Bale
+8,119774,Tom Hanks,Cast Away,09/07/1956,Tom_Hanks
+9,112643,Gary Oldman,The Dark Knight,21/03/1958,Gary_Oldman
+10,106454,Al Pacino,Serpico,25/04/1940,Al_Pacino
+11,97268,Bruce Willis,Die Hard,19/03/1955,Bruce_Willis
+12,90851,Edward Norton,Fight Club,18/08/1969,Edward_Norton
+13,88197,Harrison Ford,Raiders of the Lost Ark,13/07/1942,Harrison_Ford
+14,84624,Johnny Depp,Sweeney Todd: The Demon Barber of Fleet Street,09/06/1963,Johnny_Depp
+15,79799,Cillian Murphy,28 Days Later...,25/05/1976,Cillian_Murphy
+16,79279,Philip Seymour Hoffman,The Master,23/07/1967,Philip_Seymour_Hoffman
+17,78876,Samuel L. Jackson,Pulp Fiction,21/12/1948,Samuel_L._Jackson
+18,77799,Ralph Fiennes,The Grand Budapest Hotel,22/12/1962,Ralph_Fiennes
+19,73563,Kevin Spacey,The Usual Suspects,26/07/1959,Kevin_Spacey
+20,72957,Tom Hardy,Inception,15/09/1977,Tom_Hardy
+21,72904,Jack Nicholson,Chinatown,22/04/1937,Jack_Nicholson
+22,71430,Woody Harrelson,True Detective,23/07/1961,Woody_Harrelson
+23,69889,Tom Cruise,Top Gun,03/07/1962,Tom_Cruise
+24,66238,Robert Duvall,The Apostle,05/01/1931,Robert_Duvall
+25,63982,Ryan Gosling,Blue Valentine,12/11/1980,Ryan_Gosling
+26,63650,Russell Crowe,Les Misérables,07/04/1964,Russell_Crowe
+27,62922,Liam Neeson,Kinsey,07/06/1952,Liam_Neeson
+28,62549,Steve Buscemi,Fargo,13/12/1957,Steve_Buscemi
+29,62972,Jake Gyllenhaal,Nightcrawler,19/12/1980,Jake_Gyllenhaal
+30,61094,Joseph Gordon-Levitt,Inception,17/02/1981,Joseph_Gordon-Levitt
+31,60975,Mark Ruffalo,Spotlight,22/11/1967,Mark_Ruffalo
+32,60431,Harvey Keitel,Reservoir Dogs,13/05/1939,Harvey_Keitel
+33,60383,Denzel Washington,Fences,28/12/1954,Denzel_Washington
+34,60087,George Clooney,The Ides of March,06/05/1961,George_Clooney
+35,58148,Bradley Cooper,A Star Is Born,05/01/1975,Bradley_Cooper
+36,57041,Hugo Weaving,The Lord of the Rings: The Return of the King,04/04/1960,Hugo_Weaving
+37,55794,Jude Law,The Talented Mr. Ripley,29/12/1972,Jude_Law
+38,55367,Clint Eastwood,Million Dollar Baby,31/05/1930,Clint_Eastwood
+39,54943,Joaquin Phoenix,Her,28/10/1974,Joaquin_Phoenix
+40,54670,Casey Affleck,Gone Baby Gone,12/08/1975,Casey_Affleck
+41,53209,Matthew McConaughey,Dallas Buyers Club,04/11/1969,Matthew_McConaughey
+42,52954,Tim Robbins,Mystic River,16/10/1958,Tim_Robbins
+43,52909,Keanu Reeves,The Matrix,02/09/1964,Keanu_Reeves
+44,51974,Ed Harris,The Truman Show,28/11/1950,Ed_Harris
+45,51803,John Carroll Lynch,The Founder,01/08/1963,John_Carroll_Lynch
+46,51617,Tom Wilkinson,Michael Clayton,05/02/1948,Tom_Wilkinson
+47,51423,Ben Kingsley,Sexy Beast,31/12/1943,Ben_Kingsley
+48,49911,Willem Dafoe,Spider-Man,22/07/1955,Willem_Dafoe
+49,49176,John Hurt,Nineteen Eighty-Four,22/01/1940,John_Hurt
+50,49039,John Cazale,Dog Day Afternoon,12/08/1935,John_Cazale
+51,48983,Barry Pepper,'Saving Private Ryan': Boot Camp,04/04/1970,Barry_Pepper
+52,48591,Ben Affleck,Argo,15/08/1972,Ben_Affleck
+53,46997,Jared Leto,Dallas Buyers Club,26/12/1971,Jared_Leto
+54,46579,Stanley Tucci,Big Night,11/11/1960,Stanley_Tucci
+55,46571,Laurence Fishburne,The Matrix,30/07/1961,Laurence_Fishburne
+56,46163,Daniel Craig,Casino Royale,02/03/1968,Daniel_Craig
+57,46073,Bill Murray,Lost in Translation,21/09/1950,Bill_Murray
+58,45674,Christoph Waltz,Django Unchained,04/10/1956,Christoph_Waltz
+59,44975,Dustin Hoffman,The Graduate,08/08/1937,Dustin_Hoffman
+60,44924,Donald Sutherland,The Hunger Games: Catching Fire,17/07/1935,Donald_Sutherland
+61,44850,Tim Roth,Rob Roy,14/05/1961,Tim_Roth
+62,44814,Ian Holm,The Lord of the Rings: The Return of the King,12/09/1931,Ian_Holm
+63,44481,Michael Fassbender,Shame,02/04/1977,Michael_Fassbender
+64,44409,Heath Ledger,Brokeback Mountain,04/04/1979,Heath_Ledger
+65,44096,Paul Giamatti,Sideways,06/06/1967,Paul_Giamatti
+66,44041,Orlando Bloom,The Lord of the Rings: The Fellowship of the Ring,13/01/1977,Orlando_Bloom
+67,43931,Alec Baldwin,The Departed,03/04/1958,Alec_Baldwin
+68,43787,Michael Madsen,The Hateful Eight,25/09/1957,Michael_Madsen
+69,43522,Ken Watanabe,The Last Samurai,21/10/1959,Ken_Watanabe
+70,43278,Pete Postlethwaite,The Usual Suspects,07/02/1946,Pete_Postlethwaite
+71,43212,Martin Sheen,The Departed,03/08/1940,Martin_Sheen
+72,42962,Guy Pearce,Memento,05/10/1967,Guy_Pearce
+73,42916,Jamie Foxx,Ray,13/12/1967,Jamie_Foxx
+74,42828,Anthony Hopkins,The Silence of the Lambs,31/12/1937,Anthony_Hopkins
+75,42680,Chiwetel Ejiofor,12 Years a Slave,10/07/1977,Chiwetel_Ejiofor
+76,42070,Will Smith,The Fresh Prince of Bel-Air,25/09/1968,Will_Smith
+77,41906,Alan Rickman,Die Hard,21/02/1946,Alan_Rickman
+78,41857,Geoffrey Rush,The King's Speech,06/07/1951,Geoffrey_Rush
+79,41464,Joe Pesci,Goodfellas,09/02/1943,Joe_Pesci
+80,41279,Brendan Gleeson,Calvary,29/03/1955,Brendan_Gleeson
+81,41149,Mark Wahlberg,The Fighter,05/06/1971,Mark_Wahlberg
+82,40666,Ethan Hawke,Training Day,06/11/1970,Ethan_Hawke
+83,39805,John Goodman,10 Cloverfield Lane,20/06/1952,John_Goodman
+84,39750,Max von Sydow,Flash Gordon,10/04/1929,Max_von_Sydow
+85,39683,Christopher Lloyd,Back to the Future,22/10/1938,Christopher_Lloyd
+86,39094,Christopher Plummer,Beginners,13/12/1929,Christopher_Plummer
+87,38644,Benedict Cumberbatch,The Imitation Game,19/07/1976,Benedict_Cumberbatch
+88,38601,Michael Shannon,Take Shelter,07/08/1974,Michael_Shannon
+89,37963,Mykelti Williamson,Forrest Gump,04/03/1957,Mykelti_Williamson
+90,37891,Robin Williams,Mrs. Doubtfire,21/07/1951,Robin_Williams
+91,37869,Marlon Brando,Apocalypse Now,03/04/1924,Marlon_Brando
+92,37869,Adrien Brody,The Pianist,14/04/1973,Adrien_Brody
+93,37792,Paul Dano,There Will Be Blood,19/06/1984,Paul_Dano
+94,37576,Stellan Skarsgård,Good Will Hunting,13/06/1951,Stellan_Skarsgård
+95,37418,Don Cheadle,Crash,29/11/1964,Don_Cheadle
+96,37218,Owen Wilson,The Royal Tenenbaums,18/11/1968,Owen_Wilson
+97,37180,Daniel Brühl,Rush,16/06/1978,Daniel_Brühl
+98,36780,Benicio Del Toro,Sicario,19/02/1967,Benicio_Del_Toro
+99,36442,Jeremy Renner,The Hurt Locker,07/01/1971,Jeremy_Renner
+100,36291,Harry Dean Stanton,Alien,14/07/1926,Harry_Dean_Stanton
+101,36265,Robert Downey Jr.,Iron Man,04/04/1965,Robert_Downey_Jr.
+102,36156,Aaron Eckhart,The Dark Knight,12/03/1968,Aaron_Eckhart
+103,35670,Bruce Dern,Nebraska,04/06/1936,Bruce_Dern
+104,35510,Richard Harris,Unforgiven,01/10/1930,Richard_Harris
+105,35406,Zach Galifianakis,The Hangover,01/10/1969,Zach_Galifianakis
+106,35387,Kyle Chandler,Super 8,17/09/1965,Kyle_Chandler
+107,35216,Sam Rockwell,Moon,05/11/1968,Sam_Rockwell
+108,34900,Colin Farrell,The Lobster,31/05/1976,Colin_Farrell
+109,34838,Tom Sizemore,Saving Private Ryan,29/11/1961,Tom_Sizemore
+110,34227,Jim Carrey,Eternal Sunshine of the Spotless Mind,17/01/1962,Jim_Carrey
+111,34178,John Travolta,Pulp Fiction,18/02/1954,John_Travolta
+112,34116,Elliott Gould,M*A*S*H,29/08/1938,Elliott_Gould
+113,33688,Danny DeVito,Matilda,17/11/1944,Danny_DeVito
+114,33663,Sean Connery,Dr. No,25/08/1930,Sean_Connery
+115,33539,Javier Bardem,Skyfall,01/03/1969,Javier_Bardem
+116,33362,Ewan McGregor,Moulin Rouge!,31/03/1971,Ewan_McGregor
+117,33206,Mahershala Ali,House of Cards,16/02/1974,Mahershala_Ali
+118,32827,Jonathan Pryce,The Two Popes,01/06/1947,Jonathan_Pryce
+119,32696,John C. Reilly,Chicago,24/05/1965,John_C._Reilly
+120,32491,Forest Whitaker,The Last King of Scotland,15/07/1961,Forest_Whitaker
+121,32217,Josh Hutcherson,The Hunger Games,12/10/1992,Josh_Hutcherson
+122,32083,Josh Brolin,Avengers: Endgame,12/02/1968,Josh_Brolin
+123,31912,Sean Penn,Mystic River,17/08/1960,Sean_Penn
+124,31471,Jonah Hill,21 Jump Street,20/12/1983,Jonah_Hill
+125,31054,Mark Hamill,Star Wars,25/09/1951,Mark_Hamill
+126,30854,Michael Stuhlbarg,A Serious Man,05/07/1968,Michael_Stuhlbarg
+127,30841,Colin Firth,A Single Man,10/09/1960,Colin_Firth
+128,30707,Jean Reno,Léon,30/07/1948,Jean_Reno
+129,30704,Liam Hemsworth,The Hunger Games,13/01/1990,Liam_Hemsworth
+130,30683,Matthew Modine,Full Metal Jacket,22/03/1959,Matthew_Modine
+131,30471,Gary Sinise,Forrest Gump,17/03/1955,Gary_Sinise
+132,30399,William H. Macy,Fargo,13/03/1950,William_H._Macy
+133,30311,Jeffrey Wright,The French Dispatch,07/12/1965,Jeffrey_Wright
+134,30256,Sterling Hayden,Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb,26/03/1916,Sterling_Hayden
+135,29945,Hugh Jackman,Les Misérables,12/10/1968,Hugh_Jackman
+136,29869,Viggo Mortensen,The Lord of the Rings: The Return of the King,20/10/1958,Viggo_Mortensen
+137,29786,Timothy Spall,Mr. Turner,27/02/1957,Timothy_Spall
+138,29732,Franco Nero,John Wick: Chapter 2,23/11/1941,Franco_Nero
+139,29673,David Oyelowo,Selma,01/04/1976,David_Oyelowo
+140,29623,Ving Rhames,Pulp Fiction,12/05/1959,Ving_Rhames
+141,29255,Ben Whishaw,The Lobster,14/10/1980,Ben_Whishaw
+142,29229,David Strathairn,"Good Night, and Good Luck.",26/01/1949,David_Strathairn
+143,29135,John Cleese,A Fish Called Wanda,27/10/1939,John_Cleese
+144,28981,Giovanni Ribisi,Boiler Room,17/12/1974,Giovanni_Ribisi
+145,28981,Michael Keaton,Birdman or (The Unexpected Virtue of Ignorance),05/09/1951,Michael_Keaton
+146,28927,Elijah Wood,The Lord of the Rings: The Fellowship of the Ring,28/01/1981,Elijah_Wood
+147,28821,Don Johnson,Miami Vice,15/12/1949,Don_Johnson
+148,28789,Domhnall Gleeson,Frank,12/05/1983,Domhnall_Gleeson
+149,28737,Christopher Walken,The Deer Hunter,31/03/1943,Christopher_Walken
+150,28721,Kevin Bacon,Footloose,08/07/1958,Kevin_Bacon
+151,28628,Tommy Lee Jones,The Fugitive,15/09/1946,Tommy_Lee_Jones
+152,28323,Tom Berenger,Inception,31/05/1949,Tom_Berenger
+153,28131,Jeff Daniels,The Squid and the Whale,19/02/1955,Jeff_Daniels
+154,27692,Ray Liotta,Goodfellas,18/12/1954,Ray_Liotta
+155,27299,Michael J. Fox,Back to the Future,09/06/1961,Michael_J._Fox
+156,27206,James Caan,The Godfather,26/03/1940,James_Caan
+157,27016,Michael Sheen,Masters of Sex,05/02/1969,Michael_Sheen
+158,26949,Sam Shepard,August: Osage County,05/11/1943,Sam_Shepard
+159,26905,Gene Hackman,The French Connection,30/01/1930,Gene_Hackman
+160,26663,J.K. Simmons,Whiplash,09/01/1955,J.K._Simmons
+161,26047,Rutger Hauer,Hobo with a Shotgun,23/01/1944,Rutger_Hauer
+162,25874,Kurt Russell,The Hateful Eight,17/03/1951,Kurt_Russell
+163,25868,Jon Voight,Midnight Cowboy,29/12/1938,Jon_Voight
+164,25324,Alan Arkin,Argo,26/03/1934,Alan_Arkin
+165,25215,Val Kilmer,The Doors,31/12/1959,Val_Kilmer
+166,25155,Christian Berkel,The Man from U.N.C.L.E.,28/10/1957,Christian_Berkel
+167,24823,Bill Paxton,Aliens,17/05/1955,Bill_Paxton
+168,24265,Mel Gibson,Braveheart,03/01/1956,Mel_Gibson
+169,24198,Albert Finney,Erin Brockovich,09/05/1936,Albert_Finney
+170,24113,John Malkovich,Being John Malkovich,09/12/1953,John_Malkovich
+171,24039,James Stewart,Anatomy of a Murder,20/05/1908,James_Stewart
+172,23997,Andy Garcia,Ocean's Eleven,12/04/1956,Andy_Garcia
+173,23458,Simon Pegg,Shaun of the Dead,14/02/1970,Simon_Pegg
+174,23437,Nicolas Cage,Face/Off,07/01/1964,Nicolas_Cage
+175,23300,Vincent Cassel,L'ennemi public n°1,23/11/1966,Vincent_Cassel
+176,22887,Danny Aiello,Do the Right Thing,20/06/1933,Danny_Aiello
+177,22740,Terrence Howard,Crash,11/03/1969,Terrence_Howard
+178,22667,William Hurt,A History of Violence,20/03/1950,William_Hurt
+179,22548,John Lithgow,The World According to Garp,19/10/1945,John_Lithgow
+180,22373,Steve Carell,The Office,16/08/1962,Steve_Carell
+181,22331,Alec Guinness,The Bridge on the River Kwai,02/04/1914,Alec_Guinness
+182,22319,Clive Owen,Children of Men,03/10/1964,Clive_Owen
+183,21773,Danny Huston,The Constant Gardener,14/05/1962,Danny_Huston
+184,21744,John Turturro,Barton Fink,28/02/1957,John_Turturro
+185,21725,Richard Conte,The Godfather,24/03/1910,Richard_Conte
+186,21672,Hugh Grant,Love Actually,09/09/1960,Hugh_Grant
+187,21640,Nick Nolte,Warrior,08/02/1941,Nick_Nolte
+188,21202,Jim Broadbent,Moulin Rouge!,24/05/1949,Jim_Broadbent
+189,21190,Jeff Goldblum,Jurassic Park,22/10/1952,Jeff_Goldblum
+190,21157,Michael Nyqvist,John Wick,08/11/1960,Michael_Nyqvist
+191,21126,Joel Edgerton,The Gift,23/06/1974,Joel_Edgerton
+192,20987,David Carradine,Kill Bill: Vol. 2,08/12/1936,David_Carradine
+193,20980,Kevin Costner,The Postman,18/01/1955,Kevin_Costner
+194,20893,Jason Statham,Crank,26/07/1967,Jason_Statham
+195,20619,Emile Hirsch,Into the Wild,13/03/1985,Emile_Hirsch
+196,20483,Daniel Radcliffe,Harry Potter and the Deathly Hallows - Part 2,23/07/1989,Daniel_Radcliffe
+197,20483,Rupert Grint,Harry Potter and the Sorcerer's Stone,24/08/1988,Rupert_Grint
+198,20458,Shia LaBeouf,Honey Boy,11/06/1986,Shia_LaBeouf
+199,20415,John Hawkes,The Sessions,11/09/1959,John_Hawkes
+200,20247,Christopher Lee,Star Wars: Episode II - Attack of the Clones,27/05/1922,Christopher_Lee
+201,20201,James Franco,Spring Breakers,19/04/1978,James_Franco
+202,20074,Eric Bana,Dirty John,09/08/1968,Eric_Bana
+203,19979,Daniel Day-Lewis,There Will Be Blood,29/04/1957,Daniel_Day-Lewis
+204,19922,Miles Teller,Whiplash,20/02/1987,Miles_Teller
+205,19868,Haley Joel Osment,The Sixth Sense,10/04/1988,Haley_Joel_Osment
+206,19851,Shea Whigham,Take Shelter,05/01/1969,Shea_Whigham
+207,19756,Gabriel Byrne,The Usual Suspects,12/05/1950,Gabriel_Byrne
+208,19734,Jeff Bridges,The Big Lebowski,04/12/1949,Jeff_Bridges
+209,19718,Bryan Cranston,Breaking Bad,07/03/1956,Bryan_Cranston
+210,19649,Topher Grace,In Good Company,12/07/1978,Topher_Grace
+211,19619,Seth Rogen,This Is the End,15/04/1982,Seth_Rogen
+212,19603,Mark Rylance,Bridge of Spies,18/01/1960,Mark_Rylance
+213,19574,Ben Stiller,Zoolander,30/11/1965,Ben_Stiller
+214,19565,Hal Holbrook,Into the Wild,17/02/1925,Hal_Holbrook
+215,19548,Rod Taylor,Inglourious Basterds,11/01/1930,Rod_Taylor
+216,19310,Jean Dujardin,The Artist,19/06/1972,Jean_Dujardin
+217,19301,Oscar Isaac,Ex Machina,09/03/1979,Oscar_Isaac
+218,19298,Ian McKellen,The Lord of the Rings: The Fellowship of the Ring,25/05/1939,Ian_McKellen
+219,19167,Chris Hemsworth,The Avengers,11/08/1983,Chris_Hemsworth
+220,19075,Chris Pratt,Guardians of the Galaxy,21/06/1979,Chris_Pratt
+221,18407,Michael Douglas,Behind the Candelabra,25/09/1944,Michael_Douglas
+222,18301,Jason Clarke,Zero Dark Thirty,17/07/1969,Jason_Clarke
+223,18206,Eli Wallach,"Il buono, il brutto, il cattivo",07/12/1915,Eli_Wallach
+224,18195,Mathieu Amalric,Le scaphandre et le papillon,25/10/1965,Mathieu_Amalric
+225,18120,David Hemmings,Blow-Up,18/11/1941,David_Hemmings
+226,18110,Liev Schreiber,Spotlight,04/10/1967,Liev_Schreiber
+227,17880,Pierce Brosnan,The World Is Not Enough,16/05/1953,Pierce_Brosnan
+228,17562,Rupert Graves,Sherlock,30/06/1963,Rupert_Graves
+229,17550,Jesper Christensen,Quantum of Solace,16/05/1948,Jesper_Christensen
+230,17532,Michael Biehn,Aliens,31/07/1956,Michael_Biehn
+231,17243,Sam Worthington,Avatar,02/08/1976,Sam_Worthington
+232,17241,Thomas Kretschmann,King Kong,08/09/1962,Thomas_Kretschmann
+233,17239,F. Murray Abraham,The Grand Budapest Hotel,24/10/1939,F._Murray_Abraham
+234,17231,Robert Pattinson,Twilight,13/05/1986,Robert_Pattinson
+235,17199,Lee J. Cobb,12 Angry Men,08/12/1911,Lee_J._Cobb
+236,17103,Eli Roth,Cabin Fever,18/04/1972,Eli_Roth
+237,17103,Til Schweiger,Inglourious Basterds,19/12/1963,Til_Schweiger
+238,17103,August Diehl,Inglourious Basterds,04/01/1976,August_Diehl
+239,17103,Alexander Fehling,Inglourious Basterds,29/03/1981,Alexander_Fehling
+240,16981,Henry Fonda,12 Angry Men,16/05/1905,Henry_Fonda
+241,16736,Peter Sarsgaard,Shattered Glass,07/03/1971,Peter_Sarsgaard
+242,16690,David Thewlis,Naked,20/03/1963,David_Thewlis
+243,16511,James Woods,Vampires,18/04/1947,James_Woods
+244,16342,Cuba Gooding Jr.,Jerry Maguire,02/01/1968,Cuba_Gooding_Jr.
+245,16208,Sebastian Koch,Das Leben der Anderen,31/05/1962,Sebastian_Koch
+246,16090,Billy Bob Thornton,Sling Blade,04/08/1955,Billy_Bob_Thornton
+247,15694,Nick Frost,The World's End,28/03/1972,Nick_Frost
+248,15616,Dev Patel,Slumdog Millionaire,23/04/1990,Dev_Patel
+249,15573,Jesse Eisenberg,The Social Network,05/10/1983,Jesse_Eisenberg
+250,15439,Patrick Swayze,Dirty Dancing,18/08/1952,Patrick_Swayze
+251,15200,Greg Kinnear,As Good as It Gets,17/06/1963,Greg_Kinnear
+252,15124,Vin Diesel,Guardians of the Galaxy,18/07/1967,Vin_Diesel
+253,15091,Alfred Molina,Spider-Man 2,24/05/1953,Alfred_Molina
+254,15020,Sharlto Copley,District 9,27/11/1973,Sharlto_Copley
+255,15013,Eddie Redmayne,Les Misérables,06/01/1982,Eddie_Redmayne
+256,14998,Paul Newman,The Hustler,26/01/1925,Paul_Newman
+257,14880,Matthew Goode,Stoker,03/04/1978,Matthew_Goode
+258,14860,Ed Helms,The Hangover,24/01/1974,Ed_Helms
+259,14860,Justin Bartha,National Treasure,21/07/1978,Justin_Bartha
+260,14822,Robert Redford,The Natural,18/08/1936,Robert_Redford
+261,14731,Tobey Maguire,Brothers,27/06/1975,Tobey_Maguire
+262,14678,Kenneth Branagh,Henry V,10/12/1960,Kenneth_Branagh
+263,14661,Chris Evans,The Avengers,13/06/1981,Chris_Evans
+264,14520,Sylvester Stallone,Rocky,06/07/1946,Sylvester_Stallone
+265,14481,Martin Balsam,All the President's Men,04/11/1919,Martin_Balsam
+266,14362,Claude Rains,Casablanca,1889-11-10,Claude_Rains
+267,14240,Gael García Bernal,Mozart in the Jungle,30/11/1978,Gael_García_Bernal
+268,14227,Andrew Garfield,Hacksaw Ridge,20/08/1983,Andrew_Garfield
+269,14118,Karl Markovics,Die Fälscher,29/08/1963,Karl_Markovics
+270,14055,Lee Van Cleef,Escape from New York,09/01/1925,Lee_Van_Cleef
+271,14044,Humphrey Bogart,Casablanca,1899-12-25,Humphrey_Bogart
+272,14030,Adam Baldwin,Serenity,27/02/1962,Adam_Baldwin
+273,13981,Richard Jenkins,The Shape of Water,04/05/1947,Richard_Jenkins
+274,13533,Stephen Baldwin,The Usual Suspects,12/05/1966,Stephen_Baldwin
+275,13456,Bruno Ganz,Der Untergang,22/03/1941,Bruno_Ganz
+276,13294,Justin Theroux,Mulholland Dr.,10/08/1971,Justin_Theroux
+277,13149,Jason Robards,All the President's Men,26/07/1922,Jason_Robards
+278,13095,Djimon Hounsou,Blood Diamond,24/04/1964,Djimon_Hounsou
+279,13085,Oliver Reed,Gladiator,13/02/1938,Oliver_Reed
+280,12993,Billy Crudup,Almost Famous,08/07/1968,Billy_Crudup
+281,12935,Florian Lukas,Good Bye Lenin!,16/03/1973,Florian_Lukas
+282,12826,Tom Skerritt,Alien,25/08/1933,Tom_Skerritt
+283,12767,Michael Peña,American Hustle,13/01/1976,Michael_Peña
+284,12757,Jim Sturgess,21,16/05/1978,Jim_Sturgess
+285,12706,Jim Caviezel,The Passion of the Christ,26/09/1968,Jim_Caviezel
+286,12615,Jack Warden,...and justice for all.,18/09/1920,Jack_Warden
+287,12476,Charles Chaplin,The Great Dictator,1889-04-16,Charles_Chaplin
+288,12445,James McAvoy,Filth,21/04/1979,James_McAvoy
+289,12284,Channing Tatum,21 Jump Street,26/04/1980,Channing_Tatum
+290,12223,Roberto Benigni,La vita è bella,27/10/1952,Roberto_Benigni
+291,12154,Richard Dreyfuss,The Goodbye Girl,29/10/1947,Richard_Dreyfuss
+292,12154,James D'Arcy,Cloud Atlas,24/08/1975,James_D'Arcy
+293,11989,Malcolm McDowell,A Clockwork Orange,13/06/1943,Malcolm_McDowell
+294,11962,Peter Lorre,M - Eine Stadt sucht einen Mörder,26/06/1904,Peter_Lorre
+295,11849,Armin Mueller-Stahl,Eastern Promises,17/12/1930,Armin_Mueller-Stahl
+296,11783,Bill Pullman,Independence Day,17/12/1953,Bill_Pullman
+297,11720,James Garner,The Notebook,07/04/1928,James_Garner
+298,11697,Robert Shaw,A Man for All Seasons,09/08/1927,Robert_Shaw
+299,11627,Thomas Mitchell,Stagecoach,1892-07-11,Thomas_Mitchell
+300,11420,William Atherton,Die Hard,30/07/1947,William_Atherton
+301,11374,Dan Aykroyd,Ghostbusters,01/07/1952,Dan_Aykroyd
+302,11371,Giancarlo Giannini,Quantum of Solace,01/08/1942,Giancarlo_Giannini
+303,11306,Diego Luna,Rogue One,29/12/1979,Diego_Luna
+304,11240,Gregory Peck,To Kill a Mockingbird,05/04/1916,Gregory_Peck
+305,11209,Roy Scheider,Jaws,10/11/1932,Roy_Scheider
+306,11180,Mickey Rourke,Sin City,16/09/1952,Mickey_Rourke
+307,11167,Danny Glover,Lethal Weapon,22/07/1946,Danny_Glover
+308,11140,Dave Franco,Neighbors,12/06/1985,Dave_Franco
+309,11113,Aksel Hennie,Max Manus,29/10/1975,Aksel_Hennie
+310,11088,Richard Gere,Chicago,31/08/1949,Richard_Gere
+311,11029,François Cluzet,Intouchables,21/09/1955,François_Cluzet
+312,10978,Dennis Quaid,Far from Heaven,09/04/1954,Dennis_Quaid
+313,10930,Cary Grant,Charade,18/01/1904,Cary_Grant
+314,10902,James Gandolfini,The Sopranos,18/09/1961,James_Gandolfini
+315,10900,Frank Langella,Frost/Nixon,01/01/1938,Frank_Langella
+316,10900,Nicholas Hoult,About a Boy,07/12/1989,Nicholas_Hoult
+317,10871,Matthew Macfadyen,Succession,17/10/1974,Matthew_Macfadyen
+318,10856,Burghart Klaußner,Die fetten Jahre sind vorbei,13/09/1949,Burghart_Klaußner
+319,10767,Jamie Bell,Billy Elliot,14/03/1986,Jamie_Bell
+320,10752,Dennis Hopper,Easy Rider,17/05/1936,Dennis_Hopper
+321,10734,Jürgen Prochnow,Das Boot,10/06/1941,Jürgen_Prochnow
+322,10706,Neil Patrick Harris,How I Met Your Mother,15/06/1973,Neil_Patrick_Harris
+323,10696,Timothée Chalamet,Call Me by Your Name,27/12/1995,Timothée_Chalamet
+324,10685,Armie Hammer,The Social Network,28/08/1986,Armie_Hammer
+325,10441,Mads Mikkelsen,Hannibal,22/11/1965,Mads_Mikkelsen
+326,10306,Sam Neill,Jurassic Park,14/09/1947,Sam_Neill
+327,10299,Omar Sy,Intouchables,20/01/1978,Omar_Sy
+328,10289,Peter Sellers,Being There,08/09/1925,Peter_Sellers
+329,10278,William Holden,Stalag 17,17/04/1918,William_Holden
+330,10223,Gérard Depardieu,Cyrano de Bergerac,27/12/1948,Gérard_Depardieu
+331,10163,Leonard Nimoy,Star Trek IV: The Voyage Home,26/03/1931,Leonard_Nimoy
+332,10084,Patrick Wilson,The Phantom of the Opera,03/07/1973,Patrick_Wilson
+333,10059,Horst Buchholz,La vita è bella,04/12/1933,Horst_Buchholz
+334,10041,Josh Hartnett,Lucky Number Slevin,21/07/1978,Josh_Hartnett
+335,9930,Woody Allen,Manhattan,30/11/1935,Woody_Allen
+336,9917,Jack Black,School of Rock,28/08/1969,Jack_Black
+337,9818,Orson Welles,Citizen Kane,06/05/1915,Orson_Welles
+338,9818,Adam Driver,Star Wars: Episode VII - The Force Awakens,19/11/1983,Adam_Driver
+339,9796,Peter O'Toole,Lawrence of Arabia,02/08/1932,Peter_O'Toole
+340,9728,Anthony Perkins,Psycho,04/04/1932,Anthony_Perkins
+341,9705,Takashi Shimura,Shichinin no samurai,12/03/1905,Takashi_Shimura
+342,9677,John Cusack,Grosse Pointe Blank,28/06/1966,John_Cusack
+343,9674,Matt Dillon,There's Something About Mary,18/02/1964,Matt_Dillon
+344,9641,Charles Bronson,C'era una volta il West,03/11/1921,Charles_Bronson
+345,9624,Treat Williams,Deep Rising,01/12/1951,Treat_Williams
+346,9591,Jack Lemmon,The Apartment,08/02/1925,Jack_Lemmon
+347,9497,Ashton Kutcher,That '70s Show,07/02/1978,Ashton_Kutcher
+348,9378,Chris Pine,Star Trek,26/08/1980,Chris_Pine
+349,9378,Zachary Quinto,Star Trek,02/06/1977,Zachary_Quinto
+350,9378,Eric Bana,Dirty John,09/08/1968,Eric_Bana
+351,9378,Bruce Greenwood,Star Trek,12/08/1956,Bruce_Greenwood
+352,9378,Anton Yelchin,Star Trek,11/03/1989,Anton_Yelchin
+353,9330,George C. Scott,Patton,18/10/1927,George_C._Scott
+354,9321,Song Kang-ho,Salinui chueok,17/01/1967,Song_Kang-ho
+355,9321,Lee Sun-kyun,Gisaengchung,02/03/1975,Lee_Sun-kyun
+356,9321,Choi Woo-sik,Gisaengchung,26/03/1990,Choi_Woo-sik
+357,9298,Joseph Cotten,The Third Man,15/05/1905,Joseph_Cotten
+358,9297,Jeremy Irons,Dead Ringers,19/09/1948,Jeremy_Irons
+359,9248,Toshirô Mifune,Yôjinbô,01/04/1920,Toshirô_Mifune
+360,9219,Griffin Dunne,After Hours,08/06/1955,Griffin_Dunne
+361,9209,Arnold Schwarzenegger,Terminator 2: Judgment Day,30/07/1947,Arnold_Schwarzenegger
+362,9044,LaKeith Stanfield,Sorry to Bother You,12/08/1991,LaKeith_Stanfield
+363,9028,Dermot Mulroney,My Best Friend's Wedding,31/10/1963,Dermot_Mulroney
+364,8944,Theo James,Divergent,16/12/1984,Theo_James
+365,8944,Ansel Elgort,The Fault in Our Stars,14/03/1994,Ansel_Elgort
+366,8937,George MacKay,1917,13/03/1992,George_MacKay
+367,8878,Sergi López,El laberinto del fauno,22/12/1965,Sergi_López
+368,8843,Charlton Heston,Ben-Hur,04/10/1923,Charlton_Heston
+369,8771,Rhys Ifans,The Amazing Spider-Man,22/07/1967,Rhys_Ifans
+370,8727,Dennis Haysbert,Far from Heaven,02/06/1954,Dennis_Haysbert
+371,8699,Alan Alda,M*A*S*H,28/01/1936,Alan_Alda
+372,8633,Irrfan Khan,The Lunchbox,07/01/1967,Irrfan_Khan
+373,8582,Timothy Hutton,Ordinary People,16/08/1960,Timothy_Hutton
+374,8507,Christian Slater,Very Bad Things,18/08/1969,Christian_Slater
+375,8308,John Gielgud,Arthur,14/04/1904,John_Gielgud
+376,8154,Tom Hiddleston,The Avengers,09/02/1981,Tom_Hiddleston
+377,8147,Moritz Bleibtreu,Knockin' on Heaven's Door,13/08/1971,Moritz_Bleibtreu
+378,8056,Charlie Sheen,Two and a Half Men,03/09/1965,Charlie_Sheen
+379,8054,Jonathan Rhys Meyers,Den 12. mann,27/07/1977,Jonathan_Rhys_Meyers
+380,8045,Suraj Sharma,Life of Pi,21/03/1993,Suraj_Sharma
+381,7929,John Savage,The Last Full Measure,,John_Savage
+382,7920,Barry Keoghan,The Killing of a Sacred Deer,18/10/1992,Barry_Keoghan
+383,7804,Ryan Reynolds,Deadpool 2,23/10/1976,Ryan_Reynolds
+384,7790,Kiefer Sutherland,24,21/12/1966,Kiefer_Sutherland
+385,7768,Conrad Veidt,Casablanca,1893-01-22,Conrad_Veidt
+386,7660,Demián Bichir,The Hateful Eight,01/08/1963,Demián_Bichir
+387,7631,Lucas Hedges,"Three Billboards Outside Ebbing, Missouri",12/12/1996,Lucas_Hedges
+388,7592,Matthias Habich,Enemy at the Gates,12/01/1940,Matthias_Habich
+389,7571,Sacha Baron Cohen,Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan,13/10/1971,Sacha_Baron_Cohen
+390,7540,Joseph Fiennes,Shakespeare in Love,27/05/1970,Joseph_Fiennes
+391,7394,Timothy Dalton,The Living Daylights,21/03/1946,Timothy_Dalton
+392,7331,Adam Sandler,The Waterboy,09/09/1966,Adam_Sandler
+393,7252,Mandy Patinkin,Homeland,30/11/1952,Mandy_Patinkin
+394,7161,Ulrich Thomsen,Festen,06/12/1963,Ulrich_Thomsen
+395,7153,Tómas Lemarquis,Blade Runner 2049,03/08/1977,Tómas_Lemarquis
+396,7149,Donald Pleasence,Halloween II,05/10/1919,Donald_Pleasence
+397,6994,Himesh Patel,Yesterday,13/10/1990,Himesh_Patel
+398,6964,Isaach De Bankolé,Casino Royale,12/08/1957,Isaach_De_Bankolé
+399,6962,Gerard Butler,300,13/11/1969,Gerard_Butler
+400,6954,Rod Steiger,In the Heat of the Night,14/04/1925,Rod_Steiger
+401,6931,Paul Henreid,Casablanca,10/01/1908,Paul_Henreid
+402,6898,Aidan Quinn,Practical Magic,08/03/1959,Aidan_Quinn
+403,6881,Jack Thompson,'Breaker' Morant,31/08/1940,Jack_Thompson
+404,6872,Antonio Banderas,The Mask of Zorro,10/08/1960,Antonio_Banderas
+405,6842,Fares Fares,Kvinden i buret,29/04/1973,Fares_Fares
+406,6807,Justin Timberlake,Trolls,31/01/1981,Justin_Timberlake
+407,6776,Logan Lerman,The Perks of Being a Wallflower,19/01/1992,Logan_Lerman
+408,6716,Noah Segan,Knives Out,05/10/1983,Noah_Segan
+409,6672,Ulrich Tukur,Das Leben der Anderen,29/07/1957,Ulrich_Tukur
+410,6650,Tony Chiu-Wai Leung,Fa yeung nin wah,27/06/1962,Tony_Chiu-Wai_Leung
+411,6601,Choi Min-sik,Oldeuboi,22/01/1962,Choi_Min-sik
+412,6601,Yoo Ji-tae,Oldeuboi,13/04/1976,Yoo_Ji-tae
+413,6581,Rami Malek,Bohemian Rhapsody,12/05/1981,Rami_Malek
+414,6512,Pruitt Taylor Vince,Identity,05/07/1960,Pruitt_Taylor_Vince
+415,6356,Rupert Friend,Hitman: Agent 47,01/10/1981,Rupert_Friend
+416,6310,Bob Hoskins,The Long Good Friday,26/10/1942,Bob_Hoskins
+417,6299,Steve McQueen,The Great Escape,24/03/1930,Steve_McQueen
+418,6284,Song Kang-ho,Salinui chueok,17/01/1967,Song_Kang-ho
+419,6211,Kevin Kline,Wild Wild West,24/10/1947,Kevin_Kline
+420,6049,James Mason,Lolita,15/05/1909,James_Mason
+421,5924,Rob Morgan,Mudbound,24/02/1973,Rob_Morgan
+422,5924,Tyler Perry,Diary of a Mad Black Woman,14/09/1969,Tyler_Perry
+423,5878,Ricardo Darín,El secreto de sus ojos,16/01/1957,Ricardo_Darín
+424,5827,Anthony Quinn,Alexis Zorbas,21/04/1915,Anthony_Quinn
+425,5808,Billy Crystal,Forget Paris,14/03/1948,Billy_Crystal
+426,5768,Matthias Schoenaerts,De rouille et d'os,08/12/1977,Matthias_Schoenaerts
+427,5737,Clark Gable,It Happened One Night,01/02/1901,Clark_Gable
+428,5645,Gunnar Björnstrand,Det sjunde inseglet,13/11/1909,Gunnar_Björnstrand
+429,5642,Lionel Barrymore,You Can't Take It with You,1878-04-28,Lionel_Barrymore
+430,5601,Ulrich Mühe,Das Leben der Anderen,20/06/1953,Ulrich_Mühe
+431,5592,River Phoenix,My Own Private Idaho,23/08/1970,River_Phoenix
+432,5556,Aaron Taylor-Johnson,Nocturnal Animals,13/06/1990,Aaron_Taylor-Johnson
+433,5509,Michael Pitt,The Dreamers,10/04/1981,Michael_Pitt
+434,5503,Michael Lonsdale,The Day of the Jackal,24/05/1931,Michael_Lonsdale
+435,5380,Eddie Murphy,The Nutty Professor,03/04/1961,Eddie_Murphy
+436,5378,Marton Csokas,The Amazing Spider-Man 2,30/06/1966,Marton_Csokas
+437,5354,Thomas Bo Larsen,Jagten,27/11/1963,Thomas_Bo_Larsen
+438,5349,Gene Wilder,Willy Wonka & the Chocolate Factory,11/06/1933,Gene_Wilder
+439,5293,James Spader,The Blacklist,07/02/1960,James_Spader
+440,5245,Laurence Olivier,Sleuth,22/05/1907,Laurence_Olivier
+441,5142,Ben Gazzara,Road House,28/08/1930,Ben_Gazzara
+442,5118,Pilou Asbæk,Ghost in the Shell,02/03/1982,Pilou_Asbæk
+443,5117,Riccardo Scamarcio,John Wick: Chapter 2,13/11/1979,Riccardo_Scamarcio
+444,5077,David Kross,The Reader,04/07/1990,David_Kross
+445,5069,Alden Ehrenreich,"Hail, Caesar!",22/11/1989,Alden_Ehrenreich
+446,5068,Gian Maria Volontè,Per un pugno di dollari,09/04/1933,Gian_Maria_Volontè
+447,5047,Macaulay Culkin,Home Alone,26/08/1980,Macaulay_Culkin
+448,5045,Emilio Estevez,The Way,12/05/1962,Emilio_Estevez
+449,5041,Robert Mitchum,Out of the Past,06/08/1917,Robert_Mitchum
+450,5027,Martin Landau,Ed Wood,20/06/1928,Martin_Landau
+451,5018,Jack Palance,Shane,18/02/1919,Jack_Palance
+452,5018,Michael Ealy,Barbershop,03/08/1973,Michael_Ealy
+453,4925,Cary Elwes,Saw,26/10/1962,Cary_Elwes
+454,4925,Chris Sarandon,The Nightmare Before Christmas,24/07/1942,Chris_Sarandon
+455,4843,Roger Moore,Moonraker,14/10/1927,Roger_Moore
+456,4810,Taylor Kitsch,X-Men Origins: Wolverine,08/04/1981,Taylor_Kitsch
+457,4794,James Coburn,Charade,31/08/1928,James_Coburn
+458,4779,Karl Malden,On the Waterfront,22/03/1912,Karl_Malden
+459,4764,Ben Foster,Hell or High Water,29/10/1980,Ben_Foster
+460,4753,Peter Coyote,Bitter Moon,10/10/1941,Peter_Coyote
+461,4734,Peter Fonda,Easy Rider,23/02/1940,Peter_Fonda
+462,4689,Niels Arestrup,Un prophète,08/02/1949,Niels_Arestrup
+463,4684,John Candy,"Planes, Trains & Automobiles",31/10/1950,John_Candy
+464,4620,Shahab Hosseini,Forushande,03/02/1974,Shahab_Hosseini
+465,4610,Heino Ferch,Der Untergang,18/08/1963,Heino_Ferch
+466,4608,Anatoliy Solonitsyn,Stalker,30/08/1934,Anatoliy_Solonitsyn
+467,4601,Steve Coogan,Philomena,14/10/1965,Steve_Coogan
+468,4597,Fred MacMurray,Double Indemnity,30/08/1908,Fred_MacMurray
+469,4558,Omar Sharif,Lawrence of Arabia,10/04/1932,Omar_Sharif
+470,4538,Leslie Howard,Pygmalion,1893-04-03,Leslie_Howard
+471,4533,Nikolaj Coster-Waldau,Game of Thrones,27/07/1970,Nikolaj_Coster-Waldau
+472,4453,John Wayne,True Grit,26/05/1907,John_Wayne
+473,4451,Ralph Macchio,The Karate Kid Part III,04/11/1961,Ralph_Macchio
+474,4445,Charlie Hunnam,Sons of Anarchy,10/04/1980,Charlie_Hunnam
+475,4400,Sebastian Stan,Captain America: The Winter Soldier,13/08/1982,Sebastian_Stan
+476,4338,John David Washington,Tenet,28/07/1984,John_David_Washington
+477,4310,Michael Cera,Scott Pilgrim vs. the World,07/06/1988,Michael_Cera
+478,4310,Kieran Culkin,Succession,30/09/1982,Kieran_Culkin
+479,4282,Kirk Douglas,Spartacus,09/12/1916,Kirk_Douglas
+480,4256,Chow Yun-Fat,Wo hu cang long,18/05/1955,Chow_Yun-Fat
+481,4194,Will Ferrell,Talladega Nights: The Ballad of Ricky Bobby,16/07/1967,Will_Ferrell
+482,4188,Burt Reynolds,Boogie Nights,11/02/1936,Burt_Reynolds
+483,4108,Ulrich Matthes,Der Untergang,09/05/1959,Ulrich_Matthes
+484,4108,Ulrich Noethen,Der Untergang,18/11/1959,Ulrich_Noethen
+485,4093,Otto Sander,Der Himmel über Berlin,30/06/1941,Otto_Sander
+486,4087,Merab Ninidze,McMafia,03/11/1965,Merab_Ninidze
+487,4045,Rufus Sewell,Dark City,29/10/1967,Rufus_Sewell
+488,4043,Michael York,Logan's Run,27/03/1942,Michael_York
+489,4006,Dominic West,The Wire,15/10/1969,Dominic_West
+490,3994,Robert Wagner,The Towering Inferno,10/02/1930,Robert_Wagner
+491,3982,Ernest Borgnine,Marty,24/01/1917,Ernest_Borgnine
+492,3980,Kyle MacLachlan,Twin Peaks,22/02/1959,Kyle_MacLachlan
+493,3965,Ron Livingston,The Conjuring,05/06/1967,Ron_Livingston
+494,3913,Trevante Rhodes,Moonlight,10/02/1990,Trevante_Rhodes
+495,3902,Tom Hulce,Amadeus,06/12/1953,Tom_Hulce
+496,3900,Ryan Phillippe,Gosford Park,10/09/1974,Ryan_Phillippe
+497,3899,Stipe Erceg,Die fetten Jahre sind vorbei,30/10/1974,Stipe_Erceg
+498,3898,Henry Cavill,Man of Steel,05/05/1983,Henry_Cavill
+499,3885,Edward G. Robinson,Double Indemnity,1893-12-12,Edward_G._Robinson
+500,3876,Sam Riley,Control,08/01/1980,Sam_Riley
+501,3839,Beau Bridges,The Fabulous Baker Boys,09/12/1941,Beau_Bridges
+502,3788,John Cassavetes,Love Streams,09/12/1929,John_Cassavetes
+503,3774,Tony Curtis,Some Like It Hot,03/06/1925,Tony_Curtis
+504,3774,George Raft,Some Like It Hot,26/09/1901,George_Raft
+505,3678,Terence Stamp,The Limey,22/07/1938,Terence_Stamp
+506,3636,Bud Cort,Harold and Maude,29/03/1948,Bud_Cort
+507,3516,Chris O'Donnell,Batman & Robin,26/06/1970,Chris_O'Donnell
+508,3480,Alexander Skarsgård,The Legend of Tarzan,25/08/1976,Alexander_Skarsgård
+509,3440,Philippe Noiret,Nuovo Cinema Paradiso,01/10/1930,Philippe_Noiret
+510,3439,Edgar Ramírez,Gold,25/03/1977,Edgar_Ramírez
+511,3393,Jose Coronado,El cuerpo,14/08/1957,Jose_Coronado
+512,3348,Richard Farnsworth,The Straight Story,01/09/1920,Richard_Farnsworth
+513,3341,Gene Kelly,Singin' in the Rain,23/08/1912,Gene_Kelly
+514,3341,Donald O'Connor,Singin' in the Rain,28/08/1925,Donald_O'Connor
+515,3323,Daniel Olbrychski,Salt,27/02/1945,Daniel_Olbrychski
+516,3323,August Diehl,Inglourious Basterds,04/01/1976,August_Diehl
+517,3316,Nick Stahl,Sin City,05/12/1979,Nick_Stahl
+518,3309,George Sanders,All About Eve,03/07/1906,George_Sanders
+519,3291,Aamir Khan,Taare Zameen Par,14/03/1965,Aamir_Khan
+520,3268,Farley Granger,Strangers on a Train,01/07/1925,Farley_Granger
+521,3144,Charles Laughton,Witness for the Prosecution,1899-07-01,Charles_Laughton
+522,3126,Ryan O'Neal,Love Story,20/04/1941,Ryan_O'Neal
+523,3058,Dominic Cooper,The Devil's Double,02/06/1978,Dominic_Cooper
+524,3038,George Kennedy,Cool Hand Luke,18/02/1925,George_Kennedy
+525,3003,O'Shea Jackson Jr.,Straight Outta Compton,24/02/1991,O'Shea_Jackson_Jr.
+526,3003,Corey Hawkins,Straight Outta Compton,22/10/1988,Corey_Hawkins
+527,3003,Jason Mitchell,Straight Outta Compton,05/01/1987,Jason_Mitchell
+528,3001,Zach Braff,Garden State,06/04/1975,Zach_Braff
+529,2991,Leonardo Sbaraglia,Dolor y gloria,30/06/1970,Leonardo_Sbaraglia
+530,2988,Gert Fröbe,Goldfinger,25/02/1913,Gert_Fröbe
+531,2965,Trevor Howard,The Third Man,29/09/1913,Trevor_Howard
+532,2963,Gustav Fröhlich,Metropolis,21/03/1902,Gustav_Fröhlich
+533,2913,Brian Gleeson,Snow White and the Huntsman,14/11/1987,Brian_Gleeson
+534,2891,Mickey Rooney,It's a Mad Mad Mad Mad World,23/09/1920,Mickey_Rooney
+535,2827,Richard Burton,Who's Afraid of Virginia Woolf?,10/11/1925,Richard_Burton
+536,2825,Charlie Hunnam,Sons of Anarchy,10/04/1980,Charlie_Hunnam
+537,2804,Tom Holland,Spider-Man: Homecoming,01/06/1996,Tom_Holland
+538,2800,Vittorio Gassman,Il sorpasso,01/09/1922,Vittorio_Gassman
+539,2789,Sönke Möhring,Inglourious Basterds,12/10/1972,Sönke_Möhring
+540,2788,Mike Myers,Austin Powers in Goldmember,25/05/1963,Mike_Myers
+541,2778,Max Thieriot,The Pacifier,14/10/1988,Max_Thieriot
+542,2745,Julian Sands,A Room with a View,04/01/1958,Julian_Sands
+543,2704,Tatsuya Nakadai,Seppuku,13/12/1932,Tatsuya_Nakadai
+544,2666,Adolphe Menjou,Paths of Glory,1890-02-18,Adolphe_Menjou
+545,2656,Marcello Mastroianni,La dolce vita,28/09/1924,Marcello_Mastroianni
+546,2653,Robert Ryan,The Wild Bunch,11/11/1909,Robert_Ryan
+547,2641,Robert Hays,Airplane!,24/07/1947,Robert_Hays
+548,2641,Leslie Nielsen,Airplane!,11/02/1926,Leslie_Nielsen
+549,2582,Hardy Krüger,A Bridge Too Far,12/04/1928,Hardy_Krüger
+550,2577,Jean-Louis Trintignant,Amour,11/12/1930,Jean-Louis_Trintignant
+551,2571,Matthew Broderick,The Producers,21/03/1962,Matthew_Broderick
+552,2514,Javier Cámara,Hable con ella,19/01/1967,Javier_Cámara
+553,2509,Ray Milland,The Lost Weekend,03/01/1907,Ray_Milland
+554,2492,Paul Bettany,WandaVision,27/05/1971,Paul_Bettany
+555,2463,Gustaf Skarsgård,Vikings,12/11/1980,Gustaf_Skarsgård
+556,2460,Mario Casas,Tres metros sobre el cielo,12/06/1986,Mario_Casas
+557,2441,Patrick Dempsey,Grey's Anatomy,13/01/1966,Patrick_Dempsey
+558,2428,Elyas M'Barek,Fack ju Göhte,29/05/1982,Elyas_M'Barek
+559,2403,Jet Li,Huo Yuan Jia,26/04/1963,Jet_Li
+560,2386,Simon Russell Beale,The Death of Stalin,12/01/1961,Simon_Russell_Beale
+561,2382,George Peppard,Breakfast at Tiffany's,01/10/1928,George_Peppard
+562,2366,Sidney Poitier,In the Heat of the Night,20/02/1927,Sidney_Poitier
+563,2330,Eduardo Noriega,Vantage Point,01/08/1973,Eduardo_Noriega
+564,2319,Fernando Cayo,El orfanato,22/04/1968,Fernando_Cayo
+565,2310,Simon Helberg,The Big Bang Theory,09/12/1980,Simon_Helberg
+566,2283,Yul Brynner,The King and I,11/07/1920,Yul_Brynner
+567,2265,Jesse Plemons,The Irishman,02/04/1988,Jesse_Plemons
+568,2254,Jean-Pierre Cassel,Murder on the Orient Express,27/10/1932,Jean-Pierre_Cassel
+569,2250,Fele Martínez,Tesis,22/02/1975,Fele_Martínez
+570,2245,Ha Jung-woo,Ah-ga-ssi,11/03/1978,Ha_Jung-woo
+571,2214,Michael Gwisdek,Der Baader Meinhof Komplex,14/01/1942,Michael_Gwisdek
+572,2207,Mikael Persbrandt,Hævnen,25/09/1963,Mikael_Persbrandt
+573,2197,John Saxon,A Nightmare on Elm Street,05/08/1936,John_Saxon
+574,2197,Robert Englund,A Nightmare on Elm Street,06/06/1947,Robert_Englund
+575,2172,Walter Matthau,The Odd Couple,01/10/1920,Walter_Matthau
+576,2155,Joel Grey,Cabaret,11/04/1932,Joel_Grey
+577,2143,Jason Schwartzman,Rushmore,26/06/1980,Jason_Schwartzman
+578,2118,Daniel Giménez Cacho,Blancanieves,15/05/1961,Daniel_Giménez_Cacho
+579,2109,Peter Finch,Network,28/09/1916,Peter_Finch
+580,2091,Sean Gullette,Pi,04/06/1968,Sean_Gullette
+581,2089,Steve Martin,Roxanne,14/08/1945,Steve_Martin
+582,2068,Dane Cook,Good Luck Chuck,18/03/1972,Dane_Cook
+583,2067,Darren McGavin,A Christmas Story,07/05/1922,Darren_McGavin
+584,2054,John Belushi,Saturday Night Live,24/01/1949,John_Belushi
+585,2050,Robbie Coltrane,Cracker,30/03/1950,Robbie_Coltrane
+586,2050,Ian Richardson,From Hell,07/04/1934,Ian_Richardson
+587,2050,Jason Flemyng,The Curious Case of Benjamin Button,25/09/1966,Jason_Flemyng
+588,2038,Taron Egerton,Kingsman: The Secret Service,10/11/1989,Taron_Egerton
+589,2032,Pedro Pascal,The Mandalorian,02/04/1975,Pedro_Pascal
+590,2022,Spencer Tracy,Judgment at Nuremberg,05/04/1900,Spencer_Tracy
+591,2022,Tahar Rahim,Un prophète,04/07/1981,Tahar_Rahim
+592,2012,Christopher Reeve,Superman,25/09/1952,Christopher_Reeve
+593,1992,Robert Cummings,Dial M for Murder,09/06/1910,Robert_Cummings
+594,1976,Alex Sharp,The Trial of the Chicago 7,02/02/1989,Alex_Sharp
+595,1976,Sacha Baron Cohen,Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan,13/10/1971,Sacha_Baron_Cohen
+596,1944,Tim Blake Nelson,The Ballad of Buster Scruggs,11/05/1964,Tim_Blake_Nelson
+597,1932,Frederick Lau,Victoria,17/08/1989,Frederick_Lau
+598,1911,Chazz Palminteri,The Usual Suspects,15/05/1952,Chazz_Palminteri
+599,1911,Lillo Brancato,A Bronx Tale,30/03/1976,Lillo_Brancato
+600,1905,Emory Cohen,Brooklyn,13/03/1990,Emory_Cohen
+601,1886,Lee Marvin,Paint Your Wagon,19/02/1924,Lee_Marvin
+602,1878,Ossie Davis,Do the Right Thing,18/12/1917,Ossie_Davis
+603,1861,Kim Sang-kyung,Salinui chueok,01/06/1972,Kim_Sang-kyung
+604,1861,Roe-ha Kim,Salinui chueok,15/11/1965,Roe-ha_Kim
+605,1852,Anton Yelchin,Star Trek,11/03/1989,Anton_Yelchin
+606,1841,Juan Minujín,The Two Popes,20/05/1975,Juan_Minujín
+607,1823,Luke Evans,Dracula Untold,15/04/1979,Luke_Evans
+608,1785,Thomas Turgoose,This Is England,11/02/1992,Thomas_Turgoose
+609,1764,Robert Vaughn,The Magnificent Seven,22/11/1932,Robert_Vaughn
+610,1757,Tom Schilling,Oh Boy,10/02/1982,Tom_Schilling
+611,1740,Andy Lau,Mou gaan dou,27/09/1961,Andy_Lau
+612,1734,Peter Weller,RoboCop,24/06/1947,Peter_Weller
+613,1723,James Dean,East of Eden,08/02/1931,James_Dean
+614,1723,Glen Hansard,Once,21/04/1970,Glen_Hansard
+615,1722,Thomas Haden Church,Sideways,17/06/1960,Thomas_Haden_Church
+616,1709,Timothy Bottoms,The Last Picture Show,30/08/1951,Timothy_Bottoms
+617,1695,Tom Hiddleston,The Avengers,09/02/1981,Tom_Hiddleston
+618,1683,Tim Curry,Congo,19/04/1946,Tim_Curry
+619,1674,Bill Skarsgård,It,09/08/1990,Bill_Skarsgård
+620,1668,Jerry Lewis,The Nutty Professor,16/03/1926,Jerry_Lewis
+621,1657,Romain Duris,De battre mon coeur s'est arrêté,28/05/1974,Romain_Duris
+622,1650,Tony Shalhoub,Monk,09/10/1953,Tony_Shalhoub
+623,1637,Robert Walker,Strangers on a Train,13/10/1918,Robert_Walker
+624,1632,Curd Jürgens,The Spy Who Loved Me,13/12/1915,Curd_Jürgens
+625,1616,Peter Ustinov,Death on the Nile,16/04/1921,Peter_Ustinov
+626,1612,Frank Sinatra,From Here to Eternity,12/12/1915,Frank_Sinatra
+627,1600,Jackie Coogan,The Kid,26/10/1914,Jackie_Coogan
+628,1580,Roddy Piper,They Live,17/04/1954,Roddy_Piper
+629,1576,Jeffrey Hunter,The Searchers,25/11/1926,Jeffrey_Hunter
+630,1573,Ralph Richardson,Doctor Zhivago,19/12/1902,Ralph_Richardson
+631,1555,Walter Huston,The Treasure of the Sierra Madre,1883-04-05,Walter_Huston
+632,1551,Burt Lancaster,From Here to Eternity,02/11/1913,Burt_Lancaster
+633,1551,Montgomery Clift,From Here to Eternity,17/10/1920,Montgomery_Clift
+634,1541,Telly Savalas,Kojak,21/01/1922,Telly_Savalas
+635,1537,Idris Elba,Beasts of No Nation,06/09/1972,Idris_Elba
+636,1528,Tyrone Power,Witness for the Prosecution,05/05/1914,Tyrone_Power
+637,1526,Predrag 'Miki' Manojlovic,Underground,05/04/1950,Predrag_'Miki'_Manojlovic
+638,1524,Maximilian Schell,Judgment at Nuremberg,08/12/1930,Maximilian_Schell
+639,1496,Boris Karloff,Bride of Frankenstein,1887-11-23,Boris_Karloff
+640,1493,Vincent D'Onofrio,Men in Black,30/06/1959,Vincent_D'Onofrio
+641,1493,Jon Bernthal,The Wolf of Wall Street,20/09/1976,Jon_Bernthal
+642,1490,Greg Wise,Sense and Sensibility,15/05/1966,Greg_Wise
+643,1489,Buster Keaton,The General,1895-10-04,Buster_Keaton
+644,1484,Fernando Rey,Tristana,20/09/1917,Fernando_Rey
+645,1469,Chadwick Boseman,Black Panther,29/11/1976,Chadwick_Boseman
+646,1450,Sam Waterston,The Killing Fields,15/11/1940,Sam_Waterston
+647,1446,Richard Widmark,Kiss of Death,26/12/1914,Richard_Widmark
+648,1427,Topol,Fiddler on the Roof,09/09/1935,Topol
+649,1426,Delroy Lindo,Get Shorty,18/11/1952,Delroy_Lindo
+650,1413,Raymond Massey,Arsenic and Old Lace,1896-08-30,Raymond_Massey
+651,1392,Dana Andrews,Laura,01/01/1909,Dana_Andrews
+652,1390,Kumail Nanjiani,The Big Sick,02/05/1978,Kumail_Nanjiani
+653,1389,Gary Cooper,High Noon,07/05/1901,Gary_Cooper
+654,1389,Fernando Fernán Gómez,El abuelo,28/08/1921,Fernando_Fernán_Gómez
+655,1386,Klaus Kinski,Nosferatu: Phantom der Nacht,18/10/1926,Klaus_Kinski
+656,1370,Louis Gossett Jr.,An Officer and a Gentleman,27/05/1936,Louis_Gossett_Jr.
+657,1370,Shah Rukh Khan,Don 2,02/11/1965,Shah_Rukh_Khan
+658,1367,Paul Walter Hauser,"I, Tonya",15/10/1986,Paul_Walter_Hauser
+659,1365,Jack Carson,Cat on a Hot Tin Roof,27/10/1910,Jack_Carson
+660,1365,John Gallagher Jr.,10 Cloverfield Lane,17/06/1984,John_Gallagher_Jr.
+661,1344,Paddy Considine,Dead Man's Shoes,05/09/1973,Paddy_Considine
+662,1332,Jürgen Vogel,Die Welle,29/04/1968,Jürgen_Vogel
+663,1332,Max Riemelt,Napola - Elite für den Führer,07/01/1984,Max_Riemelt
+664,1330,Warren Beatty,Reds,30/03/1937,Warren_Beatty
+665,1317,Kevin McCarthy,Invasion of the Body Snatchers,15/02/1914,Kevin_McCarthy
+666,1306,Ken Foree,Dawn of the Dead,29/02/1948,Ken_Foree
+667,1305,Sebastian Urzendowsky,The Way Back,28/05/1985,Sebastian_Urzendowsky
+668,1299,Jean-Pierre Léaud,Les quatre cents coups,28/05/1944,Jean-Pierre_Léaud
+669,1298,Max Schreck,"Nosferatu, eine Symphonie des Grauens",1879-09-06,Max_Schreck
+670,1287,Marwan Kenzari,Aladdin,16/01/1983,Marwan_Kenzari
+671,1280,Judd Hirsch,Independence Day,15/03/1935,Judd_Hirsch
+672,1237,Donatas Banionis,Solyaris,28/04/1924,Donatas_Banionis
+673,1228,David Niven,Murder by Death,01/03/1910,David_Niven
+674,1222,Bruce Campbell,Bubba Ho-Tep,22/06/1958,Bruce_Campbell
+675,1222,Dan Hicks,Darkman,19/07/1951,Dan_Hicks
+676,1219,Edward Arnold,You Can't Take It with You,1890-02-18,Edward_Arnold
+677,1219,Kris Kristofferson,Blade,22/06/1936,Kris_Kristofferson
+678,1214,Christopher Lambert,Mortal Kombat,29/03/1957,Christopher_Lambert
+679,1200,Michael B. Jordan,Black Panther,09/02/1987,Michael_B._Jordan
+680,1175,George Segal,Who's Afraid of Virginia Woolf?,13/02/1934,George_Segal
+681,1156,Om Puri,East Is East,18/10/1950,Om_Puri
+682,1156,Manish Dayal,The Hundred-Foot Journey,17/06/1983,Manish_Dayal
+683,1147,Charlie Plummer,Looking for Alaska,24/05/1999,Charlie_Plummer
+684,1143,Kodi Smit-McPhee,Let Me In,13/06/1996,Kodi_Smit-McPhee
+685,1137,Rupert Everett,My Best Friend's Wedding,29/05/1959,Rupert_Everett
+686,1123,James Norton,Little Women,18/07/1985,James_Norton
+687,1122,Burl Ives,The Big Country,14/06/1909,Burl_Ives
+688,1111,Matthew Rhys,A Beautiful Day in the Neighborhood,08/11/1974,Matthew_Rhys
+689,1105,Michael Beck,The Warriors,04/02/1949,Michael_Beck
+690,1102,Leo Fitzpatrick,Kids,10/08/1978,Leo_Fitzpatrick
+691,1102,Justin Pierce,Kids,21/03/1975,Justin_Pierce
+692,1093,Oskar Werner,Jules et Jim,13/11/1922,Oskar_Werner
+693,1085,Robin de Jesus,"tick, tick...BOOM!",21/08/1984,Robin_de_Jesus
+694,1082,Gaspard Ulliel,Un long dimanche de fiançailles,25/11/1984,Gaspard_Ulliel
+695,1081,Dominique Pinon,Delicatessen,04/03/1955,Dominique_Pinon
+696,1078,Dennis Dun,Big Trouble in Little China,19/04/1952,Dennis_Dun
+697,1075,John Corbett,My Big Fat Greek Wedding,09/05/1961,John_Corbett
+698,1073,Toni Servillo,La grande bellezza,25/01/1959,Toni_Servillo
+699,1059,Dan Stevens,Downton Abbey,10/10/1982,Dan_Stevens
+700,1054,Larry David,Curb Your Enthusiasm,02/07/1947,Larry_David
+701,1039,Melvyn Douglas,Being There,05/04/1901,Melvyn_Douglas
+702,1030,Daniel Auteuil,Caché,24/01/1950,Daniel_Auteuil
+703,1027,John Lone,The Last Emperor,13/10/1952,John_Lone
+704,1026,Nate Parker,The Birth of a Nation,18/11/1979,Nate_Parker
+705,1026,Denzel Whitaker,The Great Debaters,15/06/1990,Denzel_Whitaker
+706,1011,Guillaume Canet,Jeux d'enfants,10/04/1973,Guillaume_Canet
+707,984,Laurence Harvey,The Manchurian Candidate,01/10/1928,Laurence_Harvey
+708,979,Paul Rudd,Ant-Man,06/04/1969,Paul_Rudd
+709,979,Craig Roberts,Submarine,21/01/1991,Craig_Roberts
+710,975,Jean-Paul Belmondo,Pierrot le fou,09/04/1933,Jean-Paul_Belmondo
+711,975,Rex Harrison,My Fair Lady,05/03/1908,Rex_Harrison
+712,974,James Earl Jones,Rogue One,17/01/1931,James_Earl_Jones
+713,972,Steve Martin,Roxanne,14/08/1945,Steve_Martin
+714,967,Louis Garrel,The Dreamers,14/06/1983,Louis_Garrel
+715,964,Brad Davis,Midnight Express,06/11/1949,Brad_Davis
+716,959,Matthew Fox,Bone Tomahawk,14/07/1966,Matthew_Fox
+717,955,Paul Meurisse,Les diaboliques,21/12/1912,Paul_Meurisse
+718,945,Lily Franky,Manbiki kazoku,04/11/1963,Lily_Franky
+719,933,Hugo Silva,El cuerpo,10/05/1977,Hugo_Silva
+720,927,Jim Brown,Mars Attacks!,17/02/1936,Jim_Brown
+721,927,Rob Morrow,Northern Exposure,21/09/1962,Rob_Morrow
+722,926,Jun Kunimura,Kill Bill: Vol. 1,16/11/1955,Jun_Kunimura
+723,921,Richard Basehart,Moby Dick,31/08/1914,Richard_Basehart
+724,908,Adarsh Gourav,The White Tiger,08/07/1994,Adarsh_Gourav
+725,908,Rajkummar Rao,Shahid,31/08/1984,Rajkummar_Rao
+726,906,Michael B. Jordan,Black Panther,09/02/1987,Michael_B._Jordan
+727,900,Federico Luppi,Cronos,23/02/1934,Federico_Luppi
+728,894,Luis Tosar,Celda 211,13/10/1971,Luis_Tosar
+729,889,Lazar Ristovski,Underground,26/10/1952,Lazar_Ristovski
+730,884,Giuseppe Battiston,Perfetti sconosciuti,22/07/1968,Giuseppe_Battiston
+731,884,Marco Giallini,Perfetti sconosciuti,04/04/1963,Marco_Giallini
+732,877,Lew Ayres,Holiday,28/12/1908,Lew_Ayres
+733,871,William Baldwin,Backdraft,21/02/1963,William_Baldwin
+734,869,Peter Falk,Columbo,16/09/1927,Peter_Falk
+735,862,Stephan James,Race,16/12/1993,Stephan_James
+736,862,Taylor Kitsch,X-Men Origins: Wolverine,08/04/1981,Taylor_Kitsch
+737,861,Klaus Maria Brandauer,Out of Africa,22/06/1943,Klaus_Maria_Brandauer
+738,860,Tom Courtenay,45 Years,25/02/1937,Tom_Courtenay
+739,860,William Petersen,CSI: Crime Scene Investigation,21/02/1953,William_Petersen
+740,840,Nigel Hawthorne,The Madness of King George,05/04/1929,Nigel_Hawthorne
+741,837,Werner Krauss,Das Cabinet des Dr. Caligari,1884-06-23,Werner_Krauss
+742,830,Aras Bulut Iynemli,Çukur,25/08/1990,Aras_Bulut_Iynemli
+743,828,James Frecheville,Black '47,03/05/1991,James_Frecheville
+744,819,Jonathan Majors,Lovecraft Country,07/09/1989,Jonathan_Majors
+745,818,Dean Martin,The Dean Martin Show,07/06/1917,Dean_Martin
+746,817,Ulrich Mühe,Das Leben der Anderen,20/06/1953,Ulrich_Mühe
+747,814,Yutaka Matsushige,Shinobi,19/01/1963,Yutaka_Matsushige
+748,808,Fredric March,Dr. Jekyll and Mr. Hyde,1897-08-31,Fredric_March
+749,808,George O'Brien,Sunrise: A Song of Two Humans,1899-04-19,George_O'Brien
+750,799,Samuel Le Bihan,Le pacte des loups,02/11/1965,Samuel_Le_Bihan
+751,799,Jérémie Renier,In Bruges,06/01/1981,Jérémie_Renier
+752,792,Paul Scofield,A Man for All Seasons,21/01/1922,Paul_Scofield
+753,789,Dennis Weaver,Touch of Evil,04/06/1924,Dennis_Weaver
+754,785,Gastón Pauls,Nueve reinas,17/01/1972,Gastón_Pauls
+755,760,Zbigniew Zamachowski,Trois couleurs: Blanc,17/07/1961,Zbigniew_Zamachowski
+756,760,Janusz Gajos,Trois couleurs: Blanc,23/09/1939,Janusz_Gajos
+757,760,Jerzy Stuhr,Historie milosne,18/04/1947,Jerzy_Stuhr
+758,756,Udo Kier,Hunters,,Udo_Kier
+759,738,Bruce Davison,X-Men,28/06/1946,Bruce_Davison
+760,738,Fred Ward,Short Cuts,30/12/1942,Fred_Ward
+761,738,Chris Penn,Reservoir Dogs,10/10/1965,Chris_Penn
+762,738,Peter Gallagher,American Beauty,19/08/1955,Peter_Gallagher
+763,732,Helmut Griem,Cabaret,06/04/1932,Helmut_Griem
+764,730,Jean Rochefort,L'homme du train,29/04/1930,Jean_Rochefort
+765,729,Kim Yoon-seok,Chugyeokja,21/01/1968,Kim_Yoon-seok
+766,728,Herbert Lom,The Pink Panther Strikes Again,11/09/1917,Herbert_Lom
+767,727,Hidetoshi Nishijima,Doraibu mai kâ,29/03/1971,Hidetoshi_Nishijima
+768,714,Antoine Olivier Pilon,Mommy,23/06/1997,Antoine_Olivier_Pilon
+769,713,David Warner,Star Trek VI: The Undiscovered Country,29/07/1941,David_Warner
+770,711,Chishû Ryû,Tôkyô monogatari,13/05/1904,Chishû_Ryû
+771,709,David Keith,An Officer and a Gentleman,08/05/1954,David_Keith
+772,706,The Marx Brothers,Duck Soup,,The_Marx_Brothers
+773,700,Paul Hogan,Crocodile Dundee,08/10/1939,Paul_Hogan
+774,695,Jakob Cedergren,Den skyldige,10/01/1973,Jakob_Cedergren
+775,695,Hee Jae,Bin-jip,25/05/1980,Hee_Jae
+776,683,Michael Rennie,The Day the Earth Stood Still,25/08/1909,Michael_Rennie
+777,682,Sam Claflin,The Hunger Games: Catching Fire,27/06/1986,Sam_Claflin
+778,676,Jason Mitchell,Straight Outta Compton,05/01/1987,Jason_Mitchell
+779,658,Chino Darín,Muerte en Buenos Aires,14/01/1989,Chino_Darín
+780,658,Javier Gutiérrez,La isla mínima,17/01/1971,Javier_Gutiérrez
+781,658,Álvaro Morte,La casa de papel,23/02/1975,Álvaro_Morte
+782,646,John Hannah,Four Weddings and a Funeral,23/04/1962,John_Hannah
+783,646,John Lynch,Black Death,26/12/1961,John_Lynch
+784,645,Hayden Christensen,Star Wars: Episode III - Revenge of the Sith,19/04/1981,Hayden_Christensen
+785,640,Michael Redgrave,The Lady Vanishes,20/03/1908,Michael_Redgrave
+786,639,Yves Montand,Jean de Florette,13/10/1921,Yves_Montand
+787,635,Birol Ünel,Gegen die Wand,18/08/1961,Birol_Ünel
+788,635,Kevin Zegers,Transamerica,19/09/1984,Kevin_Zegers
+789,629,David Duchovny,The X Files,07/08/1960,David_Duchovny
+790,627,Louis Jourdan,Gigi,19/06/1921,Louis_Jourdan
+791,625,Anthony Quayle,Lawrence of Arabia,07/09/1913,Anthony_Quayle
+792,616,Johan Heldenbergh,The Broken Circle Breakdown,11/05/1967,Johan_Heldenbergh
+793,612,Robert Donat,The 39 Steps,18/03/1905,Robert_Donat
+794,607,Jonathan Majors,Lovecraft Country,07/09/1989,Jonathan_Majors
+795,607,Tadanobu Asano,Mongol,27/11/1973,Tadanobu_Asano
+796,603,Stuart Whitman,The Comancheros,01/02/1928,Stuart_Whitman
+797,601,Dirk Bogarde,The Servant,28/03/1921,Dirk_Bogarde
+798,600,Max Irons,Condor,17/10/1985,Max_Irons
+799,600,Franz Rogowski,Transit,02/02/1986,Franz_Rogowski
+800,598,Bela Lugosi,Dracula,1882-10-20,Bela_Lugosi
+801,595,Andreas Wilson,Ondskan,07/03/1981,Andreas_Wilson
+802,595,Henrik Lundström,Bron/Broen,13/12/1983,Henrik_Lundström
+803,593,Vincent Gallo,Buffalo '66,11/04/1961,Vincent_Gallo
+804,589,Errol Flynn,The Adventures of Robin Hood,20/06/1909,Errol_Flynn
+805,589,Basil Rathbone,The Adventures of Robin Hood,1892-06-13,Basil_Rathbone
+806,589,Claes Bang,The Square,28/04/1967,Claes_Bang
+807,589,Kim Kap-su,"Janghwa, Hongryeon",07/04/1957,Kim_Kap-su
+808,588,Alain Delon,Le Samouraï,08/11/1935,Alain_Delon
+809,584,Clifton Webb,Laura,1889-11-19,Clifton_Webb
+810,584,Vincent Price,The Abominable Dr. Phibes,27/05/1911,Vincent_Price
+811,584,Karra Elejalde,Los cronocrímenes,10/10/1960,Karra_Elejalde
+812,581,Cliff Robertson,Spider-Man,09/09/1923,Cliff_Robertson
+813,572,Mikkel Boe Følsgaard,En kongelig affære,01/05/1984,Mikkel_Boe_Følsgaard
+814,571,Dawid Ogrodnik,Cicha noc,15/06/1986,Dawid_Ogrodnik
+815,570,Matthew Davis,Legally Blonde,08/05/1978,Matthew_Davis
+816,564,Michel Piccoli,Le mépris,27/12/1925,Michel_Piccoli
+817,563,Pål Sverre Hagen,Kon-Tiki,06/11/1980,Pål_Sverre_Hagen
+818,563,Anders Baasmo,Kon-Tiki,29/01/1976,Anders_Baasmo
+819,560,Wotan Wilke Möhring,Pandorum,23/05/1967,Wotan_Wilke_Möhring
+820,558,Jamie Dornan,The Fall,01/05/1982,Jamie_Dornan
+821,557,Paul Mescal,Aftersun,02/02/1996,Paul_Mescal
+822,554,Harry Belafonte,Bobby,01/03/1927,Harry_Belafonte
+823,546,Thierry Lhermitte,Le dîner de cons,24/11/1952,Thierry_Lhermitte
+824,546,Jacques Villeret,Le dîner de cons,06/02/1951,Jacques_Villeret
+825,544,Jon Finch,Frenzy,02/03/1942,Jon_Finch
+826,538,Nigel Terry,Excalibur,15/08/1945,Nigel_Terry
+827,536,Jean-Marc Barr,Le grand bleu,27/09/1960,Jean-Marc_Barr
+828,536,Tom Payne,Prodigal Son,21/12/1982,Tom_Payne
+829,536,Olivier Martinez,Unfaithful,12/01/1966,Olivier_Martinez
+830,533,Peter Simonischek,Toni Erdmann,06/08/1946,Peter_Simonischek
+831,531,Lars Eidinger,Clouds of Sils Maria,21/01/1976,Lars_Eidinger
+832,527,Asier Etxeandia,Dolor y gloria,27/06/1975,Asier_Etxeandia
+833,522,Matt Smith,Doctor Who,28/10/1982,Matt_Smith
+834,515,Edmund Gwenn,Miracle on 34th Street,1877-09-26,Edmund_Gwenn
+835,515,John Payne,Miracle on 34th Street,28/05/1912,John_Payne
+836,508,Richie Merritt,White Boy Rick,,Richie_Merritt
+837,507,Oliver Masucci,Fantastic Beasts: The Secrets of Dumbledore,06/12/1968,Oliver_Masucci
+838,507,Christoph Maria Herbst,Stromberg,09/02/1966,Christoph_Maria_Herbst
+839,504,Raf Vallone,The Italian Job,17/02/1916,Raf_Vallone
+840,502,Jan Josef Liefers,Tatort,08/08/1964,Jan_Josef_Liefers
+1,70488,Jennifer Lawrence,The Hunger Games,15/08/1990,Jennifer_Lawrence
+2,64117,Natalie Portman,Black Swan,09/06/1981,Natalie_Portman
+3,63550,Julianne Moore,Far from Heaven,03/12/1960,Julianne_Moore
+4,57521,Robin Wright,Beowulf,08/04/1966,Robin_Wright
+5,57412,Cate Blanchett,Carol,14/05/1969,Cate_Blanchett
+6,56731,Anne Hathaway,Les Misérables,12/11/1982,Anne_Hathaway
+7,55581,Kate Winslet,Titanic,05/10/1975,Kate_Winslet
+8,54709,Talia Shire,Rocky,25/04/1946,Talia_Shire
+9,52796,Diane Keaton,Annie Hall,05/01/1946,Diane_Keaton
+10,52174,Léa Seydoux,La vie d'Adèle,01/07/1985,Léa_Seydoux
+11,50689,Keira Knightley,Pirates of the Caribbean: The Curse of the Black Pearl,26/03/1985,Keira_Knightley
+12,50584,Uma Thurman,Kill Bill: Vol. 1,29/04/1970,Uma_Thurman
+13,49295,Marion Cotillard,La Môme,30/09/1975,Marion_Cotillard
+14,48093,Scarlett Johansson,Lost in Translation,22/11/1984,Scarlett_Johansson
+15,47837,Jessica Chastain,Zero Dark Thirty,24/03/1977,Jessica_Chastain
+16,47662,Amy Adams,Arrival,20/08/1974,Amy_Adams
+17,47201,Helena Bonham Carter,Sweeney Todd: The Demon Barber of Fleet Street,26/05/1966,Helena_Bonham_Carter
+18,44087,Vera Farmiga,Up in the Air,06/08/1973,Vera_Farmiga
+19,43263,Meryl Streep,Out of Africa,22/06/1949,Meryl_Streep
+20,42826,Jodie Foster,The Silence of the Lambs,19/11/1962,Jodie_Foster
+21,42054,Tilda Swinton,We Need to Talk About Kevin,05/11/1960,Tilda_Swinton
+22,41787,Maggie Gyllenhaal,Secretary,16/11/1977,Maggie_Gyllenhaal
+23,39829,Sandra Bullock,The Proposal,26/07/1964,Sandra_Bullock
+24,39032,Gwyneth Paltrow,Shakespeare in Love,27/09/1972,Gwyneth_Paltrow
+25,38115,Frances McDormand,"Three Billboards Outside Ebbing, Missouri",23/06/1957,Frances_McDormand
+26,37977,Winona Ryder,Little Women,29/10/1971,Winona_Ryder
+27,37156,Sigourney Weaver,Avatar,08/10/1949,Sigourney_Weaver
+28,36874,Carrie-Anne Moss,The Matrix,21/08/1967,Carrie-Anne_Moss
+29,36855,Toni Collette,About a Boy,01/11/1972,Toni_Collette
+30,36564,Jennifer Connelly,A Beautiful Mind,12/12/1970,Jennifer_Connelly
+31,36468,Judi Dench,Skyfall,09/12/1934,Judi_Dench
+32,35247,Julia Roberts,Pretty Woman,28/10/1967,Julia_Roberts
+33,34656,Melissa Leo,The Fighter,14/09/1960,Melissa_Leo
+34,34017,Carrie Fisher,Star Wars,21/10/1956,Carrie_Fisher
+35,33874,Elizabeth Banks,The Hunger Games,10/02/1974,Elizabeth_Banks
+36,33270,Amanda Plummer,Pulp Fiction,23/03/1957,Amanda_Plummer
+37,33172,Naomie Harris,Moonlight,06/09/1976,Naomie_Harris
+38,31969,Rebecca Hall,Vicky Cristina Barcelona,03/05/1982,Rebecca_Hall
+39,31836,Emma Stone,La La Land,06/11/1988,Emma_Stone
+40,31821,Juno Temple,Atonement,21/07/1989,Juno_Temple
+41,31640,Sally Field,Forrest Gump,06/11/1946,Sally_Field
+42,31619,Rachel McAdams,The Notebook,17/11/1978,Rachel_McAdams
+43,31397,Daryl Hannah,Wall Street,03/12/1960,Daryl_Hannah
+44,30575,Michelle Monaghan,Gone Baby Gone,23/03/1976,Michelle_Monaghan
+45,30503,Nicole Kidman,Moulin Rouge!,20/06/1967,Nicole_Kidman
+46,29970,Jennifer Garner,Alias,17/04/1972,Jennifer_Garner
+47,29950,Carey Mulligan,Never Let Me Go,28/05/1985,Carey_Mulligan
+48,29609,Kathy Bates,Misery,28/06/1948,Kathy_Bates
+49,29417,Emily Mortimer,Mary Poppins Returns,06/10/1971,Emily_Mortimer
+50,29246,Naomi Watts,Mulholland Dr.,28/09/1968,Naomi_Watts
+51,28923,Michelle Williams,My Week with Marilyn,09/09/1980,Michelle_Williams
+52,28878,Diane Kruger,Inglourious Basterds,15/07/1976,Diane_Kruger
+53,28040,Mélanie Laurent,Inglourious Basterds,21/02/1983,Mélanie_Laurent
+54,27975,Julia Stiles,10 Things I Hate About You,28/03/1981,Julia_Stiles
+55,27832,Margot Robbie,Suicide Squad,02/07/1990,Margot_Robbie
+56,27685,Viola Davis,Fences,11/08/1965,Viola_Davis
+57,27191,Maggie Smith,Gosford Park,28/12/1934,Maggie_Smith
+58,26846,Laura Linney,The Big C,05/02/1964,Laura_Linney
+59,26500,Emma Watson,The Perks of Being a Wallflower,15/04/1990,Emma_Watson
+60,26282,Charlize Theron,Monster,07/08/1975,Charlize_Theron
+61,26237,Rosanna Arquette,Pulp Fiction,10/08/1959,Rosanna_Arquette
+62,26219,Olivia Williams,The Ghost Writer,26/07/1968,Olivia_Williams
+63,26134,Octavia Spencer,Hidden Figures,25/05/1970,Octavia_Spencer
+64,25861,Catherine Keener,Being John Malkovich,26/03/1959,Catherine_Keener
+65,25363,Alice Braga,I Am Legend,15/04/1983,Alice_Braga
+66,25263,Patricia Clarkson,The Station Agent,29/12/1959,Patricia_Clarkson
+67,24906,Zoe Saldana,Avatar,19/06/1978,Zoe_Saldana
+68,24537,Elliot Page,Juno,21/02/1987,Elliot_Page
+69,24330,Elle Fanning,Super 8,09/04/1998,Elle_Fanning
+70,24210,Kerry Washington,Scandal,31/01/1977,Kerry_Washington
+71,23982,Cameron Diaz,Vanilla Sky,30/08/1972,Cameron_Diaz
+72,23641,Kristen Wiig,Bridesmaids,22/08/1973,Kristen_Wiig
+73,23630,Joan Allen,Room,20/08/1956,Joan_Allen
+74,23475,Rachel Weisz,The Constant Gardener,07/03/1970,Rachel_Weisz
+75,23423,Jennifer Jason Leigh,The Hateful Eight,05/02/1962,Jennifer_Jason_Leigh
+76,23395,Annette Bening,American Beauty,29/05/1958,Annette_Bening
+77,23255,Rooney Mara,Carol,17/04/1985,Rooney_Mara
+78,23229,Kirsten Dunst,Spider-Man,30/04/1982,Kirsten_Dunst
+79,23137,Sarah Paulson,12 Years a Slave,17/12/1974,Sarah_Paulson
+80,22428,Saoirse Ronan,Hanna,12/04/1994,Saoirse_Ronan
+81,22220,Penélope Cruz,Vicky Cristina Barcelona,28/04/1974,Penélope_Cruz
+82,22214,Angelina Jolie,"Girl, Interrupted",04/06/1975,Angelina_Jolie
+83,22156,Lucy Liu,Kill Bill: Vol. 1,02/12/1968,Lucy_Liu
+84,21989,Connie Nielsen,Gladiator,03/07/1965,Connie_Nielsen
+85,21672,Ashley Judd,Double Jeopardy,19/04/1968,Ashley_Judd
+86,21387,Bridget Moynahan,"I, Robot",28/04/1971,Bridget_Moynahan
+87,21334,Kelly Macdonald,No Country for Old Men,23/02/1976,Kelly_Macdonald
+88,21281,Allison Janney,The Help,19/11/1959,Allison_Janney
+89,21219,Piper Perabo,Coyote Ugly,31/10/1976,Piper_Perabo
+90,20987,Vivica A. Fox,Independence Day,30/07/1964,Vivica_A._Fox
+91,20868,Katie Holmes,Batman Begins,18/12/1978,Katie_Holmes
+92,20787,Jennifer Ehle,Zero Dark Thirty,29/12/1969,Jennifer_Ehle
+93,20033,Liv Tyler,Armageddon,01/07/1977,Liv_Tyler
+94,19889,Reese Witherspoon,Wild,22/03/1976,Reese_Witherspoon
+95,19767,Lea Thompson,Back to the Future,31/05/1961,Lea_Thompson
+96,19758,Emily Blunt,Edge of Tomorrow,23/02/1983,Emily_Blunt
+97,19503,Stephanie Kurtzuba,The Irishman,,Stephanie_Kurtzuba
+98,19389,Catherine Zeta-Jones,Chicago,25/09/1969,Catherine_Zeta-Jones
+99,19359,Hilary Swank,Million Dollar Baby,30/07/1974,Hilary_Swank
+100,19296,Amy Ryan,Gone Baby Gone,03/05/1968,Amy_Ryan
+101,19294,Rosamund Pike,Gone Girl,,Rosamund_Pike
+102,19139,Michelle Pfeiffer,What Lies Beneath,29/04/1958,Michelle_Pfeiffer
+103,19127,Maria Bello,A History of Violence,18/04/1967,Maria_Bello
+104,19098,Ellen Burstyn,Requiem for a Dream,07/12/1932,Ellen_Burstyn
+105,19023,Emily Watson,Gosford Park,14/01/1967,Emily_Watson
+106,18884,Kim Basinger,L.A. Confidential,08/12/1953,Kim_Basinger
+107,18125,Marcia Gay Harden,Mystic River,14/08/1959,Marcia_Gay_Harden
+108,18112,Alison Pill,Scott Pilgrim vs. the World,27/11/1985,Alison_Pill
+109,18070,Anna Kendrick,Up in the Air,09/08/1985,Anna_Kendrick
+110,17614,Zoë Kravitz,Mad Max: Fury Road,01/12/1988,Zoë_Kravitz
+111,17561,Marisa Tomei,My Cousin Vinny,04/12/1964,Marisa_Tomei
+112,17561,Franka Potente,Lola rennt,22/07/1974,Franka_Potente
+113,17527,Karen Allen,Raiders of the Lost Ark,05/10/1951,Karen_Allen
+114,17468,Frances Fisher,Titanic,11/05/1952,Frances_Fisher
+115,17352,Kristen Stewart,Snow White and the Huntsman,09/04/1990,Kristen_Stewart
+116,17349,Isla Fisher,Wedding Crashers,03/02/1976,Isla_Fisher
+117,17330,Laura Dern,Jurassic Park,10/02/1967,Laura_Dern
+118,17315,Bryce Dallas Howard,Jurassic World: Dominion,02/03/1981,Bryce_Dallas_Howard
+119,17048,Sean Young,Blade Runner,20/11/1959,Sean_Young
+120,16656,Beverly D'Angelo,National Lampoon's Vacation,15/11/1951,Beverly_D'Angelo
+121,16595,Mary Steenburgen,Last Vegas,08/02/1953,Mary_Steenburgen
+122,16402,Abbie Cornish,Bright Star,07/08/1982,Abbie_Cornish
+123,16197,Ana de Armas,Blade Runner 2049,30/04/1988,Ana_de_Armas
+124,16003,Chloë Sevigny,We Are Who We Are,18/11/1974,Chloë_Sevigny
+125,15975,Dakota Fanning,War of the Worlds,23/02/1994,Dakota_Fanning
+126,15619,Jennifer Morrison,House M.D.,12/04/1979,Jennifer_Morrison
+127,15614,Heather Graham,Austin Powers: The Spy Who Shagged Me,29/01/1970,Heather_Graham
+128,15458,Monica Bellucci,Malèna,30/09/1964,Monica_Bellucci
+129,15431,Kate Mara,Fantastic Four,27/02/1983,Kate_Mara
+130,15393,Vanessa Redgrave,Coriolanus,30/01/1937,Vanessa_Redgrave
+131,15361,Jamie Lee Curtis,Halloween,22/11/1958,Jamie_Lee_Curtis
+132,15083,Alexandra Maria Lara,Der Untergang,12/11/1978,Alexandra_Maria_Lara
+133,15015,Mary McDonnell,Battlestar Galactica,28/04/1952,Mary_McDonnell
+134,14932,Mia Wasikowska,Alice in Wonderland,25/10/1989,Mia_Wasikowska
+135,14605,Louise Fletcher,One Flew Over the Cuckoo's Nest,22/07/1934,Louise_Fletcher
+136,14501,Bonnie Bedelia,Die Hard,25/03/1948,Bonnie_Bedelia
+137,14406,Abigail Breslin,Little Miss Sunshine,14/04/1996,Abigail_Breslin
+138,14369,Shailene Woodley,Big Little Lies,15/11/1991,Shailene_Woodley
+139,14152,Lorraine Bracco,Goodfellas,02/10/1954,Lorraine_Bracco
+140,14140,Rosario Dawson,Rent,09/05/1979,Rosario_Dawson
+141,14099,Natascha McElhone,Ronin,14/12/1969,Natascha_McElhone
+142,14056,Helen Hunt,As Good as It Gets,15/06/1963,Helen_Hunt
+143,14049,Olivia Colman,The Favourite,30/01/1974,Olivia_Colman
+144,14014,Shelley Duvall,The Shining,07/07/1949,Shelley_Duvall
+145,13971,Anjelica Huston,The Grifters,08/07/1951,Anjelica_Huston
+146,13869,Kim Dickens,Gone Girl,18/06/1965,Kim_Dickens
+147,13564,Dianne Wiest,The Birdcage,28/03/1946,Dianne_Wiest
+148,13480,Andrea Riseborough,Birdman or (The Unexpected Virtue of Ignorance),20/11/1981,Andrea_Riseborough
+149,13410,Madeleine Stowe,Twelve Monkeys,18/08/1958,Madeleine_Stowe
+150,13390,Miranda Richardson,The Crying Game,03/03/1958,Miranda_Richardson
+151,13292,Juliette Lewis,Natural Born Killers,21/06/1973,Juliette_Lewis
+152,13119,Marisa Paredes,Todo sobre mi madre,03/04/1946,Marisa_Paredes
+153,13106,Zazie Beetz,Atlanta,01/06/1991,Zazie_Beetz
+154,13092,Sissy Spacek,In the Bedroom,25/12/1949,Sissy_Spacek
+155,13079,Audrey Tautou,Le fabuleux destin d'Amélie Poulain,09/08/1976,Audrey_Tautou
+156,12900,Chloë Grace Moretz,Kick-Ass,10/02/1997,Chloë_Grace_Moretz
+157,12720,Thandiwe Newton,Crash,06/11/1972,Thandiwe_Newton
+158,12621,Radha Mitchell,Pitch Black,12/11/1973,Radha_Mitchell
+159,12603,Susan Sarandon,Thelma & Louise,04/10/1946,Susan_Sarandon
+160,12589,Eva Green,Casino Royale,06/07/1980,Eva_Green
+161,12584,Veronica Cartwright,Alien,20/04/1949,Veronica_Cartwright
+162,12435,Helen Mirren,The Queen,26/07/1945,Helen_Mirren
+163,12394,Paula Patton,Precious,05/12/1975,Paula_Patton
+164,12391,Patricia Arquette,True Romance,08/04/1968,Patricia_Arquette
+165,12363,Catherine McCormack,Braveheart,03/04/1972,Catherine_McCormack
+166,12290,Mary-Louise Parker,Weeds,02/08/1964,Mary-Louise_Parker
+167,12167,Mila Kunis,Black Swan,14/08/1983,Mila_Kunis
+168,12155,Freida Pinto,Slumdog Millionaire,18/10/1984,Freida_Pinto
+169,12054,Clémence Poésy,In Bruges,30/10/1982,Clémence_Poésy
+170,12040,Nathalie Baye,Catch Me If You Can,06/07/1948,Nathalie_Baye
+171,11946,Sophie Marceau,La boum,17/11/1966,Sophie_Marceau
+172,11890,Rene Russo,Nightcrawler,17/02/1954,Rene_Russo
+173,11580,Janet Leigh,Psycho,06/07/1927,Janet_Leigh
+174,11137,Vera Miles,The Man Who Shot Liberty Valance,23/08/1929,Vera_Miles
+175,11090,Regina King,Ray,15/01/1971,Regina_King
+176,11053,Emmy Rossum,The Phantom of the Opera,12/09/1986,Emmy_Rossum
+177,11037,Diane Venora,Heat,10/08/1952,Diane_Venora
+178,10992,Renée Zellweger,Chicago,25/04/1969,Renée_Zellweger
+179,10917,Anna Paquin,The Piano,24/07/1982,Anna_Paquin
+180,10831,Sally Hawkins,The Shape of Water,27/04/1976,Sally_Hawkins
+181,10776,Alicia Vikander,Ex Machina,03/10/1988,Alicia_Vikander
+182,10765,January Jones,X: First Class,05/01/1978,January_Jones
+183,10723,Julia Ormond,My Week with Marilyn,04/01/1965,Julia_Ormond
+184,10593,Grace Kelly,Dial M for Murder,12/11/1929,Grace_Kelly
+185,10527,Eva Mendes,Hitch,05/03/1974,Eva_Mendes
+186,10498,Julie Delpy,Trois couleurs: Blanc,21/12/1969,Julie_Delpy
+187,10427,Hiam Abbass,Blade Runner 2049,30/11/1960,Hiam_Abbass
+188,10395,Julie Christie,Doctor Zhivago,14/04/1940,Julie_Christie
+189,10320,Kristin Scott Thomas,Gosford Park,24/05/1960,Kristin_Scott_Thomas
+190,10289,Emma Thompson,Sense and Sensibility,15/04/1959,Emma_Thompson
+191,10287,Sharon Stone,Basic Instinct,10/03/1958,Sharon_Stone
+192,10257,Kelly Reilly,Pride & Prejudice,18/07/1977,Kelly_Reilly
+193,10018,Demi Moore,G.I. Jane,11/11/1962,Demi_Moore
+194,9951,Maribel Verdú,El laberinto del fauno,02/10/1970,Maribel_Verdú
+195,9922,Taraji P. Henson,The Curious Case of Benjamin Button,11/09/1970,Taraji_P._Henson
+196,9880,Gena Rowlands,The Notebook,19/06/1930,Gena_Rowlands
+197,9844,Evan Rachel Wood,Thirteen,07/09/1987,Evan_Rachel_Wood
+198,9766,Linda Fiorentino,The Last Seduction,09/03/1958,Linda_Fiorentino
+199,9721,Halle Berry,Catwoman,14/08/1966,Halle_Berry
+200,9715,Brie Larson,Room,01/10/1989,Brie_Larson
+201,9584,Melanie Lynskey,Togetherness,16/05/1977,Melanie_Lynskey
+202,9555,Ingrid Bergman,Casablanca,29/08/1915,Ingrid_Bergman
+203,9321,Cho Yeo-jeong,Gisaengchung,10/02/1981,Cho_Yeo-jeong
+204,9321,Park So-dam,Gisaengchung,08/09/1991,Park_So-dam
+205,9257,Meg Ryan,When Harry Met Sally...,19/11/1961,Meg_Ryan
+206,9212,Salli Richardson-Whitfield,Anacondas: The Hunt for the Blood Orchid,23/11/1967,Salli_Richardson-Whitfield
+207,9200,Faye Dunaway,Bonnie and Clyde,14/01/1941,Faye_Dunaway
+208,9129,Cybill Shepherd,Cybill,18/02/1950,Cybill_Shepherd
+209,9032,Andie MacDowell,Groundhog Day,21/04/1958,Andie_MacDowell
+210,8998,Nicoletta Braschi,La vita è bella,19/04/1960,Nicoletta_Braschi
+211,8995,Saffron Burrows,You,22/10/1972,Saffron_Burrows
+212,8875,Haley Bennett,The Magnificent Seven,07/01/1988,Haley_Bennett
+213,8800,Holly Hunter,Broadcast News,20/03/1958,Holly_Hunter
+214,8780,Ziyi Zhang,Yi dai zong shi,09/02/1979,Ziyi_Zhang
+215,8673,Samantha Morton,Minority Report,13/05/1977,Samantha_Morton
+216,8552,Sylvia Hoeks,Blade Runner 2049,01/06/1983,Sylvia_Hoeks
+217,8547,Teri Polo,Meet the Parents,01/06/1969,Teri_Polo
+218,8547,Blythe Danner,Meet the Parents,03/02/1943,Blythe_Danner
+219,8462,Bridget Fonda,A Simple Plan,27/01/1964,Bridget_Fonda
+220,8456,Gretchen Mol,The Thirteenth Floor,08/11/1972,Gretchen_Mol
+221,8431,Rachel Griffiths,Six Feet Under,18/12/1968,Rachel_Griffiths
+222,8264,Lorraine Gary,Jaws: The Revenge,16/08/1937,Lorraine_Gary
+223,8259,Ivana Baquero,El laberinto del fauno,11/06/1994,Ivana_Baquero
+224,8259,Ariadna Gil,El laberinto del fauno,23/01/1969,Ariadna_Gil
+225,8255,Noomi Rapace,Män som hatar kvinnor,28/12/1979,Noomi_Rapace
+226,8135,Milla Jovovich,The Fifth Element,17/12/1975,Milla_Jovovich
+227,8114,Sienna Miller,G.I. Joe: The Rise of Cobra,28/12/1981,Sienna_Miller
+228,8045,Tabu,Andhadhun,04/11/1970,Tabu
+229,8004,Shirley MacLaine,Terms of Endearment,24/04/1934,Shirley_MacLaine
+230,7953,Charlotte Gainsbourg,Antichrist,21/07/1971,Charlotte_Gainsbourg
+231,7923,Brenda Blethyn,Pride & Prejudice,20/02/1946,Brenda_Blethyn
+232,7909,Charlotte Rampling,45 Years,05/02/1946,Charlotte_Rampling
+233,7881,Amanda Seyfried,Les Misérables,03/12/1985,Amanda_Seyfried
+234,7856,Samantha Mathis,Broken Arrow,12/05/1970,Samantha_Mathis
+235,7832,Kate Beckinsale,Underworld: Evolution,26/07/1973,Kate_Beckinsale
+236,7717,Anna Friel,Land of the Lost,12/07/1976,Anna_Friel
+237,7713,Isabella Rossellini,Blue Velvet,18/06/1952,Isabella_Rossellini
+238,7656,Michelle Yeoh,Everything Everywhere All at Once,06/08/1962,Michelle_Yeoh
+239,7623,Anamaria Marinca,"4 luni, 3 saptamâni si 2 zile",01/04/1978,Anamaria_Marinca
+240,7605,Mireille Enos,World War Z,22/09/1975,Mireille_Enos
+241,7605,Daniella Kertesz,World War Z,11/03/1989,Daniella_Kertesz
+242,7585,Kate Ashfield,Shaun of the Dead,28/05/1972,Kate_Ashfield
+243,7549,Famke Janssen,X-Men: The Last Stand,05/11/1964,Famke_Janssen
+244,7485,Geena Davis,Thelma & Louise,21/01/1956,Geena_Davis
+245,7445,Adrianne Palicki,G.I. Joe: Retaliation,06/05/1983,Adrianne_Palicki
+246,7367,Olivia Wilde,Tron,10/03/1984,Olivia_Wilde
+247,7348,Elisabeth Röhm,American Hustle,28/04/1973,Elisabeth_Röhm
+248,7228,Deborah Kara Unger,The Game,12/05/1966,Deborah_Kara_Unger
+249,7206,Miranda Otto,The Lord of the Rings: The Return of the King,16/12/1967,Miranda_Otto
+250,7180,Martina Gedeck,Das Leben der Anderen,14/09/1961,Martina_Gedeck
+251,7158,Corinna Harfouch,Der Untergang,16/10/1954,Corinna_Harfouch
+252,7158,Birgit Minichmayr,Der Untergang,03/04/1977,Birgit_Minichmayr
+253,7152,Valeria Golino,Rain Man,22/10/1965,Valeria_Golino
+254,7103,Joely Richardson,Nip/Tuck,09/01/1965,Joely_Richardson
+255,7072,Whoopi Goldberg,Ghost,13/11/1955,Whoopi_Goldberg
+256,7016,Claudia Cardinale,C'era una volta il West,15/04/1938,Claudia_Cardinale
+257,6974,Lili Taylor,American Crime,20/02/1967,Lili_Taylor
+258,6911,Bérénice Bejo,The Artist,07/07/1976,Bérénice_Bejo
+259,6880,Eva Marie Saint,On the Waterfront,04/07/1924,Eva_Marie_Saint
+260,6847,Audrey Hepburn,Breakfast at Tiffany's,04/05/1929,Audrey_Hepburn
+261,6828,Sophie Okonedo,Hotel Rwanda,11/08/1968,Sophie_Okonedo
+262,6776,Alicia von Rittberg,Fury,10/12/1993,Alicia_von_Rittberg
+263,6659,Lisa Kudrow,Friends,30/07/1963,Lisa_Kudrow
+264,6601,Kang Hye-jeong,Oldeuboi,04/01/1982,Kang_Hye-jeong
+265,6585,Judy Garland,The Wizard of Oz,10/06/1922,Judy_Garland
+266,6570,Anya Taylor-Joy,The Queen's Gambit,16/04/1996,Anya_Taylor-Joy
+267,6552,Susanne Lothar,Funny Games,15/11/1960,Susanne_Lothar
+268,6534,Karoline Herfurth,Perfume: The Story of a Murderer,22/05/1984,Karoline_Herfurth
+269,6513,Katharine Ross,The Graduate,29/01/1940,Katharine_Ross
+270,6501,Thelma Ritter,Rear Window,14/02/1902,Thelma_Ritter
+271,6459,Anna Faris,The House Bunny,29/11/1976,Anna_Faris
+272,6430,Claire Danes,My So-Called Life,12/04/1979,Claire_Danes
+273,6411,Angela Bassett,Black Panther,16/08/1958,Angela_Bassett
+274,6353,Anne Bancroft,The Graduate,17/09/1931,Anne_Bancroft
+275,6348,Rosemarie DeWitt,Rachel Getting Married,26/10/1971,Rosemarie_DeWitt
+276,6319,Paulette Goddard,Modern Times,03/06/1910,Paulette_Goddard
+277,6304,Anne Heche,Six Days Seven Nights,25/05/1969,Anne_Heche
+278,6281,Linda Cardellini,Scooby-Doo,25/06/1975,Linda_Cardellini
+279,6271,Jessica Biel,The Illusionist,03/03/1982,Jessica_Biel
+280,6211,Kate Hudson,Almost Famous,19/04/1979,Kate_Hudson
+281,6206,Linda Hamilton,Terminator 2: Judgment Day,26/09/1956,Linda_Hamilton
+282,6188,Jennifer Aniston,Friends,11/02/1969,Jennifer_Aniston
+283,6175,Mia Farrow,Rosemary's Baby,09/02/1945,Mia_Farrow
+284,6167,Lena Olin,The Unbearable Lightness of Being,22/03/1955,Lena_Olin
+285,6131,Emmanuelle Seigner,Bitter Moon,22/06/1966,Emmanuelle_Seigner
+286,6086,Ruby Dee,American Gangster,27/10/1922,Ruby_Dee
+287,6074,Elizabeth McGovern,Ordinary People,18/07/1961,Elizabeth_McGovern
+288,6019,Vivien Leigh,A Streetcar Named Desire,05/11/1913,Vivien_Leigh
+289,6000,Cicely Tyson,The Help,19/12/1924,Cicely_Tyson
+290,5972,Agnes Moorehead,"Hush...Hush, Sweet Charlotte",06/12/1900,Agnes_Moorehead
+291,5943,Pam Grier,Jackie Brown,26/05/1949,Pam_Grier
+292,5930,Geraldine Chaplin,Hable con ella,31/07/1944,Geraldine_Chaplin
+293,5917,Kate Capshaw,Indiana Jones and the Temple of Doom,03/11/1953,Kate_Capshaw
+294,5910,Amy Smart,Rat Race,26/03/1976,Amy_Smart
+295,5895,Marie-Josée Croze,Les invasions barbares,23/02/1970,Marie-Josée_Croze
+296,5824,Glenn Close,Fatal Attraction,19/03/1947,Glenn_Close
+297,5760,Donna Reed,It's a Wonderful Life,27/01/1921,Donna_Reed
+298,5758,Drew Barrymore,Charlie's Angels,22/02/1975,Drew_Barrymore
+299,5704,AJ Michalka,Super 8,10/04/1991,AJ_Michalka
+300,5694,Ayelet Zurer,Man of Steel,28/06/1969,Ayelet_Zurer
+301,5685,Juliette Binoche,The English Patient,09/03/1964,Juliette_Binoche
+302,5419,Olga Kurylenko,Oblivion,14/11/1979,Olga_Kurylenko
+303,5277,Barbara Hershey,Black Swan,05/02/1948,Barbara_Hershey
+304,5230,Keri Russell,Felicity,23/03/1976,Keri_Russell
+305,5216,Lucy Boynton,Sing Street,17/01/1994,Lucy_Boynton
+306,5203,Emmanuelle Béart,8 femmes,14/08/1963,Emmanuelle_Béart
+307,5203,Ingeborga Dapkunaite,Seven Years in Tibet,20/01/1963,Ingeborga_Dapkunaite
+308,5156,Kim Novak,Vertigo,13/02/1933,Kim_Novak
+309,5156,Barbara Bel Geddes,Vertigo,31/10/1922,Barbara_Bel_Geddes
+310,5127,Olivia de Havilland,The Heiress,01/07/1916,Olivia_de_Havilland
+311,5117,Ruby Rose,Orange Is the New Black,20/03/1986,Ruby_Rose
+312,5117,Claudia Gerini,The Passion of the Christ,18/12/1971,Claudia_Gerini
+313,5076,Felicity Huffman,Transamerica,09/12/1962,Felicity_Huffman
+314,5068,Joan Cusack,In & Out,11/10/1962,Joan_Cusack
+315,5045,Molly Ringwald,Sixteen Candles,18/02/1968,Molly_Ringwald
+316,5045,Ally Sheedy,The Breakfast Club,13/06/1962,Ally_Sheedy
+317,5022,Hailee Steinfeld,True Grit,11/12/1996,Hailee_Steinfeld
+318,4995,Lady Gaga,A Star Is Born,28/03/1986,Lady_Gaga
+319,4962,Aitana Sánchez-Gijón,The Machinist,05/11/1968,Aitana_Sánchez-Gijón
+320,4915,Felicity Jones,Rogue One,17/10/1983,Felicity_Jones
+321,4895,Hope Davis,American Splendor,23/03/1964,Hope_Davis
+322,4890,Judy Davis,Husbands and Wives,23/04/1955,Judy_Davis
+323,4872,Salma Hayek,Frida,02/09/1966,Salma_Hayek
+324,4849,Mary Elizabeth Mastrantonio,The Abyss,17/11/1958,Mary_Elizabeth_Mastrantonio
+325,4791,Jessica Lange,Tootsie,20/04/1949,Jessica_Lange
+326,4783,Diane Lane,Unfaithful,22/01/1965,Diane_Lane
+327,4779,Tuesday Weld,Once Upon a Time in America,27/08/1943,Tuesday_Weld
+328,4757,Sarah Jessica Parker,Sex and the City,25/03/1965,Sarah_Jessica_Parker
+329,4754,Charlotte Le Bon,Anthropoid,04/09/1986,Charlotte_Le_Bon
+330,4738,Teri Garr,Tootsie,11/12/1947,Teri_Garr
+331,4713,Linda Blair,The Exorcist,22/01/1959,Linda_Blair
+332,4674,Julie Walters,Billy Elliot,22/02/1950,Julie_Walters
+333,4656,Greta Gerwig,Lady Bird,04/08/1983,Greta_Gerwig
+334,4613,Samara Weaving,Ready or Not,23/02/1992,Samara_Weaving
+335,4568,Jessica Tandy,Driving Miss Daisy,07/06/1909,Jessica_Tandy
+336,4546,Hannah Herzsprung,The Reader,07/09/1981,Hannah_Herzsprung
+337,4535,Elisabeth Shue,Leaving Las Vegas,06/10/1963,Elisabeth_Shue
+338,4452,Belén Rueda,El orfanato,16/03/1965,Belén_Rueda
+339,4445,Michelle Dockery,Downton Abbey,15/12/1981,Michelle_Dockery
+340,4423,Ko Asung,Snowpiercer,10/08/1992,Ko_Asung
+341,4387,Lola Dueñas,Mar adentro,06/10/1971,Lola_Dueñas
+342,4342,Lubna Azabal,Incendies,15/08/1973,Lubna_Azabal
+343,4324,Ellen Barkin,The Fan,16/04/1954,Ellen_Barkin
+344,4310,Mary Elizabeth Winstead,10 Cloverfield Lane,28/11/1984,Mary_Elizabeth_Winstead
+345,4306,Zoe Kazan,Ruby Sparks,09/09/1983,Zoe_Kazan
+346,4305,Sarah Polley,Dawn of the Dead,08/01/1979,Sarah_Polley
+347,4293,Barbra Streisand,Funny Girl,24/04/1942,Barbra_Streisand
+348,4270,Frances O'Connor,A.I. Artificial Intelligence,12/06/1967,Frances_O'Connor
+349,4244,Melinda Dillon,Magnolia,13/10/1939,Melinda_Dillon
+350,4162,Maggie Cheung,Fa yeung nin wah,20/09/1964,Maggie_Cheung
+351,4134,Imelda Staunton,Vera Drake,09/01/1956,Imelda_Staunton
+352,4108,Juliane Köhler,Der Untergang,06/08/1965,Juliane_Köhler
+353,4077,Lisa Bonet,Angel Heart,16/11/1967,Lisa_Bonet
+354,4060,Alexandra Rapaport,Gåsmamman,26/12/1971,Alexandra_Rapaport
+355,4002,Madeline Kahn,Paper Moon,29/09/1942,Madeline_Kahn
+356,4001,Carmen Ejogo,Selma,22/10/1973,Carmen_Ejogo
+357,3982,Kelly Preston,Battlefield Earth,13/10/1962,Kelly_Preston
+358,3981,Sarah Silverman,Wreck-It Ralph,01/12/1970,Sarah_Silverman
+359,3965,Catherine O'Hara,Best in Show,04/03/1954,Catherine_O'Hara
+360,3964,Lauren Bacall,To Have and Have Not,16/09/1924,Lauren_Bacall
+361,3964,Debbie Reynolds,Singin' in the Rain,01/04/1932,Debbie_Reynolds
+362,3962,Julie Andrews,The Sound of Music,01/10/1935,Julie_Andrews
+363,3932,Golshifteh Farahani,Paterson,10/07/1983,Golshifteh_Farahani
+364,3925,Ruth Gordon,Rosemary's Baby,1896-10-30,Ruth_Gordon
+365,3902,Elizabeth Berridge,Amadeus,02/05/1962,Elizabeth_Berridge
+366,3898,Elizabeth Debicki,The Great Gatsby,24/08/1990,Elizabeth_Debicki
+367,3842,Marlene Dietrich,Witness for the Prosecution,27/12/1901,Marlene_Dietrich
+368,3829,Laura Harrier,Spider-Man: Homecoming,28/03/1990,Laura_Harrier
+369,3824,Zooey Deschanel,New Girl,17/01/1980,Zooey_Deschanel
+370,3808,Carroll Baker,Baby Doll,28/05/1931,Carroll_Baker
+371,3780,Lake Bell,In a World...,24/03/1979,Lake_Bell
+372,3774,Marilyn Monroe,Some Like It Hot,01/06/1926,Marilyn_Monroe
+373,3753,Bibi Andersson,Persona,11/11/1935,Bibi_Andersson
+374,3720,Kate Bosworth,Superman Returns,02/01/1983,Kate_Bosworth
+375,3683,Marta Etura,Ofrenda a la tormenta,28/10/1978,Marta_Etura
+376,3634,Katrin Cartlidge,Breaking the Waves,15/05/1961,Katrin_Cartlidge
+377,3608,Candice Bergen,Miss Congeniality,09/05/1946,Candice_Bergen
+378,3590,Julia Fox,Uncut Gems,02/02/1990,Julia_Fox
+379,3590,Idina Menzel,Frozen,30/05/1971,Idina_Menzel
+380,3583,Laura Harring,Mulholland Dr.,03/03/1964,Laura_Harring
+381,3573,Maya Rudolph,Bridesmaids,27/07/1972,Maya_Rudolph
+382,3556,Kim Cattrall,Sex and the City 2,21/08/1956,Kim_Cattrall
+383,3524,Elizabeth Olsen,Martha Marcy May Marlene,16/02/1989,Elizabeth_Olsen
+384,3496,Jeanne Tripplehorn,Basic Instinct,10/06/1963,Jeanne_Tripplehorn
+385,3439,Kim Hunter,A Streetcar Named Desire,12/11/1922,Kim_Hunter
+386,3411,Kelly McGillis,Witness,09/07/1957,Kelly_McGillis
+387,3393,Diane Ladd,Wild at Heart,29/11/1935,Diane_Ladd
+388,3384,Kim Greist,Brazil,12/05/1958,Kim_Greist
+389,3377,Natalie Martinez,Death Race,12/07/1984,Natalie_Martinez
+390,3373,Piper Laurie,The Hustler,22/01/1932,Piper_Laurie
+391,3357,Leila Hatami,Jodaeiye Nader az Simin,01/10/1972,Leila_Hatami
+392,3338,Virginia Madsen,Sideways,11/09/1961,Virginia_Madsen
+393,3315,Bae Doona,Cloud Atlas,11/10/1979,Bae_Doona
+394,3315,Xun Zhou,Li Mi De Cai Xiang,18/10/1974,Xun_Zhou
+395,3275,Vicky Krieps,Phantom Thread,04/10/1983,Vicky_Krieps
+396,3264,Caroline Goodall,Disclosure,13/11/1959,Caroline_Goodall
+397,3222,Gong Li,Man cheng jin dai huang jin jia,31/12/1965,Gong_Li
+398,3216,Brittany Murphy,Clueless,10/11/1977,Brittany_Murphy
+399,3215,Wendy Hiller,Murder on the Orient Express,15/08/1912,Wendy_Hiller
+400,3214,Jessica Barden,Hanna,21/07/1992,Jessica_Barden
+401,3211,Alida Valli,The Third Man,31/05/1921,Alida_Valli
+402,3196,Amanda Peet,2012,11/01/1972,Amanda_Peet
+403,3190,Katharine Hepburn,The Lion in Winter,12/05/1907,Katharine_Hepburn
+404,3189,Sarah Snook,Predestination,01/12/1987,Sarah_Snook
+405,3166,Shelley Winters,The Poseidon Adventure,18/08/1920,Shelley_Winters
+406,3163,Christina Ricci,Casper,12/02/1980,Christina_Ricci
+407,3131,Kathleen Turner,Romancing the Stone,19/06/1954,Kathleen_Turner
+408,3128,Gemma Arterton,Prince of Persia: The Sands of Time,02/02/1986,Gemma_Arterton
+409,3117,Tippi Hedren,The Birds,19/01/1930,Tippi_Hedren
+410,3091,Gloria Swanson,Sunset Blvd.,1899-03-27,Gloria_Swanson
+411,3075,Rose Byrne,Spy,24/07/1979,Rose_Byrne
+412,3065,Patricia Neal,Hud,20/01/1926,Patricia_Neal
+413,3050,Sara Forestier,Le nom des gens,04/10/1986,Sara_Forestier
+414,3040,Jane Alexander,Kramer vs. Kramer,28/10/1939,Jane_Alexander
+415,3011,Trine Dyrholm,Dronningen,15/04/1972,Trine_Dyrholm
+416,2963,Brigitte Helm,Metropolis,17/03/1906,Brigitte_Helm
+417,2937,A.J. Cook,Criminal Minds,22/07/1978,A.J._Cook
+418,2907,Virginie Ledoyen,8 femmes,15/11/1976,Virginie_Ledoyen
+419,2895,Stockard Channing,Practical Magic,13/02/1944,Stockard_Channing
+420,2887,Lesley Manville,Phantom Thread,12/03/1956,Lesley_Manville
+421,2881,Parker Posey,Scream 3,08/11/1968,Parker_Posey
+422,2839,Penelope Ann Miller,Carlito's Way,13/01/1964,Penelope_Ann_Miller
+423,2839,Jill Clayburgh,Bridesmaids,30/04/1944,Jill_Clayburgh
+424,2800,Minnie Driver,Circle of Friends,31/01/1970,Minnie_Driver
+425,2797,Eliza Scanlen,Little Women,06/01/1999,Eliza_Scanlen
+426,2788,Elizabeth Hurley,Austin Powers: International Man of Mystery,10/06/1965,Elizabeth_Hurley
+427,2774,Elisabeth Moss,The Invisible Man,24/07/1982,Elisabeth_Moss
+428,2756,Emmanuelle Riva,Hiroshima mon amour,24/02/1927,Emmanuelle_Riva
+429,2712,Leonor Watling,The Oxford Murders,28/07/1975,Leonor_Watling
+430,2710,Joanne Woodward,"Rachel, Rachel",27/02/1930,Joanne_Woodward
+431,2698,Courtney Love,The People vs. Larry Flynt,09/07/1964,Courtney_Love
+432,2672,Catherine Deneuve,Belle de jour,22/10/1943,Catherine_Deneuve
+433,2661,Amber Heard,Aquaman,22/04/1986,Amber_Heard
+434,2656,Anouk Aimée,8½,27/04/1932,Anouk_Aimée
+435,2641,Julie Hagerty,Freddy Got Fingered,15/06/1955,Julie_Hagerty
+436,2629,Soledad Villamil,El secreto de sus ojos,19/06/1969,Soledad_Villamil
+437,2615,Valeria Bruni Tedeschi,Il est plus facile pour un chameau...,16/11/1964,Valeria_Bruni_Tedeschi
+438,2555,Laura San Giacomo,"Sex, Lies, and Videotape",14/11/1962,Laura_San_Giacomo
+439,2511,Gillian Anderson,The X Files,09/08/1968,Gillian_Anderson
+440,2506,Mary McCormack,Deep Impact,08/02/1969,Mary_McCormack
+441,2492,Shannyn Sossamon,Wristcutters: A Love Story,03/10/1978,Shannyn_Sossamon
+442,2461,Marina Hands,Lady Chatterley,10/01/1975,Marina_Hands
+443,2460,Ana Wagener,Biutiful,,Ana_Wagener
+444,2460,Bárbara Lennie,Magical Girl,20/04/1984,Bárbara_Lennie
+445,2457,Bette Davis,All About Eve,05/04/1908,Bette_Davis
+446,2440,Jane Fonda,Klute,21/12/1937,Jane_Fonda
+447,2440,Anne Baxter,All About Eve,07/05/1923,Anne_Baxter
+448,2436,Elizabeth Taylor,Who's Afraid of Virginia Woolf?,27/02/1932,Elizabeth_Taylor
+449,2426,Fanny Ardant,8 femmes,22/03/1949,Fanny_Ardant
+450,2415,Teresa Wright,Shadow of a Doubt,27/10/1918,Teresa_Wright
+451,2409,Izabella Scorupco,GoldenEye,04/06/1970,Izabella_Scorupco
+452,2388,Rebecca Ferguson,The Greatest Showman,19/10/1983,Rebecca_Ferguson
+453,2368,Olivia Newton-John,Grease,26/09/1948,Olivia_Newton-John
+454,2368,Eve Arden,Our Miss Brooks,30/04/1908,Eve_Arden
+455,2368,Joan Blondell,Grease,30/08/1906,Joan_Blondell
+456,2333,Anne Consigny,Elle,25/05/1963,Anne_Consigny
+457,2331,Annabella Sciorra,The Hand That Rocks the Cradle,29/03/1960,Annabella_Sciorra
+458,2326,Sylvia Sidney,Beetle Juice,08/08/1910,Sylvia_Sidney
+459,2325,Rachel Ticotin,Total Recall,01/11/1958,Rachel_Ticotin
+460,2283,Amira Casar,Call Me by Your Name,01/05/1971,Amira_Casar
+461,2280,Jennifer Beals,Flashdance,19/12/1963,Jennifer_Beals
+462,2273,Manuela Velasco,[Rec],23/10/1975,Manuela_Velasco
+463,2257,Denise Richards,The World Is Not Enough,17/02/1971,Denise_Richards
+464,2256,Natalie Wood,Rebel Without a Cause,20/07/1938,Natalie_Wood
+465,2255,Nancy Allen,RoboCop,24/06/1950,Nancy_Allen
+466,2246,Brooke Adams,Invasion of the Body Snatchers,08/02/1949,Brooke_Adams
+467,2221,Dagmara Dominczyk,The Count of Monte Cristo,17/07/1976,Dagmara_Dominczyk
+468,2214,Katrin Sass,Good Bye Lenin!,23/10/1956,Katrin_Sass
+469,2205,Joely Richardson,Nip/Tuck,09/01/1965,Joely_Richardson
+470,2205,Thekla Reuten,In Bruges,16/09/1975,Thekla_Reuten
+471,2197,Heather Langenkamp,A Nightmare on Elm Street,17/07/1964,Heather_Langenkamp
+472,2197,Ronee Blakley,Nashville,24/08/1945,Ronee_Blakley
+473,2196,AnnaSophia Robb,Bridge to Terabithia,08/12/1993,AnnaSophia_Robb
+474,2179,Blake Lively,Gossip Girl,25/08/1987,Blake_Lively
+475,2175,Nia Long,The Best Man,30/10/1970,Nia_Long
+476,2166,Barbara Stanwyck,Double Indemnity,16/07/1907,Barbara_Stanwyck
+477,2149,Elsa Lanchester,Witness for the Prosecution,28/10/1902,Elsa_Lanchester
+478,2143,Mary Astor,The Maltese Falcon,03/05/1906,Mary_Astor
+479,2120,Lee Remick,Anatomy of a Murder,14/12/1935,Lee_Remick
+480,2074,Debra Winger,Terms of Endearment,16/05/1955,Debra_Winger
+481,2068,Marg Helgenberger,CSI: Crime Scene Investigation,16/11/1958,Marg_Helgenberger
+482,2068,Danielle Panabaker,The Flash,19/09/1987,Danielle_Panabaker
+483,2053,Lily James,Cinderella,05/04/1989,Lily_James
+484,2051,Isabelle Huppert,Elle,16/03/1953,Isabelle_Huppert
+485,2038,Gemma Jones,Sense and Sensibility,04/12/1942,Gemma_Jones
+486,2032,Liv Ullmann,Viskningar och rop,16/12/1938,Liv_Ullmann
+487,2029,Shu Qi,The Transporter,16/04/1976,Shu_Qi
+488,1988,Mariel Hemingway,Manhattan,22/11/1961,Mariel_Hemingway
+489,1984,Alexa Davalos,The Chronicles of Riddick,28/05/1982,Alexa_Davalos
+490,1981,Marisa Berenson,Cabaret,15/02/1947,Marisa_Berenson
+491,1950,Regina Taylor,Courage Under Fire,22/08/1960,Regina_Taylor
+492,1945,Anne-Marie Duff,Nowhere Boy,08/10/1970,Anne-Marie_Duff
+493,1923,Paprika Steen,Applaus,03/11/1964,Paprika_Steen
+494,1916,Cecilia Roth,Todo sobre mi madre,08/08/1956,Cecilia_Roth
+495,1915,Caitríona Balfe,Belfast,04/10/1979,Caitríona_Balfe
+496,1911,Amy Irving,Traffic,10/09/1953,Amy_Irving
+497,1905,Rebecca De Mornay,The Hand That Rocks the Cradle,29/08/1959,Rebecca_De_Mornay
+498,1901,Ashanti,Coach Carter,13/10/1980,Ashanti
+499,1891,Emilie de Ravin,Remember Me,27/12/1981,Emilie_de_Ravin
+500,1862,Svetlana Khodchenkova,Tinker Tailor Soldier Spy,21/01/1983,Svetlana_Khodchenkova
+501,1832,Elena Anaya,La piel que habito,17/07/1975,Elena_Anaya
+502,1830,Julia Louis-Dreyfus,Seinfeld,13/01/1961,Julia_Louis-Dreyfus
+503,1801,Harriet Andersson,Viskningar och rop,14/02/1932,Harriet_Andersson
+504,1786,Rhea Perlman,Cheers,31/03/1948,Rhea_Perlman
+505,1786,Mara Wilson,Matilda,24/07/1987,Mara_Wilson
+506,1786,Embeth Davidtz,Bicentennial Man,11/08/1965,Embeth_Davidtz
+507,1786,Pam Ferris,Matilda,11/05/1948,Pam_Ferris
+508,1778,Julie Kavner,The Simpsons,07/09/1950,Julie_Kavner
+509,1756,Ursina Lardi,Lore,19/12/1970,Ursina_Lardi
+510,1750,Jessica Alba,Fantastic Four,28/04/1981,Jessica_Alba
+511,1745,Cécile de France,L'auberge espagnole,17/07/1975,Cécile_de_France
+512,1736,Celeste Holm,All About Eve,29/04/1917,Celeste_Holm
+513,1726,Mary Stuart Masterson,Benny & Joon,28/06/1966,Mary_Stuart_Masterson
+514,1726,Aunjanue Ellis,King Richard,21/02/1969,Aunjanue_Ellis
+515,1723,Markéta Irglová,Once,28/02/1988,Markéta_Irglová
+516,1705,Sandra Milo,8½,11/03/1933,Sandra_Milo
+517,1701,JoBeth Williams,Poltergeist,06/12/1948,JoBeth_Williams
+518,1696,Ana Torrent,El nido,12/07/1966,Ana_Torrent
+519,1694,Rosario Flores,Hable con ella,04/11/1963,Rosario_Flores
+520,1679,Jessie Buckley,I'm Thinking of Ending Things,28/12/1989,Jessie_Buckley
+521,1674,Riley Keough,Mad Max: Fury Road,29/05/1989,Riley_Keough
+522,1632,Irène Jacob,La double vie de Véronique,15/07/1966,Irène_Jacob
+523,1623,Jean Arthur,Mr. Smith Goes to Washington,17/10/1900,Jean_Arthur
+524,1616,Jean Simmons,Guys and Dolls,31/01/1929,Jean_Simmons
+525,1600,Edna Purviance,A Woman of Paris: A Drama of Fate,1895-10-21,Edna_Purviance
+526,1580,Meg Foster,They Live,10/05/1948,Meg_Foster
+527,1578,Jennifer Lopez,Hustlers,24/07/1969,Jennifer_Lopez
+528,1575,Ursula Andress,Dr. No,19/03/1936,Ursula_Andress
+529,1573,Joan Fontaine,Suspicion,22/10/1917,Joan_Fontaine
+530,1570,Giulietta Masina,Le notti di Cabiria,22/02/1921,Giulietta_Masina
+531,1553,Imogen Poots,Vivarium,03/06/1989,Imogen_Poots
+532,1549,Elizabeth Mitchell,The Purge: Election Year,27/03/1970,Elizabeth_Mitchell
+533,1544,Ludivine Sagnier,Lupin,03/07/1979,Ludivine_Sagnier
+534,1516,Kim Min-hee,Ah-ga-ssi,01/03/1982,Kim_Min-hee
+535,1516,Kim Tae-ri,Ah-ga-ssi,24/04/1990,Kim_Tae-ri
+536,1515,Lindsay Lohan,The Parent Trap,02/07/1986,Lindsay_Lohan
+537,1514,Adrienne Barbeau,Escape from New York,11/06/1945,Adrienne_Barbeau
+538,1493,Carmen Maura,"Mujeres al borde de un ataque de ""nervios""",15/09/1945,Carmen_Maura
+539,1492,Jennifer Grey,Dirty Dancing,26/03/1960,Jennifer_Grey
+540,1455,Lori Petty,Tank Girl,14/10/1963,Lori_Petty
+541,1423,Björk,Dancer in the Dark,21/11/1965,Björk
+542,1410,Ingrid Thulin,Viskningar och rop,27/01/1926,Ingrid_Thulin
+543,1375,Elizabeth Peña,Rush Hour,23/09/1959,Elizabeth_Peña
+544,1370,Kajol,Fanaa,05/08/1974,Kajol
+545,1369,Sue Lyon,Lolita,10/07/1946,Sue_Lyon
+546,1365,Kaitlyn Dever,Booksmart,21/12/1996,Kaitlyn_Dever
+547,1353,Maricel Álvarez,Biutiful,,Maricel_Álvarez
+548,1332,Christiane Paul,Im Juli,08/03/1974,Christiane_Paul
+549,1317,Melissa McCarthy,The Heat,26/08/1970,Melissa_McCarthy
+550,1292,Cher,Moonstruck,20/05/1946,Cher
+551,1289,Lillian Gish,The Night of the Hunter,1893-10-14,Lillian_Gish
+552,1253,Coleen Gray,The Killing,23/10/1922,Coleen_Gray
+553,1250,Andrea Sawatzki,Tatort,23/02/1963,Andrea_Sawatzki
+554,1237,Natalya Bondarchuk,Solyaris,10/05/1950,Natalya_Bondarchuk
+555,1228,Taraneh Alidoosti,Forushande,12/01/1984,Taraneh_Alidoosti
+556,1226,Jacqueline Bisset,Bullitt,13/09/1944,Jacqueline_Bisset
+557,1222,Kassie Wesley DePaiva,One Life to Live,21/03/1961,Kassie_Wesley_DePaiva
+558,1221,Lorraine Toussaint,Hudson Hawk,04/04/1960,Lorraine_Toussaint
+559,1220,Amy Madigan,Field of Dreams,11/09/1950,Amy_Madigan
+560,1211,Alison Brie,GLOW,29/12/1982,Alison_Brie
+561,1208,Irene Papas,The Guns of Navarone,03/09/1929,Irene_Papas
+562,1200,Melonie Diaz,Fruitvale Station,25/04/1984,Melonie_Diaz
+563,1199,Claudette Colbert,It Happened One Night,13/09/1903,Claudette_Colbert
+564,1197,Greta Scacchi,The Player,18/02/1960,Greta_Scacchi
+565,1185,Nora Navas,Dolor y gloria,24/04/1975,Nora_Navas
+566,1175,Sandy Dennis,Who's Afraid of Virginia Woolf?,27/04/1937,Sandy_Dennis
+567,1171,Margot Kidder,Superman,17/10/1948,Margot_Kidder
+568,1171,Eileen Brennan,Clue,03/09/1932,Eileen_Brennan
+569,1171,Lesley Ann Warren,Victor/Victoria,16/08/1946,Lesley_Ann_Warren
+570,1169,Olympia Dukakis,Moonstruck,20/06/1931,Olympia_Dukakis
+571,1160,Sylvie Testud,La Môme,17/01/1971,Sylvie_Testud
+572,1123,Florence Pugh,The Falling,03/01/1996,Florence_Pugh
+573,1121,Jenny Agutter,Logan's Run,20/12/1952,Jenny_Agutter
+574,1111,Susan Kelechi Watson,This Is Us,11/11/1981,Susan_Kelechi_Watson
+575,1098,Ornella Muti,Flash Gordon,09/03/1955,Ornella_Muti
+576,1085,Alexandra Shipp,X-Men: Apocalypse,16/07/1991,Alexandra_Shipp
+577,1081,Karin Viard,Polisse,24/01/1966,Karin_Viard
+578,1081,Marie-Laure Dougnac,Delicatessen,,Marie-Laure_Dougnac
+579,1075,Nia Vardalos,My Big Fat Greek Wedding,24/09/1962,Nia_Vardalos
+580,1071,Steffi Kühnert,Halt auf freier Strecke,19/02/1963,Steffi_Kühnert
+581,1053,Lily Cole,Snow White and the Huntsman,27/12/1987,Lily_Cole
+582,1053,Kathryn Erbe,Stir of Echoes,05/07/1965,Kathryn_Erbe
+583,1053,Illeana Douglas,Stir of Echoes,25/07/1961,Illeana_Douglas
+584,1046,Vanessa Hudgens,High School Musical 3: Senior Year,14/12/1988,Vanessa_Hudgens
+585,1046,Selena Gomez,Spring Breakers,22/07/1992,Selena_Gomez
+586,1046,Ashley Benson,Spring Breakers,18/12/1989,Ashley_Benson
+587,1046,Rachel Korine,Spring Breakers,04/04/1986,Rachel_Korine
+588,1030,Annie Girardot,La pianiste,25/10/1931,Annie_Girardot
+589,1029,Barbara Bach,The Spy Who Loved Me,28/08/1946,Barbara_Bach
+590,1027,Joan Chen,The Last Emperor,26/04/1961,Joan_Chen
+591,1026,Kimberly Elise,The Manchurian Candidate,17/04/1967,Kimberly_Elise
+592,1026,Jurnee Smollett,Birds of Prey and the Fantabulous Emancipation of One Harley Quinn,01/10/1986,Jurnee_Smollett
+593,1018,Yolande Moreau,Quand la mer monte...,27/02/1953,Yolande_Moreau
+594,1016,Sondra Locke,Every Which Way but Loose,28/05/1944,Sondra_Locke
+595,1014,Nastassja Kinski,Tess,24/01/1961,Nastassja_Kinski
+596,990,Miou-Miou,La science des rêves,22/02/1950,Miou-Miou
+597,990,Shuzhen Zhao,The Farewell,,Shuzhen_Zhao
+598,990,Awkwafina,Ocean's Eight,02/06/1988,Awkwafina
+599,984,Angela Lansbury,The Manchurian Candidate,16/10/1925,Angela_Lansbury
+600,979,Selena Gomez,Spring Breakers,22/07/1992,Selena_Gomez
+601,979,Megan Ferguson,Curb Your Enthusiasm,,Megan_Ferguson
+602,977,Carice van Houten,Game of Thrones,05/09/1976,Carice_van_Houten
+603,975,Jean Seberg,À bout de souffle,13/11/1938,Jean_Seberg
+604,974,Sandahl Bergman,Conan the Barbarian,14/11/1951,Sandahl_Bergman
+605,965,Lee Grant,In the Heat of the Night,31/10/1925,Lee_Grant
+606,961,Natasha Richardson,Asylum,11/05/1963,Natasha_Richardson
+607,959,Lili Simmons,Banshee,23/07/1993,Lili_Simmons
+608,955,Simone Signoret,Les diaboliques,25/03/1921,Simone_Signoret
+609,953,Bojana Novakovic,Devil,12/07/1981,Bojana_Novakovic
+610,951,Anita Ekberg,La dolce vita,29/09/1931,Anita_Ekberg
+611,945,Sakura Andô,Manbiki kazoku,18/02/1986,Sakura_Andô
+612,945,Kirin Kiki,Manbiki kazoku,15/01/1943,Kirin_Kiki
+613,942,Anne Archer,Fatal Attraction,24/08/1947,Anne_Archer
+614,933,Aura Garrido,El ministerio del tiempo,29/05/1989,Aura_Garrido
+615,908,Priyanka Chopra Jonas,Baywatch,18/07/1982,Priyanka_Chopra_Jonas
+616,900,Nina Hoss,Phoenix,07/07/1975,Nina_Hoss
+617,889,Mirjana Jokovic,Maid in Manhattan,24/11/1967,Mirjana_Jokovic
+618,889,Mirjana Karanovic,Dobra zena,28/01/1957,Mirjana_Karanovic
+619,888,Sally Kellerman,M*A*S*H,02/06/1937,Sally_Kellerman
+620,884,Alba Rohrwacher,Hungry Hearts,27/02/1979,Alba_Rohrwacher
+621,884,Kasia Smutniak,Perfetti sconosciuti,13/08/1979,Kasia_Smutniak
+622,881,Maria Falconetti,La passion de Jeanne d'Arc,1892-07-21,Maria_Falconetti
+623,877,Brigitte Lin,Ging chaat goo si,03/11/1954,Brigitte_Lin
+624,875,Mae Clarke,Frankenstein,16/08/1910,Mae_Clarke
+625,869,Solveig Dommartin,Bis ans Ende der Welt,16/05/1961,Solveig_Dommartin
+626,862,Carole Bouquet,For Your Eyes Only,18/08/1957,Carole_Bouquet
+627,860,Rita Tushingham,The Knack ...and How to Get It,14/03/1942,Rita_Tushingham
+628,858,Alicia Silverstone,Clueless,04/10/1976,Alicia_Silverstone
+629,850,Goldie Hawn,Private Benjamin,21/11/1945,Goldie_Hawn
+630,841,Fay Wray,King Kong,15/09/1907,Fay_Wray
+631,840,Beyoncé,Dreamgirls,04/09/1981,Beyoncé
+632,840,Jennifer Hudson,Dreamgirls,12/09/1981,Jennifer_Hudson
+633,838,Béatrice Dalle,À l'intérieur,19/12/1964,Béatrice_Dalle
+634,837,Lil Dagover,Das Cabinet des Dr. Caligari,1887-09-30,Lil_Dagover
+635,832,Neve Campbell,Scream,03/10/1973,Neve_Campbell
+636,828,Priscilla Lane,Arsenic and Old Lace,12/06/1915,Priscilla_Lane
+637,818,Angie Dickinson,Rio Bravo,30/09/1931,Angie_Dickinson
+638,814,Nanako Matsushima,Ringu,13/10/1973,Nanako_Matsushima
+639,814,Miki Nakatani,Kiraware Matsuko no isshô,12/01/1976,Miki_Nakatani
+640,814,Yûko Takeuchi,Saido kâ ni inu,01/04/1980,Yûko_Takeuchi
+641,808,Myrna Loy,The Thin Man,02/08/1905,Myrna_Loy
+642,808,Janet Gaynor,A Star Is Born,06/10/1906,Janet_Gaynor
+643,799,Pamela Anderson,Barb Wire,01/07/1967,Pamela_Anderson
+644,792,Mira Sorvino,Mighty Aphrodite,28/09/1967,Mira_Sorvino
+645,785,Leticia Brédice,Nueve reinas,26/08/1972,Leticia_Brédice
+646,776,Kerry Fox,Shallow Grave,30/07/1966,Kerry_Fox
+647,774,Susan George,Straw Dogs,26/07/1950,Susan_George
+648,760,Lily Collins,The Mortal Instruments: City of Bones,18/03/1989,Lily_Collins
+649,756,Jessica Harper,Suspiria,10/10/1949,Jessica_Harper
+650,756,Joan Bennett,Suspiria,27/02/1910,Joan_Bennett
+651,753,Doris Day,Love Me or Leave Me,03/04/1922,Doris_Day
+652,748,Faye Wong,Chung Hing sam lam,08/08/1969,Faye_Wong
+653,743,Kim Stanley,Seance on a Wet Afternoon,11/02/1925,Kim_Stanley
+654,739,Gugu Mbatha-Raw,Belle,21/04/1983,Gugu_Mbatha-Raw
+655,738,Lily Tomlin,Nashville,01/09/1939,Lily_Tomlin
+656,738,Annie Ross,Short Cuts,25/07/1930,Annie_Ross
+657,738,Lori Singer,Footloose,06/11/1957,Lori_Singer
+658,732,Liza Minnelli,Cabaret,12/03/1946,Liza_Minnelli
+659,729,Yeong-hie Seo,Chugyeokja,13/06/1980,Yeong-hie_Seo
+660,721,Joan Crawford,What Ever Happened to Baby Jane?,23/03/1905,Joan_Crawford
+661,721,Claire Bloom,Clash of the Titans,15/02/1931,Claire_Bloom
+662,714,Anne Dorval,Mommy,08/11/1960,Anne_Dorval
+663,714,Suzanne Clément,Mommy,12/05/1969,Suzanne_Clément
+664,709,Lisa Blount,An Officer and a Gentleman,01/07/1957,Lisa_Blount
+665,709,Lisa Eilbacher,Beverly Hills Cop,05/05/1956,Lisa_Eilbacher
+666,705,Norah Jones,Ted,30/03/1979,Norah_Jones
+667,702,Natalie Morales,Parks and Recreation,15/02/1985,Natalie_Morales
+668,700,Linda Kozlowski,Crocodile Dundee,07/01/1958,Linda_Kozlowski
+669,695,Seung-Yun Lee,Bin-jip,18/08/1968,Seung-Yun_Lee
+670,688,Rosalind Russell,Auntie Mame,04/06/1907,Rosalind_Russell
+671,685,Agnieszka Grochowska,Obce niebo,31/12/1979,Agnieszka_Grochowska
+672,682,Joanna Going,Kingdom,22/07/1963,Joanna_Going
+673,680,Nadia Farès,Les rivières pourpres,20/12/1968,Nadia_Farès
+674,680,Dominique Sanda,Il conformista,11/03/1951,Dominique_Sanda
+675,676,Mary J. Blige,Mudbound,11/01/1971,Mary_J._Blige
+676,671,Julia Dietze,Iron Sky,09/01/1981,Julia_Dietze
+677,668,Mary Tyler Moore,Ordinary People,29/12/1936,Mary_Tyler_Moore
+678,665,Laetitia Casta,Arbitrage,11/05/1978,Laetitia_Casta
+679,658,Adriana Ugarte,Julieta,17/01/1985,Adriana_Ugarte
+680,646,Geneviève Bujold,Dead Ringers,01/07/1942,Geneviève_Bujold
+681,645,Hayley Atwell,Captain America: The First Avenger,05/04/1982,Hayley_Atwell
+682,640,Margaret Lockwood,The Lady Vanishes,15/09/1916,Margaret_Lockwood
+683,635,Sibel Kekilli,Gegen die Wand,16/06/1980,Sibel_Kekilli
+684,629,Anne Parillaud,Nikita,06/05/1960,Anne_Parillaud
+685,628,Deborah Kerr,The King and I,30/09/1921,Deborah_Kerr
+686,628,Melanie Griffith,Working Girl,09/08/1957,Melanie_Griffith
+687,627,Maud Adams,Octopussy,12/02/1945,Maud_Adams
+688,621,Valerie Hobson,Bride of Frankenstein,14/04/1917,Valerie_Hobson
+689,616,Veerle Baetens,The Broken Circle Breakdown,24/01/1978,Veerle_Baetens
+690,613,Oksana Akinshina,Lilja 4-ever,19/04/1987,Oksana_Akinshina
+691,612,Madeleine Carroll,The 39 Steps,26/02/1906,Madeleine_Carroll
+692,612,Grace Van Patten,Under the Silver Lake,21/11/1996,Grace_Van_Patten
+693,612,Elizabeth Marvel,True Grit,27/11/1969,Elizabeth_Marvel
+694,607,Mélanie Thierry,The Zero Theorem,17/07/1981,Mélanie_Thierry
+695,604,Mercedes Ruehl,The Fisher King,28/02/1948,Mercedes_Ruehl
+696,603,Capucine,The Pink Panther,06/01/1928,Capucine
+697,601,Sarah Miles,Ryan's Daughter,31/12/1941,Sarah_Miles
+698,601,Tika Sumpter,Southside with You,20/06/1980,Tika_Sumpter
+699,600,Laia Costa,Victoria,18/02/1985,Laia_Costa
+700,595,Linda Zilliacus,Ondskan,25/04/1977,Linda_Zilliacus
+701,589,Yum Jung-ah,"Janghwa, Hongryeon",28/07/1972,Yum_Jung-ah
+702,588,Nimrat Kaur,The Lunchbox,13/03/1982,Nimrat_Kaur
+703,587,Mary Beth Hurt,The World According to Garp,26/09/1946,Mary_Beth_Hurt
+704,585,Julie Harris,The Haunting,02/12/1925,Julie_Harris
+705,585,Jo Van Fleet,East of Eden,29/12/1915,Jo_Van_Fleet
+706,584,Gene Tierney,Laura,19/11/1920,Gene_Tierney
+707,584,Bárbara Goenaga,Los cronocrímenes,20/07/1983,Bárbara_Goenaga
+708,571,Agata Kulesza,Ida,27/09/1971,Agata_Kulesza
+709,571,Joanna Kulig,Zimna wojna,24/06/1982,Joanna_Kulig
+710,571,Keisha Castle-Hughes,Whale Rider,24/03/1990,Keisha_Castle-Hughes
+711,570,Lynn Redgrave,Gods and Monsters,08/03/1943,Lynn_Redgrave
+712,568,Claire Trevor,Key Largo,08/03/1910,Claire_Trevor
+713,564,Geneviève Page,Belle de jour,13/12/1927,Geneviève_Page
+714,563,Agnes Kittelsen,Max Manus,20/05/1980,Agnes_Kittelsen
+715,557,Dakota Johnson,Fifty Shades of Grey,04/10/1989,Dakota_Johnson
+716,556,Merna Kennedy,The Circus,07/09/1908,Merna_Kennedy
+717,552,Sophia Loren,La ciociara,20/09/1934,Sophia_Loren
+718,552,Maria Schneider,Ultimo tango a Parigi,27/03/1952,Maria_Schneider
+719,546,Alexandra Vandernoot,Highlander,19/09/1965,Alexandra_Vandernoot
+720,546,Catherine Frot,Marguerite,01/05/1956,Catherine_Frot
+721,544,Tatum O'Neal,Paper Moon,05/11/1963,Tatum_O'Neal
+722,543,Vanessa Kirby,The Crown,18/04/1988,Vanessa_Kirby
+723,538,Cherie Lunghi,Excalibur,04/04/1952,Cherie_Lunghi
+724,536,Emma Catherine Rigby,Hollyoaks,26/09/1989,Emma_Catherine_Rigby
+725,533,Sandra Hüller,Toni Erdmann,30/04/1978,Sandra_Hüller
+726,532,Jeanne Moreau,Jules et Jim,23/01/1928,Jeanne_Moreau
+727,532,Dana Wynter,Invasion of the Body Snatchers,08/06/1931,Dana_Wynter
+728,532,Misa Uehara,Kakushi-toride no san-akunin,26/03/1937,Misa_Uehara
+729,531,Sigrid Bouaziz,Personal Shopper,,Sigrid_Bouaziz
+730,531,Nora Waldstätten,Personal Shopper,01/12/1981,Nora_Waldstätten
+731,523,Rachel Roberts,Murder on the Orient Express,20/09/1927,Rachel_Roberts
+732,518,Helena Zengel,News of the World,10/06/2008,Helena_Zengel
+733,517,Jane Wyman,Falcon Crest,05/01/1917,Jane_Wyman
+734,515,Maureen O'Hara,Miracle on 34th Street,17/08/1920,Maureen_O'Hara
+735,513,Lynn Collins,X-Men Origins: Wolverine,16/05/1977,Lynn_Collins
+736,513,Zuleikha Robinson,Hidalgo,,Zuleikha_Robinson
+737,512,Mia Sara,Timecop,19/06/1967,Mia_Sara
+738,510,Celia Johnson,Brief Encounter,18/12/1908,Celia_Johnson
+739,510,Judith Godrèche,The Overnight,23/03/1972,Judith_Godrèche
+740,509,Zendaya,Spider-Man: Homecoming,01/09/1996,Zendaya
+741,507,Katja Riemann,Fack ju Göhte,01/11/1963,Katja_Riemann
+742,507,Sidse Babett Knudsen,Borgen,22/11/1968,Sidse_Babett_Knudsen
+743,502,Johanna Wokalek,Der Baader Meinhof Komplex,03/03/1975,Johanna_Wokalek
+744,502,Nadja Uhl,Der Baader Meinhof Komplex,23/05/1972,Nadja_Uhl
+745,501,Magali Noël,Amarcord,27/06/1931,Magali_Noël
