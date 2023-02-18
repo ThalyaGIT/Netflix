@@ -72,3 +72,4 @@ get_googleInfo("Squid Game")
 # data = pd.read_csv('netflix_titles.csv')
 # goolgeInfo = data['title'].apply(get_googleInfo)
 # goolgeInfo.to_csv('googleInfo.csv', encoding='utf-8', index=False)
+
